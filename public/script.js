@@ -10,11 +10,24 @@ function resizeCanvas() {
     canvas.width = width;
     canvas.height = height;
     drops = Array(Math.ceil(width / fontSize)).fill(1);
+    dropColors = Array(drops.length).fill().map(() => getRandomNeonColor());
 }
 
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+{}[]|;:,.<>?';
 const fontSize = 14;
 let drops;
+let dropColors;
+
+// Cyberpunk-themed neon colors
+const neonColors = [
+    '#00FFFF', // Neon Blue
+    '#FF00FF', // Neon Pink
+    '#00FF00'  // Neon Green
+];
+
+function getRandomNeonColor() {
+    return neonColors[Math.floor(Math.random() * neonColors.length)];
+}
 
 resizeCanvas();
 
@@ -22,15 +35,16 @@ function drawMatrixRain() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, width, height);
 
-    ctx.fillStyle = '#00ff00';
     ctx.font = `${fontSize}px monospace`;
 
     for (let i = 0; i < drops.length; i++) {
         const text = characters[Math.floor(Math.random() * characters.length)];
+        ctx.fillStyle = dropColors[i];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         if (drops[i] * fontSize > height && Math.random() > 0.975) {
             drops[i] = 0;
+            dropColors[i] = getRandomNeonColor(); // Assign a new color when the drop resets
         }
         drops[i]++;
     }
@@ -302,44 +316,79 @@ function getCurrentSection() {
 function applyGlitchEffectToElements() {
     const elements = document.querySelectorAll('h1, h2, h3, p, a:not(nav a)');
     const glitchChars = '!<>-_\\/[]{}—=+*^?#________';
+    const neonColors = ['#00FFFF', '#FF00FF', '#00FF00']; // Neon Blue, Neon Pink, Neon Green
 
     elements.forEach(element => {
         if (element.id === 'typewriter-text') return; // Skip the "Welcome, Earthling" text
 
-        const originalText = element.textContent;
+        const originalHTML = element.innerHTML;
+        const originalColor = window.getComputedStyle(element).color;
         let glitchInterval;
 
         function glitchText() {
-            let glitchedText = '';
-            for (let i = 0; i < originalText.length; i++) {
+            return originalHTML.replace(/\S/g, (char) => {
                 if (Math.random() < 0.1) {
-                    glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                } else {
-                    glitchedText += originalText[i];
+                    return `<span style="color: ${neonColors[Math.floor(Math.random() * neonColors.length)]};">${glitchChars[Math.floor(Math.random() * glitchChars.length)]}</span>`;
                 }
+                return char;
+            });
+        }
+
+        function startGlitch() {
+            if (!glitchInterval) {
+                glitchInterval = setInterval(() => {
+                    element.innerHTML = glitchText();
+                }, 50);
             }
-            return glitchedText;
+        }
+
+        function stopGlitch() {
+            clearInterval(glitchInterval);
+            glitchInterval = null;
+            element.innerHTML = originalHTML;
+            element.style.color = originalColor;
         }
 
         element.addEventListener('mouseenter', () => {
-            glitchInterval = setInterval(() => {
-                element.textContent = glitchText();
-            }, 50);
-
+            startGlitch();
             if (element.tagName === 'A') {
-                element.style.color = '#00ff00'; // Change color to green on hover for links
+                element.style.textShadow = '0 0 5px #00FFFF, 0 0 10px #00FFFF'; // Add glow effect
             }
         });
 
         element.addEventListener('mouseleave', () => {
-            clearInterval(glitchInterval);
-            element.textContent = originalText;
+            stopGlitch();
             if (element.tagName === 'A') {
-                element.style.color = ''; // Reset to default color for links
+                element.style.textShadow = ''; // Remove glow effect
             }
         });
+
+        // Cleanup function to ensure glitch is removed
+        function cleanup() {
+            if (glitchInterval) {
+                stopGlitch();
+            }
+        }
+
+        // Add cleanup to the element
+        element.glitchCleanup = cleanup;
     });
 }
+
+// Add this function to perform a global cleanup
+function globalGlitchCleanup() {
+    document.querySelectorAll('h1, h2, h3, p, a:not(nav a)').forEach(element => {
+        if (element.glitchCleanup) {
+            element.glitchCleanup();
+        }
+    });
+}
+
+// Call globalGlitchCleanup periodically
+setInterval(globalGlitchCleanup, 1000);
+
+// Call applyGlitchEffectToElements after the DOM has loaded
+document.addEventListener('DOMContentLoaded', applyGlitchEffectToElements);
 
 // Implement lazy loading for images
 function lazyLoadImages() {
@@ -488,3 +537,15 @@ document.documentElement.addEventListener('mouseleave', () => {
 window.addEventListener('load', () => {
     customCursor.style.display = 'block';
 });
+
+function cleanupGlitchEffects() {
+    const elements = document.querySelectorAll('h1, h2, h3, p, a:not(nav a)');
+    elements.forEach(element => {
+        if (element.innerHTML.includes('style="color:')) {
+            element.innerHTML = element.textContent;
+        }
+    });
+}
+
+// Call this function periodically
+setInterval(cleanupGlitchEffects, 5000);
