@@ -501,3 +501,140 @@ body, a, button, input, textarea {
         display: none !important;
     }
 }
+
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001; /* Increased z-index to ensure it's above other elements */
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #00ff00; /* Neon green color */
+    margin: 3px 0;
+    transition: 0.4s;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Glowing effect */
+}
+
+/* Glitch effect for hamburger menu */
+@keyframes glitch-hamburger {
+    0% {
+        transform: translate(2px, 2px);
+    }
+    25% {
+        transform: translate(-2px, -2px);
+    }
+    50% {
+        transform: translate(-2px, 2px);
+    }
+    75% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(2px, 2px);
+    }
+}
+
+.hamburger-menu:hover .bar {
+    animation: glitch-hamburger 0.3s infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2);
+        z-index: 1000; /* Ensure it's below the hamburger menu */
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+}
+
+/* Cyberpunk Alert Styles */
+.cyberpunk-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.cyberpunk-alert .alert-content {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.cyberpunk-alert button {
+    background-color: #00ff00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.cyberpunk-alert button:hover {
+    background-color: #000;
+    color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+/* Remove the glitch animation from the alert */
+.cyberpunk-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* Remove the glitch class and its animation */
+.cyberpunk-alert.glitch {
+    animation: none;
+}
+
+/* Remove the glitch-alert keyframes animation */
+@keyframes glitch-alert {
+    /* Remove this entire keyframes block */
+}

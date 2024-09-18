@@ -6,9 +6,9 @@
     <title>Rabbit Hole</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <meta name="description" content="John Doe - iOS Engineer Portfolio. Experienced in Swift, UIKit, and SwiftUI.">
-    <meta name="keywords" content="iOS, Swift, UIKit, SwiftUI, Mobile Development">
-    <link rel="canonical" href="https://www.johndoe-iosdev.com">
+    <meta name="description" content="Walhallaa - A.M.M.C.K. Productions.">
+    <meta name="keywords" content="walhallaa, ammck productions, iOS, Swift, UIKit, SwiftUI, Mobile Development">
+    <link rel="canonical" href="https://www.muratcankoc.wixsite.com/ammckproductions">
     <!-- Add favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="manifest.json">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 </head>
 <body>
     <canvas id="matrix-rain"></canvas>
@@ -24,8 +27,13 @@
     </div>
     <div id="portfolio-content">
         <header>
-            <nav aria-label="Main navigation">
-                <ul>
+            <nav>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -43,8 +51,8 @@
 
             <section id="about">
                 <div class="content">
-                    <h2>About Me</h2>
-                    <p>Passionate iOS developer with 5 years of experience creating innovative mobile applications. I specialize in crafting user-friendly, efficient, and scalable iOS apps that solve real-world problems.</p>
+                    <h2>About Us</h2>
+                    <p>Passionate iOS developer with many years of experience creating innovative mobile applications, specializing in Swift and Objective-C. Proven track record of delivering high-quality apps. Expertise in problem solving, teamwork, attention to detail and time management. Committed to staying at the forefront of iOS development trends and best practices</p>
                 </div>
             </section>
 
@@ -107,13 +115,15 @@
 
             <section id="contact">
                 <div class="content">
-                    <h2>Contact Me</h2>
-                    <form>
-                        <input type="text" placeholder="Name" required>
-                        <input type="email" placeholder="Email" required>
-                        <textarea placeholder="Message" required></textarea>
-                        <button type="submit">Send</button>
-                    </form>
+                    <h2>Contact Us</h2>
+                    <div class="contact-info">
+                        <p class="glitch-text">Greetings, fellow traveler of the digital realm!</p>
+                        <p>To establish a secure connection, transmit your message to:</p>
+                        <p class="contact-email glitch-text">info@walhallaa.com</p>
+                        <button id="secure-connection-btn" class="cyberpunk-btn">Establish Secure Connection</button>
+                        <p>Prepare for a response from the cybervoid within 48 Earth rotations.</p>
+                        <p class="warning-text">WARNING: Unsecured transmissions may be intercepted by you know who/what.</p>
+                    </div>
                 </div>
             </section>
         </main>
@@ -132,5 +142,11 @@
     </div>
     <div id="custom-cursor"></div>
     <script src="script.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function() {
+          emailjs.init("VYv9s2KZy7__Oj--0"); // Replace with your actual Public Key
+       })();
+    </script>
 </body>
 </html>

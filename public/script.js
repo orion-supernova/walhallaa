@@ -46,10 +46,10 @@ function drawMatrixRain() {
             drops[i] = 0;
             dropColors[i] = getRandomNeonColor(); // Assign a new color when the drop resets
         }
-        drops[i]++;
+        drops[i] ++; // Keep this as is to maintain the count
     }
 
-    requestAnimationFrame(drawMatrixRain);
+    setTimeout(() => requestAnimationFrame(drawMatrixRain), 20); // Increase this value to slow down the animation
 }
 
 window.addEventListener('resize', resizeCanvas);
@@ -67,7 +67,7 @@ function enhancedTypeWriter(element, text, speed = 50) {
                 element.insertBefore(document.createTextNode(text.charAt(i)), element.childNodes[0]);
             }
             i++;
-            setTimeout(type, speed + Math.random() * 50); // Add some randomness to the typing speed
+            setTimeout(type, speed + Math.random() * 10); // Add some randomness to the typing speed
         } else {
             // Start cyberpunk glitch effect after typing is complete
             setTimeout(() => {
@@ -77,7 +77,7 @@ function enhancedTypeWriter(element, text, speed = 50) {
                 setTimeout(() => {
                     drawMatrixRain();
                 }, 2000);
-            }, 500); // Wait a bit before starting the glitch effect
+            }, 200); // Wait a bit before starting the glitch effect
         }
     }
 
@@ -510,33 +510,44 @@ function updateCursorPosition(e) {
     customCursor.style.top = `${y}px`;
 }
 
-document.addEventListener('mousemove', (e) => {
-    updateCursorPosition(e);
-    customCursor.style.display = 'block';
-});
+// Add this function to detect mobile devices
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
 
-document.addEventListener('mouseenter', () => {
-    customCursor.style.display = 'block';
-}, true);
+// Only add event listeners and show cursor if it's not a mobile device
+if (!isMobileDevice()) {
+    document.addEventListener('mousemove', (e) => {
+        updateCursorPosition(e);
+        customCursor.style.display = 'block';
+    });
 
-document.addEventListener('mouseleave', () => {
+    document.addEventListener('mouseenter', () => {
+        customCursor.style.display = 'block';
+    }, true);
+
+    document.addEventListener('mouseleave', () => {
+        customCursor.style.display = 'none';
+    }, true);
+
+    // Ensure cursor is visible when entering the window
+    document.documentElement.addEventListener('mouseenter', () => {
+        customCursor.style.display = 'block';
+    });
+
+    // Hide cursor when leaving the window
+    document.documentElement.addEventListener('mouseleave', () => {
+        customCursor.style.display = 'none';
+    });
+
+    // Make sure the cursor is visible on page load for desktop devices
+    window.addEventListener('load', () => {
+        customCursor.style.display = 'block';
+    });
+} else {
+    // Hide the custom cursor on mobile devices
     customCursor.style.display = 'none';
-}, true);
-
-// Ensure cursor is visible when entering the window
-document.documentElement.addEventListener('mouseenter', () => {
-    customCursor.style.display = 'block';
-});
-
-// Hide cursor when leaving the window
-document.documentElement.addEventListener('mouseleave', () => {
-    customCursor.style.display = 'none';
-});
-
-// Make sure the cursor is visible on page load
-window.addEventListener('load', () => {
-    customCursor.style.display = 'block';
-});
+}
 
 function cleanupGlitchEffects() {
     const elements = document.querySelectorAll('h1, h2, h3, p, a:not(nav a)');
@@ -549,3 +560,59 @@ function cleanupGlitchEffects() {
 
 // Call this function periodically
 setInterval(cleanupGlitchEffects, 5000);
+
+// Hamburger menu functionality
+function setupHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+}
+
+// Make sure to call setupHamburgerMenu() when the DOM is loaded
+document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
+
+// Add this function to apply the glitch effect to the contact text
+function setupGlitchText() {
+    const glitchElements = document.querySelectorAll('.glitch-text');
+    glitchElements.forEach(element => {
+        element.setAttribute('data-text', element.textContent);
+    });
+}
+
+// Modify the DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    setupHamburgerMenu();
+    setupGlitchText();
+});
+
+// Add this function to handle the secure connection button click
+function setupSecureConnectionButton() {
+    const secureConnectionBtn = document.getElementById('secure-connection-btn');
+    secureConnectionBtn.addEventListener('click', () => {
+        window.location.href = 'mailto:info@walhallaa.com?subject=#%?!&body=#%?!...';
+    });
+}
+
+// Modify the DOMContentLoaded event listener to include the new function
+document.addEventListener('DOMContentLoaded', () => {
+    setupHamburgerMenu();
+    setupGlitchText();
+    setupSecureConnectionButton(); // Add this line
+});
