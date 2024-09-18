@@ -859,3 +859,43 @@ section::before {
         transform: rotate(360deg);
     }
 }
+
+/* Add these styles at the end of your existing CSS file */
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.project-links a {
+    font-size: 0.9em;
+    padding: 0.3em 0.7em;
+}
+
+/* Styles for the new pages */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+main h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+main h2 {
+    font-size: 1.8em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+main p {
+    margin-bottom: 1em;
+}
+
+main section {
+    margin-bottom: 2em;
+}
