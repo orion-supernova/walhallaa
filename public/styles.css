@@ -38,7 +38,7 @@ body, html {
     font-size: 3em;
     text-align: center;
     margin-bottom: 1em;
-    text-shadow: none; /* Removed the glow effect */
+    text-shadow: none; /* No glow effect */
     z-index: 2;
 }
 
@@ -165,6 +165,11 @@ section {
 h1, h2, h3 {
     margin-bottom: 0.5em;
     line-height: 1.2;
+    text-shadow: 0 0 1.5px #00ff00; /* No glow effect */
+}
+
+h1, h2, h3, p, a, li {
+    color: #00ff00; /* Bright green for high contrast against black background */
 }
 
 h1 { font-size: 3.5em; }
@@ -184,11 +189,12 @@ h3 { font-size: 1.8em; }
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,255,0,0.2);
 }
 
 .project img {
@@ -196,10 +202,86 @@ h3 { font-size: 1.8em; }
     height: auto;
     border-radius: 4px;
     margin-bottom: 1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.project img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    transform: skewX(-25deg);
+    animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
 }
 
 .project h3 {
     margin-bottom: 0.5em;
+    position: relative;
+    display: inline-block;
+}
+
+.project h3::before,
+.project h3::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.project h3::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.project h3::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(31px, 9999px, 94px, 0); }
+    10% { clip: rect(112px, 9999px, 76px, 0); }
+    20% { clip: rect(85px, 9999px, 77px, 0); }
+    30% { clip: rect(27px, 9999px, 97px, 0); }
+    40% { clip: rect(64px, 9999px, 98px, 0); }
+    50% { clip: rect(61px, 9999px, 85px, 0); }
+    60% { clip: rect(99px, 9999px, 114px, 0); }
+    70% { clip: rect(34px, 9999px, 115px, 0); }
+    80% { clip: rect(98px, 9999px, 129px, 0); }
+    90% { clip: rect(43px, 9999px, 96px, 0); }
+    100% { clip: rect(82px, 9999px, 64px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(129px, 9999px, 36px, 0); }
+    10% { clip: rect(36px, 9999px, 92px, 0); }
+    20% { clip: rect(62px, 9999px, 135px, 0); }
+    30% { clip: rect(92px, 9999px, 66px, 0); }
+    40% { clip: rect(124px, 9999px, 13px, 0); }
+    50% { clip: rect(85px, 9999px, 140px, 0); }
+    60% { clip: rect(110px, 9999px, 59px, 0); }
+    70% { clip: rect(23px, 9999px, 140px, 0); }
+    80% { clip: rect(53px, 9999px, 109px, 0); }
+    90% { clip: rect(71px, 9999px, 139px, 0); }
+    100% { clip: rect(30px, 9999px, 138px, 0); }
 }
 
 .project p {
@@ -215,10 +297,37 @@ h3 { font-size: 1.8em; }
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    background: linear-gradient(45deg, #00ff00, #00ccff);
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover::before {
+    left: -100%;
+    top: -100%;
 }
 
 .project-link:hover {
-    background-color: rgba(0, 255, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0,255,0,0.6);
+    transform: scale(1.05);
 }
 
 form {
@@ -250,10 +359,37 @@ button {
     border-radius: 4px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
+    background: linear-gradient(45deg, #00ff00, #00ccff);
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+button:hover::before {
+    left: -100%;
+    top: -100%;
 }
 
 button:hover {
-    background-color: #00cc00;
+    box-shadow: 0 0 20px rgba(0,255,0,0.6);
+    transform: scale(1.05);
 }
 
 button:active {
@@ -389,10 +525,37 @@ footer {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    background: linear-gradient(45deg, #00ff00, #00ccff);
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover::before {
+    left: -100%;
+    top: -100%;
 }
 
 .cta-button:hover {
-    background-color: #00cc00;
+    box-shadow: 0 0 20px rgba(0,255,0,0.6);
+    transform: scale(1.05);
 }
 
 /* Add this to your existing styles */
@@ -486,10 +649,12 @@ body, a, button, input, textarea {
     z-index: 10000;
     font-size: 18px; /* Reduced from 24px */
     color: #00ff00; /* Neon green color */
-    text-shadow: 0 0 5px #00ff00;
+    text-shadow: 0 0 1px #00ff00;
     user-select: none;
     display: none; /* Initially hidden */
     transform: translate(-50%, -50%); /* Center the cursor on the pointer */
+    mix-blend-mode: difference;
+    filter: drop-shadow(0 0 2px #00ff00) drop-shadow(0 0 5px #00ff00);
 }
 
 /* Add this to show default cursor on touch devices */
@@ -525,28 +690,12 @@ body, a, button, input, textarea {
     box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Glowing effect */
 }
 
-/* Glitch effect for hamburger menu */
-@keyframes glitch-hamburger {
-    0% {
-        transform: translate(2px, 2px);
-    }
-    25% {
-        transform: translate(-2px, -2px);
-    }
-    50% {
-        transform: translate(-2px, 2px);
-    }
-    75% {
-        transform: translate(2px, -2px);
-    }
-    100% {
-        transform: translate(2px, 2px);
-    }
+/* Remove the glitch-hamburger animation */
+.hamburger-menu:hover .bar {
+    animation: none;
 }
 
-.hamburger-menu:hover .bar {
-    animation: glitch-hamburger 0.3s infinite;
-}
+/* Remove the @keyframes glitch-hamburger block */
 
 @media screen and (max-width: 768px) {
     .hamburger-menu {
@@ -637,4 +786,76 @@ body, a, button, input, textarea {
 /* Remove the glitch-alert keyframes animation */
 @keyframes glitch-alert {
     /* Remove this entire keyframes block */
+}
+
+/* Futuristic scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(0deg, #00ff00, #00ccff);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(0deg, #00ccff, #00ff00);
+}
+
+/* Matrix-style background for sections */
+section {
+    position: relative;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="70" fill="rgba(0,255,0,0.1)" text-anchor="middle" dominant-baseline="middle">01</text></svg>');
+    background-size: 100px 100px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+/* Add a futuristic loader */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #00ff00;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: #00ccff;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
