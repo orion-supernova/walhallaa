@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker - App Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backButton = document.createElement('a');
+            backButton.textContent = 'Back to Portfolio';
+            backButton.href = 'index.html';
+            backButton.style.display = 'inline-block';
+            backButton.style.margin = '20px';
+            backButton.style.padding = '10px 20px';
+            backButton.style.backgroundColor = '#00ff00';
+            backButton.style.color = '#000';
+            backButton.style.textDecoration = 'none';
+            backButton.style.borderRadius = '5px';
+            
+            document.body.insertBefore(backButton, document.body.firstChild);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <!-- ... Navigation ... -->
+    </header>
+    
+    <main class="app-details">
+        <h1>Habit Tracker</h1>
+        <img src="habit-tracker-screenshot.jpg" alt="Habit Tracker app interface" class="app-screenshot">
+        <section class="app-description">
+            <h2>About the App</h2>
+            <p>Habit Tracker is an innovative iOS app designed to help users build and maintain positive habits. With its intuitive interface and powerful features, it's the perfect tool for anyone looking to improve their daily routines and boost productivity.</p>
+        </section>
+        <section class="app-features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Customizable habit tracking</li>
+                <li>Progress visualization</li>
+                <li>Reminder notifications</li>
+                <li>Sync across devices</li>
+            </ul>
+        </section>
+        <section class="app-cta">
+            <h2>Get Started Today</h2>
+            <a href="#" class="cta-button">Download on the App Store</a>
+        </section>
+        <section class="app-legal">
+            <a href="habit-tracker-privacy.html">Privacy Policy</a>
+            <a href="habit-tracker-terms.html">Terms of Use</a>
+            <a href="habit-tracker-eula.html">EULA</a>
+        </section>
+    </main>
+
+    <footer>
+        <!-- ... Footer content ... -->
+    </footer>
+</body>
+</html>

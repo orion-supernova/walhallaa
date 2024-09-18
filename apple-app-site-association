@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "37TC2VKVJ6.com.walhallaa.MonkeyChatUIKit",
+        "paths": [
+          "NOT /_/*","/*",
+          "/ammckproductions/app/monkeychat"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "37TC2VKVJ6.com.walhallaa.MonkeyChatUIKit"
+    ]
+  }
+}

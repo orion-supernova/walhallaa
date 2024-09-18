@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <meta name="description" content="John Doe - iOS Engineer Portfolio. Experienced in Swift, UIKit, and SwiftUI.">
+    <meta name="keywords" content="iOS, Swift, UIKit, SwiftUI, Mobile Development">
+    <link rel="canonical" href="https://www.johndoe-iosdev.com">
+    <!-- Add favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <canvas id="matrix-rain"></canvas>
+    <div id="intro-screen">
+        <div id="typewriter-text">Welcome, Earthling</div>
+    </div>
+    <div id="portfolio-content">
+        <header>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content" tabindex="-1">
+            <section id="home" class="parallax">
+                <div class="content">
+                    
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="content">
+                    <h2>About Me</h2>
+                    <p>Passionate iOS developer with 5 years of experience creating innovative mobile applications. I specialize in crafting user-friendly, efficient, and scalable iOS apps that solve real-world problems.</p>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="content">
+                    <h2>Featured Projects</h2>
+                    <div class="project-grid">
+                        <article class="project">
+                            <h3>Tic Tac Toe for Dummies (iOS)</h3>
+                            <img data-src="tic-tac-toe-screenshot.jpg" alt="Screenshot of Tic Tac Toe for Dummies app interface" width="300" height="200">
+                            <p>It's just a recreation of our old, loved game tic-tac-toe. There is nothing special about it, purely made with SwiftUI.</p>
+                            <p><small>May 23, 2021</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                        <article class="project">
+                            <h3>MonkeyHub (iOS)</h3>
+                            <img src="monkeyhub-screenshot.jpg" alt="Screenshot of MonkeyHub app interface" width="300" height="200">
+                            <p>It started as just an ordinary social media app solution for private, fun content sharing. Then we decided to upload it. Nothing's special.</p>
+                            <p><small>May 25, 2021</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                        <article class="project">
+                            <h3>JustHelloWorld (iOS)</h3>
+                            <img src="justhelloworld-screenshot.jpg" alt="Screenshot of JustHelloWorld app interface" width="300" height="200">
+                            <p>This looks like an app that just shows "Hello World" in multiple languages and colors. But is it?</p>
+                            <p><small>Feb 09, 2022</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                        <article class="project">
+                            <h3>MonkeyChat (iOS)</h3>
+                            <img src="monkeychat-screenshot.jpg" alt="Screenshot of MonkeyChat app interface" width="300" height="200">
+                            <p>This is a chat app for everyday use. Privacy focused.</p>
+                            <p><small>May 02, 2022</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                        <article class="project">
+                            <h3>Cosmic Clicker (iOS)</h3>
+                            <img src="cosmic-clicker-screenshot.jpg" alt="Screenshot of Cosmic Clicker app interface" width="300" height="200">
+                            <p>Your favorite idle clicker game without an eye-tiring UI.</p>
+                            <p><small>August 4, 2024</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                        <article class="project">
+                            <h3>Mahmut Clipboard (macOS)</h3>
+                            <img src="mahmut-clipboard-screenshot.jpg" alt="Screenshot of Mahmut Clipboard app interface" width="300" height="200">
+                            <p>Best open-source clipboard manager for everyday use.</p>
+                            <p><small>March 28, 2023</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                        <article class="project">
+                            <h3>PictureClock: Frame Pro (macOS)</h3>
+                            <img src="pictureclock-screenshot.jpg" alt="Screenshot of PictureClock: Frame Pro app interface" width="300" height="200">
+                            <p>Your favorite clock & timer.</p>
+                            <p><small>August 13, 2024</small></p>
+                            <a href="#" class="project-link">Learn More</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="content">
+                    <h2>Contact Me</h2>
+                    <form>
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Message" required></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <nav aria-label="Footer links">
+                <a href="https://github.com/johndoe" aria-label="GitHub profile">GitHub</a>
+                <a href="https://linkedin.com/in/johndoe" aria-label="LinkedIn profile">LinkedIn</a>
+            </nav>
+            <p>&copy; 2024 A.M.M.C.K Productions. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="install-banner" style="display: none;">
+        <p>Install this web app on your device</p>
+        <button id="install-button">Install</button>
+    </div>
+    <div id="custom-cursor"></div>
+    <script src="script.js" defer></script>
+</body>
+</html>
