@@ -1,0 +1,95 @@
+body {
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    cursor: default;
+    background-color: #000000;
+    color: #00ff00;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #00ff00;
+    margin-bottom: 1em;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+h1 {
+    font-size: 2.2em;
+    border-bottom: 2px solid #003300;
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 2em;
+}
+
+h3 {
+    font-size: 1.4em;
+    margin-top: 1.5em;
+    color: #00cc00;
+}
+
+p, li {
+    margin-bottom: 1em;
+    cursor: text;
+    text-shadow: 0 0 2px rgba(0, 255, 0, 0.3);
+}
+
+ul {
+    padding-left: 2em;
+    list-style-type: '> ';
+}
+
+a {
+    color: #00ff00;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+    color: #33ff33;
+}
+
+.policy-content, .terms-content {
+    background-color: rgba(0, 51, 0, 0.3);
+    padding: 2em;
+    border-radius: 8px;
+    margin-bottom: 2em;
+    border: 1px solid #003300;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+em {
+    color: #009900;
+    font-style: italic;
+}
+
+::selection {
+    background: rgba(0, 255, 0, 0.2);
+    color: #ffffff;
+}
+
+/* Add subtle Matrix rain effect in the background */
+.container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.97), rgba(0,0,0,0.97)),
+                url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==");
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+} 
