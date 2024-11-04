@@ -312,9 +312,9 @@ function getCurrentSection() {
     return null;
 }
 
-// New function to apply glitch effect to href elements
+// New function to apply glitch effect to elements
 function applyGlitchEffectToElements() {
-    const elements = document.querySelectorAll('h1, h2, h3, p, a:not(nav a)');
+    const elements = document.querySelectorAll('h1, h2, h3, p');
     const glitchChars = '!<>-_\\/[]{}—=+*^?#________';
     const neonColors = ['#00FFFF', '#FF00FF', '#00FF00']; // Neon Blue, Neon Pink, Neon Green
 
@@ -349,19 +349,8 @@ function applyGlitchEffectToElements() {
             element.style.color = originalColor;
         }
 
-        element.addEventListener('mouseenter', () => {
-            startGlitch();
-            if (element.tagName === 'A') {
-                element.style.textShadow = '0 0 5px #00FFFF, 0 0 10px #00FFFF'; // Add glow effect
-            }
-        });
-
-        element.addEventListener('mouseleave', () => {
-            stopGlitch();
-            if (element.tagName === 'A') {
-                element.style.textShadow = ''; // Remove glow effect
-            }
-        });
+        element.addEventListener('mouseenter', startGlitch);
+        element.addEventListener('mouseleave', stopGlitch);
 
         // Cleanup function to ensure glitch is removed
         function cleanup() {
@@ -377,7 +366,7 @@ function applyGlitchEffectToElements() {
 
 // Add this function to perform a global cleanup
 function globalGlitchCleanup() {
-    document.querySelectorAll('h1, h2, h3, p, a:not(nav a)').forEach(element => {
+    document.querySelectorAll('h1, h2, h3, p').forEach(element => {
         if (element.glitchCleanup) {
             element.glitchCleanup();
         }
@@ -550,10 +539,10 @@ if (!isMobileDevice()) {
 }
 
 function cleanupGlitchEffects() {
-    const elements = document.querySelectorAll('h1, h2, h3, p, a:not(nav a)');
+    const elements = document.querySelectorAll('h1, h2, h3, p');
     elements.forEach(element => {
-        if (element.innerHTML.includes('style="color:')) {
-            element.innerHTML = element.textContent;
+        if (element.glitchCleanup) {
+            element.glitchCleanup();
         }
     });
 }
@@ -614,5 +603,5 @@ function setupSecureConnectionButton() {
 document.addEventListener('DOMContentLoaded', () => {
     setupHamburgerMenu();
     setupGlitchText();
-    setupSecureConnectionButton(); // Add this line
+    setupSecureConnectionButton();
 });

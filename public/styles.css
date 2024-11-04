@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Share Tech Mono', monospace;
@@ -30,7 +31,8 @@ body, html {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Add a semi-transparent background */
     transition: opacity 0.5s ease-out;
 }
 
@@ -38,7 +40,8 @@ body, html {
     font-size: 3em;
     text-align: center;
     margin-bottom: 1em;
-    text-shadow: none; /* No glow effect */
+    text-shadow: none;
+    /* No glow effect */
     z-index: 2;
 }
 
@@ -48,8 +51,15 @@ body, html {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 #portfolio-content {
@@ -57,16 +67,16 @@ body, html {
     z-index: 1;
     background-color: #000;
     transition: opacity 0.5s ease-in;
-        opacity: 0;
-        display: none;
-        /* Initially hide the portfolio content */
-    }
-    
-    .show-portfolio {
-        opacity: 1 !important;
-        visibility: visible !important;
-        /* Ensure it's visible */
-    }
+    opacity: 0;
+    display: none;
+    /* Initially hide the portfolio content */
+}
+
+.show-portfolio {
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* Ensure it's visible */
+}
 
 .hide-intro {
     opacity: 0 !important;
@@ -103,13 +113,18 @@ nav a {
     display: block;
 }
 
-nav li:hover a, nav li.active a {
+nav li:hover a,
+nav li.active a {
     color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    text-shadow: none;
+    /* Remove glow effect */
     background-color: rgba(0, 255, 0, 0.1);
 }
 
-nav a, .project-link, footer a, .app-legal a {
+nav a,
+.project-link,
+footer a,
+.app-legal a .cyberpunk-btn {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.3s ease, background-color 0.3s ease;
@@ -118,9 +133,13 @@ nav a, .project-link, footer a, .app-legal a {
     display: block;
 }
 
-nav a:hover, .project-link:hover, footer a:hover, .app-legal a:hover {
+nav a:hover,
+.project-link:hover,
+footer a:hover,
+.app-legal a:hover .cyberpunk-btn:hover {
     color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    text-shadow: none;
+    /* Remove glow effect */
     background-color: rgba(0, 255, 0, 0.1);
 }
 
@@ -133,9 +152,11 @@ nav a {
     display: block;
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
     color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    text-shadow: none;
+    /* Remove glow effect */
     background-color: rgba(0, 255, 0, 0.1);
 }
 
@@ -145,7 +166,8 @@ section {
     align-items: center;
     justify-content: center;
     padding: 2em;
-    scroll-margin-top: 60px; /* Adjust this value to match your header height */
+    scroll-margin-top: 60px;
+    /* Adjust this value to match your header height */
 }
 
 .content {
@@ -162,19 +184,36 @@ section {
     transform: translateY(0);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin-bottom: 0.5em;
     line-height: 1.2;
-    text-shadow: 0 0 1.5px #00ff00; /* No glow effect */
+    text-shadow: 0 0 1.5px #00ff00;
+    /* No glow effect */
 }
 
-h1, h2, h3, p, a, li {
-    color: #00ff00; /* Bright green for high contrast against black background */
+h1,
+h2,
+h3,
+p,
+a,
+li {
+    color: #00ff00;
+    /* Bright green for high contrast against black background */
 }
 
-h1 { font-size: 3.5em; }
-h2 { font-size: 2.5em; }
-h3 { font-size: 1.8em; }
+h1 {
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
 
 .project-grid {
     display: grid;
@@ -194,7 +233,8 @@ h3 { font-size: 1.8em; }
 
 .project:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,255,0,0.2);
+    box-shadow: none;
+    /* Remove glow effect */
 }
 
 .project img {
@@ -215,7 +255,7 @@ h3 { font-size: 1.8em; }
     display: block;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
     transform: skewX(-25deg);
     animation: shine 2.5s infinite;
 }
@@ -257,31 +297,95 @@ h3 { font-size: 1.8em; }
 }
 
 @keyframes glitch-anim {
-    0% { clip: rect(31px, 9999px, 94px, 0); }
-    10% { clip: rect(112px, 9999px, 76px, 0); }
-    20% { clip: rect(85px, 9999px, 77px, 0); }
-    30% { clip: rect(27px, 9999px, 97px, 0); }
-    40% { clip: rect(64px, 9999px, 98px, 0); }
-    50% { clip: rect(61px, 9999px, 85px, 0); }
-    60% { clip: rect(99px, 9999px, 114px, 0); }
-    70% { clip: rect(34px, 9999px, 115px, 0); }
-    80% { clip: rect(98px, 9999px, 129px, 0); }
-    90% { clip: rect(43px, 9999px, 96px, 0); }
-    100% { clip: rect(82px, 9999px, 64px, 0); }
+    0% {
+        clip: rect(31px, 9999px, 94px, 0);
+    }
+
+    10% {
+        clip: rect(112px, 9999px, 76px, 0);
+    }
+
+    20% {
+        clip: rect(85px, 9999px, 77px, 0);
+    }
+
+    30% {
+        clip: rect(27px, 9999px, 97px, 0);
+    }
+
+    40% {
+        clip: rect(64px, 9999px, 98px, 0);
+    }
+
+    50% {
+        clip: rect(61px, 9999px, 85px, 0);
+    }
+
+    60% {
+        clip: rect(99px, 9999px, 114px, 0);
+    }
+
+    70% {
+        clip: rect(34px, 9999px, 115px, 0);
+    }
+
+    80% {
+        clip: rect(98px, 9999px, 129px, 0);
+    }
+
+    90% {
+        clip: rect(43px, 9999px, 96px, 0);
+    }
+
+    100% {
+        clip: rect(82px, 9999px, 64px, 0);
+    }
 }
 
 @keyframes glitch-anim2 {
-    0% { clip: rect(129px, 9999px, 36px, 0); }
-    10% { clip: rect(36px, 9999px, 92px, 0); }
-    20% { clip: rect(62px, 9999px, 135px, 0); }
-    30% { clip: rect(92px, 9999px, 66px, 0); }
-    40% { clip: rect(124px, 9999px, 13px, 0); }
-    50% { clip: rect(85px, 9999px, 140px, 0); }
-    60% { clip: rect(110px, 9999px, 59px, 0); }
-    70% { clip: rect(23px, 9999px, 140px, 0); }
-    80% { clip: rect(53px, 9999px, 109px, 0); }
-    90% { clip: rect(71px, 9999px, 139px, 0); }
-    100% { clip: rect(30px, 9999px, 138px, 0); }
+    0% {
+        clip: rect(129px, 9999px, 36px, 0);
+    }
+
+    10% {
+        clip: rect(36px, 9999px, 92px, 0);
+    }
+
+    20% {
+        clip: rect(62px, 9999px, 135px, 0);
+    }
+
+    30% {
+        clip: rect(92px, 9999px, 66px, 0);
+    }
+
+    40% {
+        clip: rect(124px, 9999px, 13px, 0);
+    }
+
+    50% {
+        clip: rect(85px, 9999px, 140px, 0);
+    }
+
+    60% {
+        clip: rect(110px, 9999px, 59px, 0);
+    }
+
+    70% {
+        clip: rect(23px, 9999px, 140px, 0);
+    }
+
+    80% {
+        clip: rect(53px, 9999px, 109px, 0);
+    }
+
+    90% {
+        clip: rect(71px, 9999px, 139px, 0);
+    }
+
+    100% {
+        clip: rect(30px, 9999px, 138px, 0);
+    }
 }
 
 .project p {
@@ -292,42 +396,142 @@ h3 { font-size: 1.8em; }
     align-self: flex-start;
     margin-top: 1em;
     padding: 0.5em 1em;
-    background-color: rgba(0, 255, 0, 0.2);
-    color: #00ff00;
+    background: linear-gradient(45deg, #00ff00, #00ccff);
+    color: #000;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
-    background: linear-gradient(45deg, #00ff00, #00ccff);
+    transition: all 0.3s ease;
     border: none;
-    color: #000;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     position: relative;
     overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .project-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+    transition: all 0.4s;
+    z-index: -1;
+}
+
+.project-link:hover {
+    transform: scale(1.1);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.project-link:hover::before {
+    left: 100%;
+}
+
+.project-link::after {
+    content: '>';
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+}
+
+.project-link:hover::after {
+    opacity: 1;
+    right: 10px;
+}
+
+
+.cyberpunk-btn {
+    align-self: flex-start;
+    margin-top: 1em;
+    padding: 0.8em 1.5em;
+    background: linear-gradient(45deg, #00ff00, #00ccff);
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+
+.cyberpunk-btn::before {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: rgba(255,255,255,0.1);
-    transform: rotate(45deg);
-    z-index: 1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 80%);
+    transform: scale(0);
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+
+.cyberpunk-btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    color: #ffffff;
+    background: linear-gradient(45deg, #00ccff, #ff00ff);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.4);
+}
+
+
+.cyberpunk-btn:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+.cyberpunk-btn::after {
+    content: '>';
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
     transition: all 0.3s ease;
 }
 
-.project-link:hover::before {
-    left: -100%;
-    top: -100%;
+
+.cyberpunk-btn:hover::after {
+    opacity: 1;
+    right: 10px;
 }
 
-.project-link:hover {
-    box-shadow: 0 0 20px rgba(0,255,0,0.6);
-    transform: scale(1.05);
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #00ff00, 0 0 35px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 75px #00ff00;
+    }
+
+    50% {
+        text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px #00ff00, 0 0 17px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 37px #00ff00;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #00ff00, 0 0 35px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 75px #00ff00;
+    }
+}
+
+
+.cyberpunk-btn:hover {
+    animation: neonPulse 1.5s ease-in-out infinite;
 }
 
 form {
@@ -336,7 +540,9 @@ form {
     gap: 1.5em;
 }
 
-input, textarea, button {
+input,
+textarea,
+button {
     background: rgba(0, 255, 0, 0.1);
     border: 1px solid #00ff00;
     color: #00ff00;
@@ -345,7 +551,8 @@ input, textarea, button {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     border-color: #00cc00;
     box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.2);
 }
@@ -376,7 +583,7 @@ button::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     transform: rotate(45deg);
     z-index: 1;
     transition: all 0.3s ease;
@@ -388,7 +595,8 @@ button:hover::before {
 }
 
 button:hover {
-    box-shadow: 0 0 20px rgba(0,255,0,0.6);
+    box-shadow: none;
+    /* Remove glow effect */
     transform: scale(1.05);
 }
 
@@ -412,9 +620,17 @@ footer {
         margin: 0.5em 0;
     }
 
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 2em; }
-    h3 { font-size: 1.5em; }
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
 
     .project-grid {
         grid-template-columns: 1fr;
@@ -457,18 +673,23 @@ footer {
     0% {
         clip: rect(17px, 9999px, 94px, 0);
     }
+
     20% {
         clip: rect(37px, 9999px, 44px, 0);
     }
+
     40% {
         clip: rect(58px, 9999px, 54px, 0);
     }
+
     60% {
         clip: rect(80px, 9999px, 66px, 0);
     }
+
     80% {
         clip: rect(108px, 9999px, 85px, 0);
     }
+
     100% {
         clip: rect(129px, 9999px, 144px, 0);
     }
@@ -478,18 +699,23 @@ footer {
     0% {
         clip: rect(129px, 9999px, 36px, 0);
     }
+
     20% {
         clip: rect(36px, 9999px, 92px, 0);
     }
+
     40% {
         clip: rect(62px, 9999px, 135px, 0);
     }
+
     60% {
         clip: rect(92px, 9999px, 66px, 0);
     }
+
     80% {
         clip: rect(124px, 9999px, 13px, 0);
     }
+
     100% {
         clip: rect(85px, 9999px, 140px, 0);
     }
@@ -542,7 +768,7 @@ footer {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     transform: rotate(45deg);
     z-index: 1;
     transition: all 0.3s ease;
@@ -554,7 +780,8 @@ footer {
 }
 
 .cta-button:hover {
-    box-shadow: 0 0 20px rgba(0,255,0,0.6);
+    box-shadow: none;
+    /* Remove glow effect */
     transform: scale(1.05);
 }
 
@@ -565,9 +792,17 @@ footer {
 }
 
 @keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Add responsive design improvements */
@@ -639,7 +874,11 @@ html {
 }
 
 /* Custom cursor styles */
-body, a, button, input, textarea {
+body,
+a,
+button,
+input,
+textarea {
     cursor: none;
 }
 
@@ -647,21 +886,31 @@ body, a, button, input, textarea {
     position: fixed;
     pointer-events: none;
     z-index: 10000;
-    font-size: 18px; /* Reduced from 24px */
-    color: #00ff00; /* Neon green color */
+    font-size: 18px;
+    /* Reduced from 24px */
+    color: #00ff00;
+    /* Neon green color */
     text-shadow: 0 0 1px #00ff00;
     user-select: none;
-    display: none; /* Initially hidden */
-    transform: translate(-50%, -50%); /* Center the cursor on the pointer */
+    display: none;
+    /* Initially hidden */
+    transform: translate(-50%, -50%);
+    /* Center the cursor on the pointer */
     mix-blend-mode: difference;
     filter: drop-shadow(0 0 2px #00ff00) drop-shadow(0 0 5px #00ff00);
 }
 
 /* Add this to show default cursor on touch devices */
 @media (hover: none) and (pointer: coarse) {
-    body, a, button, input, textarea {
+
+    body,
+    a,
+    button,
+    input,
+    textarea {
         cursor: auto !important;
     }
+
     #custom-cursor {
         display: none !important;
     }
@@ -676,7 +925,8 @@ body, a, button, input, textarea {
     position: fixed;
     top: 10px;
     right: 10px;
-    z-index: 1001; /* Increased z-index to ensure it's above other elements */
+    z-index: 1001;
+    /* Increased z-index to ensure it's above other elements */
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
 }
@@ -684,10 +934,12 @@ body, a, button, input, textarea {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #00ff00; /* Neon green color */
+    background-color: #00ff00;
+    /* Neon green color */
     margin: 3px 0;
     transition: 0.4s;
-    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Glowing effect */
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    /* Glowing effect */
 }
 
 /* Remove the glitch-hamburger animation */
@@ -712,7 +964,8 @@ body, a, button, input, textarea {
         background-color: rgba(0, 0, 0, 0.9);
         padding: 20px;
         box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2);
-        z-index: 1000; /* Ensure it's below the hamburger menu */
+        z-index: 1000;
+        /* Ensure it's below the hamburger menu */
     }
 
     nav .nav-links.active {
@@ -818,8 +1071,8 @@ section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="70" fill="rgba(0,255,0,0.1)" text-anchor="middle" dominant-baseline="middle">01</text></svg>');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="70" fill="rgba(0,255,0,0.1)" text-anchor="middle" dominant-baseline="middle">01</text></svg>');
     background-size: 100px 100px;
     z-index: -1;
     opacity: 0.1;
@@ -838,7 +1091,7 @@ section::before {
 }
 
 .loader::after {
-    content: '';  
+    content: '';
     box-sizing: border-box;
     position: absolute;
     left: 50%;
@@ -855,6 +1108,7 @@ section::before {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
