@@ -17,11 +17,6 @@
         <header>
             <nav class="sacred-nav">
                 <a href="/" class="nav-link">Ana Portala Dön</a>
-                <div class="language-switch">
-                    <a href="/numerology" class="lang-link" onclick="localStorage.setItem('lang', 'en')">EN</a>
-                    <span class="lang-separator">|</span>
-                    <a href="/numeroloji" class="lang-link active" onclick="localStorage.setItem('lang', 'tr')">TR</a>
-                </div>
             </nav>
         </header>
 
@@ -45,14 +40,9 @@
                         <div class="form-group">
                             <label for="birthDate">Dünyaya Geliş Gününüz</label>
                             <div class="date-format">Format: MM/DD/YYYY (Ay/Gün/Yıl)</div>
-                            <input type="text" 
+                            <input type="date" 
                                    id="birthDate" 
                                    required 
-                                   placeholder="MM/DD/YYYY"
-                                   pattern="(0[1-9]|1[012])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}"
-                                   maxlength="10"
-                                   onfocus="(this.type='date')"
-                                   onblur="if(!this.value)this.type='text'"
                                    class="date-input">
                         </div>
                         <button type="submit" class="calculate-btn">Sayılarınızı Keşfedin</button>
@@ -98,15 +88,5 @@
     </div>
     <script src="translations.js"></script>
     <script src="numerology.js"></script>
-    <script>
-    function switchLanguage(lang) {
-        const currentPath = window.location.pathname;
-        if (lang === 'tr' && !currentPath.includes('tr.html')) {
-            window.location.href = '/numeroloji';
-        } else if (lang === 'en' && currentPath.includes('tr.html')) {
-            window.location.href = '/numerology';
-        }
-    }
-    </script>
 </body>
 </html> 

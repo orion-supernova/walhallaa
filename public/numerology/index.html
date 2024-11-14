@@ -17,11 +17,6 @@
         <header>
             <nav class="sacred-nav">
                 <a href="/" class="nav-link">Return to Main Portal</a>
-                <div class="language-switch">
-                    <a href="/numerology" class="lang-link active" onclick="localStorage.setItem('lang', 'en')">EN</a>
-                    <span class="lang-separator">|</span>
-                    <a href="/numeroloji" class="lang-link" onclick="localStorage.setItem('lang', 'tr')">TR</a>
-                </div>
             </nav>
         </header>
 
@@ -45,14 +40,9 @@
                         <div class="form-group">
                             <label for="birthDate">Your Day of Emergence</label>
                             <div class="date-format">Format: MM/DD/YYYY (Month/Day/Year)</div>
-                            <input type="text" 
+                            <input type="date" 
                                    id="birthDate" 
                                    required 
-                                   placeholder="MM/DD/YYYY"
-                                   pattern="(0[1-9]|1[012])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}"
-                                   maxlength="10"
-                                   onfocus="(this.type='date')"
-                                   onblur="if(!this.value)this.type='text'"
                                    class="date-input">
                         </div>
                         <button type="submit" class="calculate-btn">Reveal Your Numbers</button>
@@ -96,21 +86,7 @@
             <p>&copy; 2024 A.M.M.C.K Productions</p>
         </footer>
     </div>
-    <div id="custom-cursor"></div>
-    <canvas id="matrix-rain"></canvas>
     <script src="translations.js"></script>
     <script src="numerology.js"></script>
-    <!-- <script src="matrix.js"></script>
-    <script src="cursor.js"></script> -->
-    <script>
-    function switchLanguage(lang) {
-        const currentPath = window.location.pathname;
-        if (lang === 'tr' && !currentPath.includes('tr.html')) {
-            window.location.href = '/numeroloji';
-        } else if (lang === 'en' && currentPath.includes('tr.html')) {
-            window.location.href = '/numerology';
-        }
-    }
-    </script>
 </body>
 </html> 
