@@ -23,13 +23,19 @@
     ],
     "rewrites": [
       {
-        "source": "/numerology{,/**}",
+        "source": "/numerology",
         "destination": "/numerology/index.html"
       },
       {
-        "source": "/numeroloji{,/**}",
+        "source": "/numeroloji",
         "destination": "/numerology/tr.html"
       }
-    ]
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "trailingSlash": false
   }
 }
