@@ -28,6 +28,14 @@
             "value": "no-cache, no-store, must-revalidate, max-age=0"
           }
         ]
+      },
+      {
+        "source": "/numerology",
+        "destination": "/numerology/index.html"
+      },
+      {
+        "source": "/numeroloji",
+        "destination": "/numerology/tr.html"
       }
     ]
   }
