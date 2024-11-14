@@ -19,22 +19,15 @@
             "value": "0"
           }
         ]
-      },
+      }
+    ],
+    "rewrites": [
       {
-        "source": "**/*.@(js|css|html)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache, no-store, must-revalidate, max-age=0"
-          }
-        ]
-      },
-      {
-        "source": "/numerology",
+        "source": "/numerology{,/**}",
         "destination": "/numerology/index.html"
       },
       {
-        "source": "/numeroloji",
+        "source": "/numeroloji{,/**}",
         "destination": "/numerology/tr.html"
       }
     ]

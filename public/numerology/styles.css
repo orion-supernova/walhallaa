@@ -82,13 +82,15 @@
 }
 
 .lang-link {
+    background: none;
+    border: none;
     color: #e0d5c1;
-    text-decoration: none;
     font-family: 'Cinzel', serif;
     font-size: 1rem;
     transition: all 0.3s ease;
     opacity: 0.7;
     padding: 0.3rem 0.6rem;
+    cursor: pointer;
 }
 
 .lang-link.active {

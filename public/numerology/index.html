@@ -18,9 +18,9 @@
             <nav class="sacred-nav">
                 <a href="/" class="nav-link">Return to Main Portal</a>
                 <div class="language-switch">
-                    <a href="/numerology" class="lang-link active">EN</a>
+                    <a href="/numerology" class="lang-link active" onclick="localStorage.setItem('lang', 'en')">EN</a>
                     <span class="lang-separator">|</span>
-                    <a href="/numeroloji" class="lang-link">TR</a>
+                    <a href="/numeroloji" class="lang-link" onclick="localStorage.setItem('lang', 'tr')">TR</a>
                 </div>
             </nav>
         </header>
@@ -102,5 +102,15 @@
     <script src="numerology.js"></script>
     <!-- <script src="matrix.js"></script>
     <script src="cursor.js"></script> -->
+    <script>
+    function switchLanguage(lang) {
+        const currentPath = window.location.pathname;
+        if (lang === 'tr' && !currentPath.includes('tr.html')) {
+            window.location.href = '/numeroloji';
+        } else if (lang === 'en' && currentPath.includes('tr.html')) {
+            window.location.href = '/numerology';
+        }
+    }
+    </script>
 </body>
 </html> 

@@ -18,9 +18,9 @@
             <nav class="sacred-nav">
                 <a href="/" class="nav-link">Ana Portala Dön</a>
                 <div class="language-switch">
-                    <a href="/numerology" class="lang-link">EN</a>
+                    <a href="/numerology" class="lang-link" onclick="localStorage.setItem('lang', 'en')">EN</a>
                     <span class="lang-separator">|</span>
-                    <a href="/numeroloji" class="lang-link active">TR</a>
+                    <a href="/numeroloji" class="lang-link active" onclick="localStorage.setItem('lang', 'tr')">TR</a>
                 </div>
             </nav>
         </header>
@@ -98,5 +98,15 @@
     </div>
     <script src="translations.js"></script>
     <script src="numerology.js"></script>
+    <script>
+    function switchLanguage(lang) {
+        const currentPath = window.location.pathname;
+        if (lang === 'tr' && !currentPath.includes('tr.html')) {
+            window.location.href = '/numeroloji';
+        } else if (lang === 'en' && currentPath.includes('tr.html')) {
+            window.location.href = '/numerology';
+        }
+    }
+    </script>
 </body>
 </html> 
