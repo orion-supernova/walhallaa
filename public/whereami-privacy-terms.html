@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where am I? - Privacy Policy & Terms</title>
+    <link rel="stylesheet" href="privacy-terms.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Where am I?</h1>
+
+        <h2>Privacy Policy</h2>
+        <div class="policy-content">
+            <p>This privacy policy applies to the Where am I? app (hereby referred to as "Application") for mobile devices that was created by Murat Can Koç (hereby referred to as "Service Provider"). The Application is offered as a free download with optional one-time in-app purchases for additional location packs. The Application is provided "AS IS".</p>
+
+            <h3>What the Application Stores On Your Device</h3>
+            <p>To let you create and rejoin rooms without an account, the Application stores the following on your device only:</p>
+            <ul>
+                <li>A randomly generated identifier (UUID v4) created the first time you launch the app. This is the only piece of "identity" the app uses. It is never linked to your name, email, phone, or any other personal data.</li>
+                <li>The display name (codename) you typed for yourself.</li>
+                <li>Your selected interface language.</li>
+            </ul>
+
+            <p>If you uninstall the app, this data is removed with it. The random identifier regenerates the next time you install — your previous display name and any rooms you were in cannot be re-associated with you.</p>
+
+            <h3>Information Sent to the Backend</h3>
+            <p>While playing online, the Application sends the following to the Service Provider's backend (Convex) so a room can be shared between players:</p>
+            <ul>
+                <li>The random per-install identifier described above (used as a bearer token to authenticate your requests).</li>
+                <li>The display name you typed.</li>
+                <li>The room code, room state, and game configuration (number of spies, round duration, etc.).</li>
+                <li>Push notification tokens (Firebase Cloud Messaging on Android; Apple Push Notification service on iOS) used to deliver round-end notifications and Live Activity updates. These tokens are device-scoped and not linked to any personal account.</li>
+                <li>Your interface language, so the server can localize push notification text.</li>
+                <li>Standard request metadata (timestamps, IP address) is logged transiently by the backend for rate-limiting and abuse prevention.</li>
+            </ul>
+
+            <p>The Application does <strong>not</strong> collect:</p>
+            <ul>
+                <li>Your real name, email address, phone number, or postal address.</li>
+                <li>Your physical location.</li>
+                <li>Your contacts, calendar, photos, microphone, or camera data.</li>
+                <li>Any third-party advertising identifiers (IDFA on iOS, AAID on Android).</li>
+                <li>Any analytics events. The Application contains no analytics SDK (no Google Analytics, no Firebase Analytics, no Mixpanel, etc.).</li>
+            </ul>
+
+            <h3>In-App Purchases</h3>
+            <p>The Application offers optional one-time, non-consumable in-app purchases for additional location packs (e.g. Istanbul Pack, Cyberpunk Pack). Purchase processing is handled by Apple (App Store) on iOS or Google (Google Play) on Android. The Service Provider does not see, store, or have access to your payment card or billing details — that information stays with Apple or Google.</p>
+
+            <p>Purchase validation and entitlement tracking is handled by RevenueCat (RevenueCat, Inc.), a third-party service. RevenueCat receives the following:</p>
+            <ul>
+                <li>The same random per-install identifier described above (used as the "App User ID" for purchase tracking).</li>
+                <li>The platform-issued purchase receipt (provided by Apple or Google).</li>
+                <li>The product identifier of the bundle you bought.</li>
+            </ul>
+
+            <p>RevenueCat does not receive your name, email, or any other personal information. Their privacy policy is available at <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>.</p>
+
+            <h3>Third Party Access</h3>
+            <p>The following third parties are involved in delivering the Application's functionality:</p>
+            <ul>
+                <li><strong>Convex</strong> — hosts the real-time backend that synchronizes the game state between players. Receives the data described in "Information Sent to the Backend" above.</li>
+                <li><strong>Apple App Store</strong> / <strong>Google Play Store</strong> — process payments, deliver purchase receipts, and distribute the app. Their own privacy policies apply.</li>
+                <li><strong>RevenueCat</strong> — validates purchase receipts and tracks entitlements. Receives anonymous identifiers and receipts only.</li>
+                <li><strong>Firebase Cloud Messaging</strong> (Google) — delivers push notifications on Android. Receives the push token and the notification payload.</li>
+                <li><strong>Apple Push Notification service</strong> — delivers Live Activity updates and push notifications on iOS. Receives the push token and the notification payload.</li>
+            </ul>
+
+            <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
+            <ul>
+                <li>as required by law, such as to comply with a subpoena or similar legal process;</li>
+                <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
+                <li>with their trusted services providers who work on their behalf, do not have an independent use of the information disclosed to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
+            </ul>
+
+            <p>The Application does not sell, rent, or share information with any party for advertising or marketing purposes.</p>
+
+            <h3>Opt-Out Rights</h3>
+            <p>You can stop all collection of information by the Application by uninstalling it. Use the standard uninstall process for your device or app store. Once uninstalled, the per-install identifier is gone and the server cannot re-associate any future installation with your prior data.</p>
+
+            <h3>Data Retention Policy</h3>
+            <p>Game state (rooms, players, in-flight rounds) is automatically deleted by the backend within hours after the room becomes inactive. Push tokens are deleted when revoked by the OS or after a period of inactivity. If you would like the Service Provider to delete any data associated with your random identifier, please contact muratcankoc@gmail.com with the identifier (you can find it by emailing us; we do not display it in the app) and they will respond in a reasonable time.</p>
+
+            <h3>Children</h3>
+            <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
+
+            <p>The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services. The Service Provider encourages parents and legal guardians to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission. If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider (muratcankoc@gmail.com) so that they will be able to take the necessary actions. You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country (in some countries we may allow your parent or guardian to do so on your behalf).</p>
+
+            <h3>Security</h3>
+            <p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information processed and maintained. All client–server traffic is transmitted over HTTPS. The random per-install identifier is a bearer token that authenticates requests; if you suspect your device has been compromised, uninstalling and reinstalling the app issues a fresh identifier.</p>
+
+            <h3>Changes</h3>
+            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
+
+            <p>This privacy policy is effective as of 2026-05-08.</p>
+
+            <h3>Your Consent</h3>
+            <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at muratcankoc@gmail.com.</p>
+        </div>
+
+        <div style="height: 50px; background-color: #000;"></div>
+
+        <h2>Terms &amp; Conditions</h2>
+        <div class="terms-content">
+            <p>These terms and conditions apply to the Where am I? app (hereby referred to as "Application") for mobile devices that was created by Murat Can Koç (hereby referred to as "Service Provider"). The Application is offered as a free download with optional one-time, non-consumable in-app purchases for additional location packs.</p>
+
+            <p>Upon downloading or using the Application, you are automatically agreeing to the following terms. It is strongly advised that you thoroughly read and understand these terms prior to using the Application. Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p>
+
+            <p>The Service Provider is dedicated to ensuring that the Application is as beneficial and efficient as possible. As such, they reserve the right to modify the Application or charge for their services at any time and for any reason. The Service Provider assures you that any charges for the Application or its services will be clearly communicated to you before you incur them.</p>
+
+            <h3>In-App Purchases</h3>
+            <p>The Application offers optional one-time purchases for additional location packs. These purchases are non-consumable: once a pack is bought, it remains unlocked indefinitely on the Apple ID or Google account that made the purchase. You can restore previously purchased packs on a new device or after reinstall by tapping "Restore purchases" in the Marketplace screen.</p>
+
+            <p>All purchases are processed by Apple (App Store) or Google (Google Play). All refund requests are handled directly by Apple or Google according to their refund policies. The Service Provider cannot process refunds and cannot reverse a purchase made through these platforms. If a refund is granted by Apple or Google, the corresponding pack will be removed from your account by the platform.</p>
+
+            <p>Pricing displayed inside the Application reflects the current price set in App Store Connect or Google Play Console for your region, including local taxes where applicable. The Service Provider reserves the right to change pricing at any time; previously purchased packs are not re-charged when prices change.</p>
+
+            <h3>Acceptable Use</h3>
+            <p>The Application allows you to type a display name (codename) that is shown to other players who join the same room (rooms hold up to 12 players, and players join only via a short code shared by the host). You agree not to use display names or other content that are unlawful, abusive, harassing, defamatory, hateful, or otherwise inappropriate. The Service Provider may remove or block clients that abuse the service.</p>
+
+            <p>The Application has no in-app chat, voice, video, or messaging features. All communication between players is intended to happen verbally in person. The Service Provider is not responsible for, and does not moderate, anything said by players outside of the Application.</p>
+
+            <h3>Device, Network, and Security</h3>
+            <p>The Application stores and processes a small amount of data on your device (described in the Privacy Policy above) in order to provide the Service. It is your responsibility to maintain the security of your phone and access to the Application. The Service Provider strongly advises against jailbreaking or rooting your phone, which involves removing software restrictions and limitations imposed by the official operating system of your device. Such actions could expose your phone to malware, viruses, malicious programs, compromise your phone's security features, and may result in the Application not functioning correctly or at all.</p>
+
+            <p>Some functions of the Application require an active internet connection, which can be Wi-Fi or provided by your mobile network provider. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.</p>
+
+            <p>If you are using the Application outside of a Wi-Fi area, please be aware that your mobile network provider's agreement terms still apply. Consequently, you may incur charges from your mobile provider for data usage during the connection to the Application, or other third-party charges. By using the Application, you accept responsibility for any such charges, including roaming data charges if you use the Application outside of your home territory (i.e., region or country) without disabling data roaming. If you are not the bill payer for the device on which you are using the Application, the Service Provider assumes that you have obtained permission from the bill payer.</p>
+
+            <p>Similarly, the Service Provider cannot always assume responsibility for your usage of the Application. For instance, it is your responsibility to ensure that your device remains charged. If your device runs out of battery and you are unable to access the Service, the Service Provider cannot be held responsible.</p>
+
+            <h3>Limitation of Liability</h3>
+            <p>While the Service Provider strives to ensure that the Application is updated and accurate at all times, third-party services (Apple, Google, RevenueCat, Convex, Firebase) provide infrastructure that the Application depends on. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of an outage or change in any of these third-party services.</p>
+
+            <h3>Updates and Termination</h3>
+            <p>The Service Provider may wish to update the Application at some point. Operating system requirements may change, and you will need to download updates if you want to continue using the Application. The Service Provider does not guarantee that updates will always be released, that the Application will remain compatible with future operating system versions, or that the Application will remain available indefinitely. The Service Provider may also cease providing the Application and may terminate its use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the Application, and (if necessary) delete it from your device.</p>
+
+            <h3>Changes to These Terms and Conditions</h3>
+            <p>The Service Provider may periodically update their Terms and Conditions. Therefore, you are advised to review this page regularly for any changes. The Service Provider will notify you of any changes by posting the new Terms and Conditions on this page.</p>
+
+            <p>These terms and conditions are effective as of 2026-05-08.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions or suggestions about the Terms and Conditions, please do not hesitate to contact the Service Provider at muratcankoc@gmail.com.</p>
+        </div>
+    </div>
+</body>
+</html>
