@@ -3,104 +3,1235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MonkeyHub - Privacy Policy & Terms</title>
+    <title>MonkeyHub — Privacy Policy &amp; Terms of Service</title>
+    <meta name="description" content="MonkeyHub's privacy policy and terms of service. Written to be accurate rather than reassuring.">
     <link rel="stylesheet" href="privacy-terms.css">
 </head>
 <body>
     <div class="container">
         <h1>MonkeyHub</h1>
-        
-        <h2>Privacy Policy</h2>
+        <p><em>Last updated: 4 August 2026</em></p>
+        <p>
+            This page contains two documents: the <a href="#privacy">Privacy Policy</a> and the
+            <a href="#terms">Terms of Service</a>. The
+            <a href="monkeyhub-eula.html">End User Licence Agreement</a> and the
+            <a href="monkeyhub-delete-account.html">account deletion page</a> are separate.
+        </p>
+        <p>
+            MonkeyHub is made and operated by <strong>Murat Can Koç</strong>, an individual
+            developer in Türkiye trading as <strong>WalhallaApps</strong>. On Google Play the
+            developer is listed as "WalhallaApps"; on the App Store it is listed as "Murat Can
+            Koç". They are the same person, and that person is who these documents mean by "we".
+        </p>
+
+        <h2 id="privacy">Privacy Policy</h2>
         <div class="policy-content">
-            <p>This privacy policy applies to the MonkeyHub app (hereby referred to as "Application") for mobile devices that was created by Murat Can Koç (hereby referred to as "Service Provider") as a Free service.</p>
+            <p>
+                MonkeyHub is a messaging app for families. This policy explains, in plain English,
+                exactly what we collect, where it goes, how long we keep it, and what happens when
+                you delete your account. We have written it to be accurate rather than reassuring,
+                because a privacy policy that overstates what an app protects is worse than useless.
+            </p>
 
-            <h3>Information Collection and Use</h3>
-            <p>The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.</p>
-
-            <p>For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information, including but not limited to E-mail, user id. The information that the Service Provider request will be retained by them and used as described in this privacy policy.</p>
-
-            <h3>Third Party Access</h3>
-            <p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
-
-            <p>Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:</p>
+            <p>The short version:</p>
             <ul>
-                <li>Google Analytics for Firebase</li>
-                <li>Firebase Crashlytics</li>
+                <li>We do not run ads. We do not sell or rent your data. There is no analytics SDK, no attribution SDK and no crash-reporting SDK in this app — none.</li>
+                <li>MonkeyHub runs on servers the developer rents and administers directly, not on a third-party chat platform.</li>
+                <li><strong>Your messages are NOT end-to-end encrypted.</strong> They are stored on our server in a form the operator can read. Please read that section before you decide whether MonkeyHub is right for your family.</li>
+                <li>Your data reaches other parties in a few specific places: our push provider, the network provider that carries all our traffic, sign-in with Apple or Google, and — from your own device rather than our server — call setup and link previews. Every one of them is named below.</li>
+                <li>You can delete your account from inside the app, or <a href="monkeyhub-delete-account.html">from the web</a>. Almost everything is erased. A short, specific list of things is kept, and we say exactly what.</li>
             </ul>
 
-            <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
+            <h3>Who runs MonkeyHub</h3>
+            <p>
+                MonkeyHub is built and operated by <strong>Murat Can Koç</strong>, trading as
+                <strong>WalhallaApps</strong>. We are the data controller for the personal data
+                described in this policy.
+            </p>
             <ul>
-                <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
-                <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
-                <li>with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
+                <li><strong>Postal address:</strong> Çekmeköy, 34794 İstanbul, Türkiye</li>
+                <li><strong>Privacy contact:</strong> <a href="mailto:info@walhallaa.com">info@walhallaa.com</a></li>
+                <li><strong>Governing law:</strong> Türkiye</li>
+            </ul>
+            <p>
+                MonkeyHub is a small, independently run app. There is no data protection officer,
+                because we are not required to appoint one. We have not appointed a representative
+                in the EU or the UK. Questions go straight to the person who writes the code, at
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>.
+            </p>
+            <p>
+                MonkeyHub's servers are self-hosted: a Convex database running on a virtual machine
+                rented from Oracle Cloud and administered by the developer, reached through a
+                Cloudflare Tunnel and a Caddy web server. Voice and video calls that cannot connect
+                directly are relayed through our own coturn server on a second rented machine. We do
+                not use a hosted chat provider, and no third-party product sits between you and your
+                conversations except where this policy says so.
+            </p>
+
+            <h3>Important: your messages are NOT end-to-end encrypted</h3>
+            <p>
+                We want to be completely clear about this, because many messaging apps work
+                differently and you may reasonably assume MonkeyHub does too.
+            </p>
+            <p>
+                <strong>Message text, photos, videos, voice notes and documents are stored on our
+                server in readable form. The operator of MonkeyHub can technically read them.</strong>
+                There is no end-to-end encryption. There is no zero-knowledge design. Nothing in the
+                app encrypts your messages with a key only you hold.
+            </p>
+            <p>A few specific consequences you should understand:</p>
+            <ul>
+                <li>The 12-word recovery phrase you are shown when you create an account <strong>does not encrypt anything and does not unlock anything</strong>. It is not a wallet seed phrase, despite looking like one. Its only function is to let you reset a forgotten password. If you lose it, you lose the ability to reset your password — you do not lose access to encrypted data, because there is none.</li>
+                <li>Because messages are readable on the server, they are also readable in the places messages get copied to: the notification we hand to our push provider, the message preview on a chat's row in your list, and the quoted excerpt shown when someone replies to you.</li>
+                <li>Anyone with administrative access to the server database could read conversations. Today that is the developer. We do not read your messages as a matter of routine, and we do not scan, mine, profile or train anything on them. But we are telling you that we <em>could</em>, because that is the honest description of the system.</li>
+            </ul>
+            <p>
+                We encrypt data in transit (HTTPS/TLS). Whether the underlying disks on our host are
+                encrypted at rest depends on the cloud provider's volume configuration, and we do not
+                currently make a claim about it. Neither transit encryption nor disk encryption is the
+                same as end-to-end encryption. Please do not treat MonkeyHub as a confidential channel
+                for anything that would harm you or your child if it were read.
+            </p>
+
+            <h3>What we do not do</h3>
+            <p>These are commitments, not marketing:</p>
+            <ul>
+                <li><strong>No advertising.</strong> There is no ad SDK anywhere in the app, and no advertising identifier is collected. On Android, MonkeyHub does not request the advertising ID permission. On iOS, MonkeyHub never asks for tracking permission and cannot access the IDFA.</li>
+                <li><strong>No analytics or product-tracking SDK.</strong> No Google Analytics, Firebase Analytics, Amplitude, Mixpanel, Segment, PostHog, or anything comparable.</li>
+                <li><strong>No crash-reporting SDK.</strong> No Crashlytics, Sentry, Bugsnag or similar. When the app crashes, we do not find out unless you tell us.</li>
+                <li><strong>No attribution or install-tracking SDK.</strong> No AppsFlyer, Adjust, Branch, or Facebook SDK.</li>
+                <li><strong>We do not sell, rent, licence or trade personal data.</strong> Not to advertisers, not to data brokers, not to anyone.</li>
+                <li><strong>We do not build profiles of you</strong> and we do not use your messages, photos or voice notes to train machine-learning models.</li>
+                <li><strong>We do not collect location.</strong> MonkeyHub requests no location permission on any platform and holds no GPS or coarse-location data. (Call setup does briefly reveal IP addresses — see "Calls" and "Who else receives your data".)</li>
+                <li><strong>We do not read your contacts.</strong> MonkeyHub requests no contacts permission and never uploads an address book.</li>
+                <li><strong>We do not download fonts from Google.</strong> Every typeface the app uses is bundled inside it, and font fetching over the network is switched off in code. The same is true of this website.</li>
+            </ul>
+            <p>
+                One honest caveat: our push notification provider's own software collects some device
+                and session information as a normal part of its operation. That is described under
+                "Who else receives your data".
+            </p>
+
+            <h3>What we collect, and why</h3>
+            <p>
+                Everything below is collected because MonkeyHub needs it to work. There is no optional
+                data collection for our benefit.
+            </p>
+
+            <p><strong>Your account</strong></p>
+            <ul>
+                <li><strong>Username</strong> — required. It is permanent: once chosen it cannot be changed, because it is stamped into <em>@mentions</em> inside other people's messages.</li>
+                <li><strong>Display name</strong> — optional, free text. In practice this is often a child's real first name. It appears on every message you send, in the quoted excerpt when someone replies to you, and as the heading of the push notification your recipients see.</li>
+                <li><strong>Email address</strong> — optional. You can add one at sign-up or later, or leave it blank. It is used for account recovery and for contacting you about the service. It is deliberately hidden from friend lists and room member lists; only you see it on your own profile.</li>
+                <li><strong>Password</strong> — stored as a hash, never as plain text. Please read the "Security" section for an honest description of how strong that hash is.</li>
+                <li><strong>Recovery phrase</strong> — stored as a hash. Used only to authorise a password reset.</li>
+                <li><strong>Profile picture</strong> — optional. See "Photos, videos, voice notes and documents" below for an important note about how images are served.</li>
+                <li><strong>Privacy preferences</strong> — your per-item visibility settings (who can see your avatar, your status, your last-seen time, your read receipts, and who can send you friend requests). Your username and display name are always visible to other users and cannot be hidden.</li>
             </ul>
 
-            <h3>Opt-Out Rights</h3>
-            <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
+            <p><strong>Messages and their contents</strong></p>
+            <ul>
+                <li>The <strong>text of every message</strong> you send, stored on our server in readable form.</li>
+                <li><strong>Reactions</strong> you leave (which emoji, on which message, when).</li>
+                <li><strong>Pinned messages</strong> you pin in a room.</li>
+                <li><strong>Replies</strong> — when you reply to a message, a snapshot of the original (its author, their display name, and up to 140 characters of its text) is saved onto <em>your</em> reply.</li>
+                <li><strong>@mentions</strong> — the user ID and username of each person you mention.</li>
+                <li><strong>Read receipts</strong> — the time you last read each room. Your privacy settings control whether other people can see yours (default: nobody). A separate setting on your own device controls whether you see other people's (default: off). The two are independent — hiding yours does not stop you seeing theirs, and showing yours does not reveal theirs to you.</li>
+                <li><strong>Typing indicators</strong> — a momentary record that you are typing in a room.</li>
+                <li><strong>Disappearing (view-once) photos</strong> — when a view-once photo is opened, we record who opened it and when. The image itself is deleted once everyone has seen it, or after 14 days. <strong>The message row itself is not deleted</strong>: the fact that you sent a view-once photo, and when, stays in the conversation as an empty bubble.</li>
+                <li><strong>Room settings</strong> — a room's name, description, image, member list, join times, whether it is private, and any message-lifetime setting.</li>
+            </ul>
 
-            <h3>Data Retention Policy</h3>
-            <p>The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data that you have provided via the Application, please contact them at info@walhallaa.com and they will respond in a reasonable time.</p>
+            <p><strong>Friends and friend requests</strong></p>
+            <ul>
+                <li>Who you are friends with, and who you have a pending or refused request with, in both directions, with the times.</li>
+                <li>The free-text greeting attached to a friend request, and any further messages exchanged around that request before it is accepted.</li>
+                <li>For child accounts, which stage of guardian approval a request is at, and which guardian refused it if one did.</li>
+            </ul>
 
-            <h3>Children</h3>
-            <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
+            <p><strong>Photos, videos, voice notes and documents</strong></p>
+            <p>
+                Whatever you send: images, videos, recorded voice messages, and documents, along with
+                the file name you gave the document, its size, its type, its dimensions and its
+                duration. These are stored on our own server.
+            </p>
+            <p>
+                <strong>One thing you should know:</strong> attachments and profile pictures are served
+                from long, unguessable web addresses that have <strong>no expiry and no
+                signature</strong>. The address is hard to guess, but it does not stop working, and it
+                is not tied to your login. If one of those addresses is shared, forwarded or leaked,
+                whoever has it can open that file indefinitely. We are working to change this; today,
+                that is how it behaves.
+            </p>
 
-            <p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. In the case the Service Provider discover that a child under 13 has provided personal information, the Service Provider will immediately delete this from their servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact the Service Provider (info@walhallaa.com) so that they will be able to take the necessary actions.</p>
+            <p><strong>Calls</strong></p>
+            <ul>
+                <li>A <strong>call record</strong>: who called whom, in which room, audio or video, when it started, when it was answered, when it ended, and which of your devices took the call.</li>
+                <li><strong>Connection setup data</strong> (technical "signalling" messages). These briefly contain your device's local and public <strong>IP addresses</strong> — that is how two phones find each other. They are deleted within a few minutes once the other device has picked them up. Records that were never picked up — from a call that was never answered, for example — stay until the call is cleaned up or your account is deleted.</li>
+                <li><strong>The call itself is not recorded and not stored.</strong> Audio and video go directly between the participants where possible. When a direct connection is impossible — we estimate somewhere between one call in seven and one in ten, typically behind restrictive network equipment — the media is relayed through our own server. It stays encrypted in transit and we do not record it, but the relay does see both participants' IP addresses.</li>
+            </ul>
 
-            <h3>Security</h3>
-            <p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p>
+            <p><strong>Your devices and push notifications</strong></p>
+            <p>
+                For each device you sign in on we store: a random device ID generated on that device,
+                the platform (iOS, Android, web, etc.), push notification tokens, and the
+                <strong>device's name</strong>. Be aware that on iPhones the device name is very often
+                the owner's real name — "Emma's iPhone". It is shown in the app so you can move a call
+                between your devices.
+            </p>
 
-            <h3>Changes</h3>
-            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
+            <p><strong>Sign in with Apple or Google</strong></p>
+            <p>
+                If you use these, we store the stable, opaque user identifier that Apple or Google
+                gives us, plus the email address they return (which for Apple may be a private relay
+                address). We match accounts on that identifier, never on the email address. For Sign
+                in with Apple we also store a long-lived Apple token, which we use for two things: to
+                tell Apple to revoke the connection when you delete your MonkeyHub account, and to
+                re-check periodically (roughly once a day per account) whether you have revoked
+                MonkeyHub's access from your own Apple ID settings, so that we notice rather than
+                sitting on a dead grant.
+            </p>
 
-            <p>This privacy policy is effective as of 2024-08-05</p>
+            <p><strong>Child accounts</strong></p>
+            <p>
+                If a guardian creates a child account, we store the child's <strong>year of
+                birth</strong>, a flag marking the account as a child account, the guardian
+                relationship, and the guardian's permission settings for that child (whether they may
+                make calls, send media, request contacts, create rooms). We also store the child's
+                free-text requests to their guardian ("can I join this room, because…") and the
+                guardian's decisions on them. Birth year is stored solely for children's-privacy and
+                age-appropriateness purposes; we do not use it for anything else. See "Children's
+                accounts" below.
+            </p>
 
-            <h3>Your Consent</h3>
-            <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p>
+            <p><strong>Pairing codes</strong></p>
+            <p>
+                When a guardian sets up a child's device, a six-digit code is generated. We store a
+                hash of the code, not the digits, plus which device redeemed it. That makes the
+                redeemed code a lasting record linking a child's account to a specific handset.
+            </p>
 
-            <h3>Contact Us</h3>
-            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at info@walhallaa.com.</p>
+            <p><strong>Reports and blocks</strong></p>
+            <p>
+                If you block someone, we record it. If you report a user or a message, we record who
+                filed it (unless the account is later deleted), what was reported, the reason you
+                chose, and when. Reports are moderation records and are handled differently from
+                everything else on deletion — see "Deleting your account".
+            </p>
 
-            <p><em>This privacy policy page was generated by App Privacy Policy Generator</em></p>
+            <p><strong>Security records</strong></p>
+            <p>
+                We count failed sign-in and failed recovery-phrase attempts per account, so that an
+                account under attack can be temporarily locked. These records are keyed to the account,
+                not to an IP address: the code that counts failed attempts cannot read your IP. That is
+                not the same as saying no part of our infrastructure sees it. Cloudflare and our web
+                server necessarily handle your IP address in order to route your request, and when a
+                call is relayed our coturn server logs the relay session — and because the relay
+                credential contains your MonkeyHub user ID, those logs associate a user ID with an IP
+                address and a call time.
+            </p>
+
+            <p><strong>Presence</strong></p>
+            <p>
+                Whether you are online, away or offline, and the time you were last active. We keep
+                only the current value; we do not keep a history of your comings and goings.
+            </p>
+
+            <h3>What MonkeyHub stores on your own device</h3>
+            <p>
+                Some data never leaves your phone but is still worth knowing about, particularly if the
+                device is shared, backed up, or lost.
+            </p>
+            <p><strong>Kept in the device's secure storage (iOS Keychain / Android encrypted storage):</strong></p>
+            <ul>
+                <li>Your session: user ID, username, display name, whether this is a child device.</li>
+                <li>A random device ID, created on first launch.</li>
+                <li>Your app preferences (theme, layout, notification toggles and similar). One of these holds the user ID of the account that last dismissed the recovery-phrase reminder, and preferences are never cleared — so on a shared or handed-on device, that identifier remains after sign-out.</li>
+            </ul>
+            <p><strong>Kept as ordinary, unencrypted files in the app's storage:</strong></p>
+            <ul>
+                <li><strong>A copy of your recent conversations</strong> — roughly the last 120 messages per room, plus your room list with their message previews, saved as plain text files so the app opens instantly and works offline. <strong>This is not encrypted by the app.</strong> A full device backup or a forensic extraction of an unlocked phone would expose conversation history in the clear. It is protected by your device's own passcode and disk encryption, and by nothing else.</li>
+                <li><strong>Downloaded voice notes</strong>, saved as ordinary audio files for offline playback.</li>
+                <li><strong>Downloaded images</strong>, cached for up to 30 days by the standard image cache.</li>
+                <li><strong>A list of attachment web addresses</strong>, so the app does not have to look them up again. Because those addresses do not expire, this file is a durable set of direct links to your attachments.</li>
+            </ul>
+            <p>
+                <strong>Signing out clears your cached conversations. It does not clear
+                everything.</strong> The downloaded voice notes, the image cache, the attachment-address
+                list, your app preferences and the child-device marker all remain. On iPhones and iPads,
+                some Keychain items <strong>survive uninstalling the app</strong> — that is how Apple's
+                Keychain works. Your session keys, your preferences and the child-device marker are in
+                that group: reinstalling MonkeyHub does not reset the child-device marker on that
+                handset. The random device ID is not — it is cleared when the app is removed, and a new
+                one is generated on reinstall.
+            </p>
+            <p>
+                <strong>Deleting your account does not reach your devices.</strong> The server-side purge
+                described below cannot delete files on your phone, or on the phones of people you talked
+                to. If you want the local copies gone, sign out and delete the app, and remember that on
+                iOS a small amount of preference data persists in the Keychain.
+            </p>
+            <p>
+                If you save a photo to your camera roll, or share a received document out to another app,
+                that copy leaves MonkeyHub entirely and is no longer governed by this policy.
+            </p>
+
+            <h3>Why we are allowed to process this (legal bases)</h3>
+            <p>
+                For users in the UK, the EU and other places with equivalent law, here is the lawful
+                basis for each purpose. There is not one blanket basis for everything.
+            </p>
+            <ul>
+                <li><strong>Running the service</strong> — creating your account, signing you in, delivering messages and media, showing presence and read receipts, connecting calls, sending push notifications. Basis: <strong>performance of a contract</strong> with you (our Terms of Service). Without a username and a password we cannot give you an account at all; without the message data there is no service.</li>
+                <li><strong>Keeping accounts secure</strong> — counting failed sign-in attempts, temporarily locking an account under attack, rate limiting. Basis: <strong>legitimate interests</strong>. Our interest is preventing account takeover, which is also directly in your interest.</li>
+                <li><strong>Safety and moderation</strong> — blocks, reports, and acting on them; guardian controls; keeping a moderation record after an account is deleted. Basis: <strong>legitimate interests</strong> in keeping the service, and particularly its child users, safe from abuse. This interest is what allows us to retain a report after its author leaves; you can object, and we will weigh it, but a service where reporters can erase their own reports by deleting their account is not a safe service.</li>
+                <li><strong>Child accounts</strong> — creating and supervising them, storing birth year and guardian permissions. Basis: <strong>performance of a contract</strong> with the guardian, plus <strong>legitimate interests</strong> in child safety, and where local law requires it, <strong>holder-of-parental-responsibility authorisation</strong>. We deliberately do not rely on a child's own consent for anything.</li>
+                <li><strong>Responding to you and to legal obligations</strong> — support requests, and any disclosure we are legally compelled to make. Basis: <strong>legitimate interests</strong> and <strong>legal obligation</strong> respectively.</li>
+            </ul>
+            <p>
+                We do not rely on consent for any core processing, which means there is no consent to
+                withdraw for it. If you disagree with a legitimate-interests basis, you have the right to
+                object — see "Your rights".
+            </p>
+
+            <h3>Who else receives your data</h3>
+            <p>
+                MonkeyHub uses very few external services, and none of them are analytics or advertising.
+                But some of them receive real data, and one of them receives more than you might expect.
+            </p>
+            <p>
+                Where we have a contractual relationship with a recipient — our push provider, and the
+                identity providers we integrate with — that relationship binds them to protect your data
+                and forbids using it for their own advertising on our instructions. Some of the
+                recipients below are <strong>not</strong> in a contractual relationship with us at all:
+                Google's public STUN servers, and any website a message links to, receive data simply
+                because your device contacts them. We have no agreement with those parties and no control
+                over what they do with what they see. That is a reason to remove those flows, and we
+                intend to.
+            </p>
+
+            <p><strong>OneSignal (push notifications) — the largest disclosure</strong></p>
+            <p>OneSignal, a US company, delivers your push notifications. It receives:</p>
+            <ul>
+                <li><strong>The full text of every message you send.</strong> Not only when the recipient is away — every time. When you send a text message, MonkeyHub hands its text to OneSignal once for each other member of the room, so it can be shown on their lock screen. There is no condition under which a text message skips this. Because MonkeyHub is not end-to-end encrypted, the notification body <em>is</em> the message. For photos, videos and voice notes OneSignal receives a label like "📷 Image" instead; for documents it receives the file name.</li>
+                <li>The sender's display name, the room ID, the message ID, the sender's ID, and your unread count.</li>
+                <li>Your MonkeyHub user ID, used as a permanent identifier so it knows which devices to wake.</li>
+                <li>For calls, the caller's display name and the type of call. For group calls, the room's name and the name of whoever started the call, sent to everyone invited — and a room name can itself be personal.</li>
+                <li>OneSignal's own software on your device also collects device model, OS version, app version, timezone, language and session counts, as part of its normal operation.</li>
+                <li>On the web version of MonkeyHub, your browser loads OneSignal's own script from OneSignal's servers every time you open the app. That request discloses your IP address and browser details to OneSignal before any notification is involved.</li>
+            </ul>
+            <p>
+                <strong>There is currently no way to stop your message text reaching OneSignal while
+                still using MonkeyHub.</strong> Turning notifications off in your device settings, or
+                turning them off inside the app, stops the notification being shown — it does not stop
+                the text being sent to OneSignal, because that decision is made on our server before your
+                device is involved. If this is unacceptable to you, MonkeyHub is not the right app for
+                that conversation.
+            </p>
+
+            <p><strong>Apple</strong></p>
+            <ul>
+                <li><strong>Push delivery (APNs).</strong> Every notification to an iPhone or iPad passes through Apple's servers, including the message text described above. For incoming calls, we send Apple a call notification containing the caller's display name, the call type and a link to the caller's avatar.</li>
+                <li><strong>Sign in with Apple</strong>, if you use it. Apple learns that your Apple ID signed into MonkeyHub, and when. We exchange tokens with Apple to verify your identity, to re-check the grant periodically, and to revoke the connection when you delete your account.</li>
+            </ul>
+
+            <p><strong>Google</strong></p>
+            <ul>
+                <li><strong>Push delivery (FCM)</strong> on Android, including call notifications containing the caller's display name and avatar link.</li>
+                <li><strong>Sign in with Google</strong>, if you use it. Google learns that your Google account signed into MonkeyHub, and when.</li>
+                <li><strong>Google's public STUN servers.</strong> Every voice or video call begins by asking these servers what your public IP address looks like from the internet. This discloses your IP address and the timing of every call to Google. It carries no name or account identifier. We consider this avoidable and intend to remove it.</li>
+            </ul>
+
+            <p><strong>Cloudflare</strong></p>
+            <p>
+                All traffic between your device and our server passes through Cloudflare, which provides
+                our secure connection and protects the server from attack. Because encryption terminates
+                at Cloudflare's edge before continuing to our machine, <strong>Cloudflare is technically
+                positioned to see the contents of that traffic</strong>, including message text and
+                uploaded files. This is the standard arrangement for any site behind a content delivery
+                network, and it is another reason the end-to-end encryption disclosure above matters.
+            </p>
+
+            <p><strong>Oracle Cloud</strong></p>
+            <p>
+                Our database, our files and our call relay run on virtual machines rented from Oracle
+                Cloud. Oracle is our hosting provider and is technically positioned to access the
+                machines it hosts, in the way any infrastructure provider is.
+            </p>
+
+            <p><strong>Websites you or your contacts link to</strong></p>
+            <p>
+                When a message contains a web link, <strong>your device fetches that page
+                directly</strong> to build the little preview card, and then loads the preview image from
+                that same website. The request identifies itself to that site as Facebook's link crawler
+                rather than as MonkeyHub, because many sites only serve preview information to known
+                crawlers — which means the site's own logs will record your visit under Facebook's name.
+                Either way the site receives <strong>your IP address and the time you viewed the
+                message</strong> — not ours. Anyone who sends a link into a room can learn the
+                approximate location and viewing time of everyone in that room, including children. We
+                consider this a genuine weakness and intend to fix it by fetching previews on our server
+                instead. Until then: treat links from people you do not know with the same caution you
+                would in any messenger. Tapping a link opens it in your browser, where that site's own
+                tracking applies as normal.
+            </p>
+
+            <p><strong>Our own call relay</strong></p>
+            <p>
+                When a call cannot connect directly, the audio and video are relayed by our own coturn
+                server. That is our infrastructure, not a third party, but it does see both participants'
+                IP addresses and it logs the session.
+            </p>
+
+            <p><strong>App stores</strong></p>
+            <p>
+                Apple and Google collect their own information about your download and device when you
+                install MonkeyHub from their stores. That happens outside the app and is governed by
+                their policies, not this one.
+            </p>
+
+            <p><strong>Law enforcement and legal process</strong></p>
+            <p>We will disclose data if we are legally compelled to. We will tell you when we are permitted to.</p>
+
+            <h3>Where your data is stored and sent</h3>
+            <p>
+                MonkeyHub's database and files run on a virtual machine located in <strong>Sweden</strong>,
+                rented from Oracle Cloud and administered by the developer. Our call relay runs on a
+                second rented machine. The operator is located in <strong>Türkiye</strong>, which means
+                the person administering the service accesses data held in the European Economic Area
+                from outside it.
+            </p>
+            <p>
+                Some of the recipients named above are located outside your country, and outside the UK
+                and the European Economic Area — in particular OneSignal, Apple, Google, Cloudflare and
+                Oracle are US companies with global infrastructure. Where personal data is transferred
+                internationally, we rely on the transfer safeguards those providers put in place, which
+                include the EU Standard Contractual Clauses and, where applicable, certification under the
+                EU–US and UK–US Data Privacy Framework. You can ask us for details of the safeguards for
+                any specific recipient at <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>.
+            </p>
+            <p>
+                Because push notifications, sign-in and call setup work by contacting servers around the
+                world, using MonkeyHub necessarily involves some international data transfer. There is no
+                way to use the app's notification or calling features without it.
+            </p>
+
+            <h3>How long we keep things</h3>
+            <ul>
+                <li><strong>Messages, photos, videos, voice notes and documents</strong> — kept until you delete them, until the room is deleted or emptied, until your account is deleted, or until the message's lifetime expires if it was sent in a room with a message lifetime set. In an ordinary room with no lifetime, messages are kept indefinitely. Note that deleting a room's last member wipes that room and its media entirely.</li>
+                <li><strong>View-once photos</strong> — the image is deleted as soon as every recipient has opened it, or after 14 days, whichever comes first. The record that a view-once photo was sent remains in the conversation.</li>
+                <li><strong>Attachments no message points to any more</strong> — automatically cleaned up, with anything under 24 hours old left alone.</li>
+                <li><strong>Call records</strong> — completed, missed and rejected calls are deleted about a day after they end. Call connection data containing IP addresses is deleted within a few minutes once it has been picked up.</li>
+                <li><strong>Call relay logs</strong> — when a call has to be relayed through our own server, that server records the session, and because the relay credential contains your MonkeyHub user ID those log lines associate a user ID with an IP address and a time. They are rotated by the operating system's standard log rotation on that machine.</li>
+                <li><strong>Push notification delivery records</strong> — deleted every few hours, once the notification can no longer be recalled.</li>
+                <li><strong>Pairing codes</strong> — expire automatically. Redeemed codes stay attached to the child's account until the account is deleted.</li>
+                <li><strong>Failed sign-in records</strong> — deleted automatically once the account has had no failed attempts for a day.</li>
+                <li><strong>Presence</strong> — we store only your current status and last-seen time, overwritten each time; there is no history.</li>
+                <li><strong>Reports</strong> — kept for <strong>24 months</strong> from the date the report was filed, then deleted automatically by a scheduled job. This applies whether the report was acted on or not.</li>
+                <li><strong>Your account and profile</strong> — kept until you delete the account.</li>
+            </ul>
+
+            <h3>Deleting your account: what goes, and what stays</h3>
+            <p><strong>How to delete your account</strong></p>
+            <ul>
+                <li><strong>In the app:</strong> open your profile, then Delete Account. Deletion is immediate and permanent. There is no waiting period and no way to undo it.</li>
+                <li><strong>On the web:</strong> if you have already uninstalled MonkeyHub, use the <a href="monkeyhub-delete-account.html">account deletion page</a>, or email <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> from the address on your account. We will verify that the request is genuinely yours before acting on it, and we aim to complete it within 30 days.</li>
+                <li><strong>Child accounts:</strong> a child cannot delete their own account from their device. Their guardian deletes it from the Family screen in the guardian's app, which runs exactly the same erasure. A guardian can also request it via the web link above. If you are a child and your guardian will not delete your account, write to us and we will.</li>
+            </ul>
+            <p>
+                If you signed in with Apple, deleting your account also tells Apple to revoke MonkeyHub's
+                access to your Apple ID, so the connection is properly severed on Apple's side too.
+            </p>
+
+            <p><strong>What deletion removes</strong></p>
+            <p>Everything that identifies you as the owner of it:</p>
+            <ul>
+                <li>Your user record: username, display name, email, password hash, recovery-phrase hash, birth year, account type, guardian permission settings, privacy preferences, presence.</li>
+                <li>Your profile picture file.</li>
+                <li>Every message you sent, together with its attachments, its reactions, its pins and its view-once open records. (An attachment that someone forwarded into another room survives there, because it is now part of their message.)</li>
+                <li>Reactions and pins you left on other people's messages, and records of view-once photos you opened.</li>
+                <li>Your room memberships. Any room left empty by your departure is deleted completely, including its media. In a room that survives, ownership passes to the longest-standing remaining member.</li>
+                <li>Your friendships and friend requests, in both directions, and the messages you sent around them.</li>
+                <li>Blocks you made and blocks made against you.</li>
+                <li>Guardian relationships, pairing codes, release codes and approval requests.</li>
+                <li>Your one-to-one call records and call connection data, in both directions.</li>
+                <li>Your registered devices and push tokens.</li>
+                <li>Your Sign in with Apple and Sign in with Google connections.</li>
+                <li>Typing indicators and pending notification records addressed to you.</li>
+            </ul>
+
+            <p><strong>What deletion does not remove</strong></p>
+            <p>We would rather tell you this than let you find out:</p>
+            <ul>
+                <li><strong>Reports you filed are kept</strong> for the 24-month retention period. We remove your identity from them — your user ID is erased and the report becomes anonymous — but the reason, what you reported and when are retained. This is deliberate: a service where anyone can erase their own report trail by deleting their account cannot protect its users.</li>
+                <li><strong>Reports filed about you are kept in full</strong> for the same period, including the identifier of the account that was reported.</li>
+                <li><strong>Group call records are currently not deleted at all.</strong> Rows recording that you started or joined a group call, which device you joined from, and when you joined and left are left behind — as are unconsumed connection-setup records, which can contain your device's IP address. <strong>This is a defect in our deletion code, not a policy decision, and we are fixing it.</strong> If you want these removed now, email us and we will remove them by hand.</li>
+                <li><strong>Failed sign-in records</strong> tied to your account are aged out by a scheduled job rather than deleted at once. The job runs every six hours and only clears records idle for a day, so they can outlast your account by up to about thirty hours.</li>
+                <li><strong>@mentions of you inside other people's messages</strong> keep your user ID and username, because they are part of someone else's message.</li>
+                <li><strong>Replies to your messages</strong> keep your display name and up to 140 characters of what you wrote, for the same reason.</li>
+                <li><strong>A room's last-message preview</strong> may still show a snippet of your final message on that room's row.</li>
+                <li><strong>The other side of a friend request.</strong> If someone wrote to you while a friend request was pending, their messages in that exchange are not removed by your deletion.</li>
+                <li><strong>Delivery records for other people.</strong> Records that a notification for one of your messages was sent to someone else remain until they age out on their own schedule.</li>
+                <li><strong>Disappearing-photo stubs.</strong> When a view-once photo has been opened or has expired, the image is deleted but the message row stays.</li>
+                <li><strong>Our push provider's records.</strong> We do not currently call OneSignal to erase your identifier and notification history there when you delete your account. Their own retention schedule applies. If you want this done, email us and we will request it manually. We intend to automate this.</li>
+                <li><strong>Everything already on a device.</strong> Deletion runs on our server. It cannot reach the copies on your phone, or on the phones of people you spoke with.</li>
+                <li><strong>Anything the law requires us to keep</strong>, including material preserved for a child-safety report.</li>
+            </ul>
+            <p>
+                If any of this is unacceptable to you, contact
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> and we will do what we can by hand.
+            </p>
+
+            <h3>Children's accounts and the guardian model</h3>
+            <p>MonkeyHub is designed for families, and it has a specific child account type.</p>
+            <p>
+                <strong>How a child account is created.</strong> Only an adult can create one, from
+                inside their own signed-in MonkeyHub account. The guardian chooses the child's username
+                and display name, provides the child's year of birth, and sets what the child is allowed
+                to do. The child's device is then paired using a six-digit code the guardian generates. A
+                child account cannot be created by a child, cannot be signed into with a password, and
+                cannot be created from a fresh install without a guardian.
+            </p>
+            <p>
+                <strong>Guardian authorisation.</strong> By creating a child account, the guardian
+                authorises the collection described in this policy on the child's behalf. We do not
+                currently show a separate consent screen before the account is created, and we do not
+                store a separate record of consent beyond the guardianship itself. Guardians should read
+                this policy in full before creating an account for a child — in particular the sections
+                on end-to-end encryption and on push notifications.
+            </p>
+            <p>
+                <strong>What we collect about a child</strong> is the same as for any other user —
+                username, display name, messages, photos, voice notes, call records, device information
+                and push tokens — plus the child-specific items: year of birth, the guardian
+                relationship, the guardian's permission settings, and the child's free-text requests to
+                their guardian.
+            </p>
+            <p>
+                <strong>We collect a child's year of birth solely to identify the account as a child's
+                and apply the right protections.</strong> We do not use it for anything else. We do not
+                collect a child's precise date of birth, address, phone number, school, or location.
+            </p>
+            <p>
+                <strong>Public rooms are off for children, permanently.</strong> Discover — the directory
+                of rooms belonging to people you have not met — is not reachable from a child account,
+                and there is no setting that turns it on. This is not a guardian decision and cannot be
+                overridden. A child can still take part in any room they are invited to, which is how a
+                child joins a room with friends they already know.
+            </p>
+            <p>
+                <strong>What guardians can do.</strong> A guardian can, at any time: change what the
+                child is allowed to do, approve or refuse the child's contact and room requests, revoke a
+                contact, revoke a paired device, review the personal information held about the child by
+                contacting us, and delete the child's account entirely — which runs the full erasure
+                described above.
+            </p>
+            <p>
+                <strong>What guardians cannot do.</strong> Guardians do not have a view of their child's
+                message history. Supervision in MonkeyHub works by controlling <em>who the child can talk
+                to and what they can do</em>, not by mirroring conversations to an adult. Three narrow
+                exceptions, which guardians and children should both know about: the guardian sees the
+                short free-text message a person attached to a request to add the child, the note the
+                child writes when asking to join a room, and — at the moment they remove a contact — how
+                many messages the child exchanged with that person and when the last one was. Beyond
+                that, the message history itself is not visible to a guardian.
+            </p>
+            <p>
+                <strong>Third parties and children's data.</strong> A child's messages travel through the
+                same push notification path as everyone else's, which means the text of a message sent to
+                or from a child reaches our push provider, and their device contacts call-setup servers
+                and linked websites exactly as an adult's device does. We do not share children's
+                personal information with anyone for advertising, and we never sell it.
+            </p>
+            <p>
+                <strong>Age.</strong> You must be at least <strong>13</strong> to hold your own adult
+                MonkeyHub account. Below that age, an account must be created and supervised by a
+                guardian.
+            </p>
+            <p>
+                <strong>Parents:</strong> if you believe a child has an account created without your
+                authorisation, or you want to review, correct or delete a child's information, email
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> and we will act promptly.
+            </p>
+
+            <h3>Security: what protects your data, and what does not</h3>
+            <p>What is true:</p>
+            <ul>
+                <li>All traffic between the app and our servers uses TLS (HTTPS and secure websockets).</li>
+                <li>The server is a machine the developer administers directly, with no third-party chat platform in the middle.</li>
+                <li>Failed sign-in and failed recovery attempts are counted, and an account under attack is temporarily locked.</li>
+                <li>Six-digit pairing codes and room passwords are stored as an unsalted SHA-256 hash rather than in readable form. Be aware that for a six-digit code this offers very little real protection — the whole range can be tried in a fraction of a second — so its value is that the digits are short-lived and single-use, not that the hash is hard to reverse.</li>
+                <li>Call media is encrypted between participants by WebRTC and is never recorded.</li>
+            </ul>
+            <p>What is also true, and which we would rather state than let you assume otherwise:</p>
+            <ul>
+                <li><strong>Messages are not end-to-end encrypted.</strong> The operator can read them. This is the most important sentence in this policy.</li>
+                <li><strong>Password hashing is weak by modern standards.</strong> Your password is hashed on your device with a single pass of SHA-256, without a salt, and that hash is what we store and compare. There is no bcrypt, scrypt or Argon2, and no key stretching. In practice this means two things: a copy of our database would let an attacker sign in as any user without needing to crack anything, and common passwords would be recoverable from it easily. <strong>Please use a long, unique password on MonkeyHub, and do not reuse a password you use anywhere else.</strong> We intend to move to a proper password hashing scheme.</li>
+                <li><strong>There are no server-side sessions.</strong> Most operations in MonkeyHub identify you by a user ID your app sends with the request, rather than by a session token the server issued and can revoke. This is a known weakness we intend to fix. Setting or changing a recovery phrase, and linking a sign-in provider, are deliberately password-gated because they would otherwise be complete account-takeover routes; other operations do not have that gate.</li>
+                <li><strong>Attachment links do not expire.</strong> Files are served from long, unguessable but permanent web addresses that are not tied to your session. Anyone who obtains such an address keeps access to that file.</li>
+                <li><strong>Cached conversations on your device are not encrypted by the app</strong> — they rely on your device's own passcode and disk encryption.</li>
+                <li><strong>TLS terminates before our machine.</strong> Cloudflare decrypts your traffic at its edge in order to route and protect it. That is normal for any site behind a network provider, and it means your traffic is readable at that point.</li>
+            </ul>
+            <p>
+                No service can promise perfect security, and a service with the weaknesses listed above
+                certainly cannot. We are telling you where the soft spots are so that you can make an
+                informed decision about what you send.
+            </p>
+
+            <h3>Your rights and how to use them</h3>
+            <p>
+                Depending on where you live, you have some or all of the following rights over your
+                personal data. Nothing in our Terms of Service removes them — they come from the law, not
+                from us, and we could not contract out of them even if we wanted to.
+            </p>
+            <ul>
+                <li><strong>Access</strong> — get a copy of the personal data we hold about you.</li>
+                <li><strong>Correction</strong> — fix anything inaccurate. Your display name and email are editable in the app. Your username cannot be changed, for the technical reason given above; if it is wrong, we can help you move to a new account.</li>
+                <li><strong>Deletion</strong> — erase your account and data, as described above.</li>
+                <li><strong>Restriction</strong> — ask us to stop processing while a dispute is resolved.</li>
+                <li><strong>Portability</strong> — receive your data in a machine-readable form.</li>
+                <li><strong>Objection</strong> — object to processing we carry out on the basis of legitimate interests, including safety and moderation processing. We will weigh your objection against the reason for the processing and tell you the outcome.</li>
+                <li><strong>Withdrawing consent</strong> — where we ever rely on consent, you may withdraw it at any time. Withdrawal does not undo processing that already happened. Note that MonkeyHub's core processing is not consent-based, so most of it cannot be switched off while you keep an account.</li>
+                <li><strong>Complaint</strong> — you may complain to your national data protection authority. In Türkiye that is the Kişisel Verileri Koruma Kurumu (KVKK); in the UK it is the Information Commissioner's Office; in the EU it is the supervisory authority in your country of residence.</li>
+            </ul>
+            <p>
+                To use any of these rights, email <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>.
+                We will verify that the request comes from you (or, for a child's data, from their
+                guardian) and respond within one month. There is no charge unless a request is clearly
+                excessive or repetitive.
+            </p>
+            <p>
+                <strong>A limit you should know about:</strong> we can only give you what we hold. We
+                cannot retrieve copies of your messages held on other people's devices, and we cannot
+                delete a message you sent from the phone of the person who received it.
+            </p>
+
+            <h3>Changes to this policy</h3>
+            <p>
+                We will update this policy when MonkeyHub changes. Several items in it are described as
+                things we intend to fix — group call deletion, push provider cleanup on account deletion,
+                password hashing, server-side sessions, attachment link expiry, link previews, and the
+                third-party call-setup servers. When any of those change, this document will change with
+                them, and the "last updated" date at the top will move.
+            </p>
+            <p>
+                If a change materially reduces your privacy — for example, if we started sharing data with
+                a new recipient, or collecting a new category — we will tell you inside the app before it
+                takes effect, not quietly.
+            </p>
+            <p>
+                We do not remove disclosures from this policy to make the app look better. If something
+                here is unflattering, it is because it is accurate.
+            </p>
+
+            <h3>Contact</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:info@walhallaa.com">info@walhallaa.com</a></li>
+                <li><strong>Post:</strong> Murat Can Koç, Çekmeköy, 34794 İstanbul, Türkiye</li>
+                <li><strong>Delete your account on the web:</strong> <a href="monkeyhub-delete-account.html">monkeyhub-delete-account.html</a></li>
+            </ul>
+            <p>
+                MonkeyHub is made by Murat Can Koç, trading as WalhallaApps. There is a real person on the
+                other end of that email address.
+            </p>
         </div>
 
         <div style="height: 50px; background-color: #000;"></div>
 
-        <h2>Terms & Conditions</h2>
+        <h2 id="terms">Terms of Service</h2>
         <div class="terms-content">
-            <p>These terms and conditions applies to the MonkeyHub app (hereby referred to as "Application") for mobile devices that was created by Murat Can Koç (hereby referred to as "Service Provider") as a Free service.</p>
+            <p>
+                MonkeyHub is a messaging app for families and friends. It is made and run by
+                <strong>Murat Can Koç</strong>, trading as WalhallaApps. These terms are the agreement
+                between you and us. They explain who may use MonkeyHub, what you may and may not do with
+                it, what happens to what you post, and what we do and do not promise. Please read them.
+                If you do not agree with them, do not use MonkeyHub.
+            </p>
+            <p>
+                Some things in this document may be uncomfortable to read. That is deliberate. MonkeyHub
+                is a small, self-hosted service run by one developer. We would rather tell you exactly
+                what that means than let you assume something that is not true.
+            </p>
+            <p>
+                Where these terms mention privacy, the <a href="#privacy">Privacy Policy</a> has the full
+                detail. Where the two documents disagree, the Privacy Policy wins on privacy questions.
+                Your use of the software itself is additionally governed by the
+                <a href="monkeyhub-eula.html">End User Licence Agreement</a>.
+            </p>
 
-            <p>Upon downloading or utilizing the Application, you are automatically agreeing to the following terms. It is strongly advised that you thoroughly read and understand these terms prior to using the Application. Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p>
-
-            <p>The Service Provider is dedicated to ensuring that the Application is as beneficial and efficient as possible. As such, they reserve the right to modify the Application or charge for their services at any time and for any reason. The Service Provider assures you that any charges for the Application or its services will be clearly communicated to you.</p>
-
-            <p>The Application stores and processes personal data that you have provided to the Service Provider in order to provide the Service. It is your responsibility to maintain the security of your phone and access to the Application. The Service Provider strongly advise against jailbreaking or rooting your phone, which involves removing software restrictions and limitations imposed by the official operating system of your device. Such actions could expose your phone to malware, viruses, malicious programs, compromise your phone's security features, and may result in the Application not functioning correctly or at all.</p>
-
-            <p>Please note that the Application utilizes third-party services that have their own Terms and Conditions. Below are the links to the Terms and Conditions of the third-party service providers used by the Application:</p>
+            <h3>Who can use MonkeyHub</h3>
+            <p>You may create your own MonkeyHub account if you are at least <strong>13</strong> years old.</p>
+            <p>
+                If you are younger than that, you can still use MonkeyHub — but only through a child
+                account created for you by a parent or guardian. You cannot sign yourself up.
+            </p>
+            <p>You also need to:</p>
             <ul>
-                <li>Google Analytics for Firebase</li>
-                <li>Firebase Crashlytics</li>
+                <li>Give accurate information when you sign up. Do not pretend to be someone else.</li>
+                <li>Not be barred from using this kind of service under the laws that apply to you.</li>
+                <li>Not create a new account to get around a removal or a block.</li>
+            </ul>
+            <p>
+                Be aware of what we do <strong>not</strong> do. MonkeyHub does not verify anyone's age.
+                When a guardian creates a child account, a birth year can be recorded, but it is optional
+                and nothing checks it. We have no way to confirm that any person on MonkeyHub is who or
+                how old they say they are. Treat strangers on MonkeyHub the way you would treat strangers
+                anywhere online.
+            </p>
+
+            <h3>Your account</h3>
+            <p>You are responsible for your account and for everything done with it.</p>
+            <ul>
+                <li>Keep your password to yourself. Do not share your login with anyone.</li>
+                <li>Your username is permanent. Once chosen, it cannot be changed. Your display name and email can be edited.</li>
+                <li>When you sign up with a password, MonkeyHub generates a 12-word recovery phrase for you and will not finish creating the account until you confirm you have saved it. You do not choose the words — they come from a random draw your device makes, and we never see them in plain form. Write them down somewhere safe and private. They are the only way to reset your password without us. Anyone who has them can take over your account.</li>
+                <li>Tell us at <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> if you think someone else has got into your account.</li>
+            </ul>
+            <p>
+                We throttle repeated failed attempts per account: ten wrong passwords shuts password login
+                for 15 minutes, and five wrong recovery phrases shuts the recovery path for 15 minutes.
+                The two limits are separate — tripping one does not close the other. This protects you,
+                but it also means someone else can lock you out of one of those paths temporarily by
+                guessing at your account. That is a trade we have chosen on purpose. One path is not
+                throttled today: the guardian-password check used to release a child's device. We know,
+                and it is on the list.
+            </p>
+            <p>
+                One honest point about the recovery phrase: it authorises a password reset and nothing
+                else. It does not encrypt anything and it does not unlock anything. Do not treat it as a
+                key that protects your messages, because it isn't one.
+            </p>
+
+            <h3>Guardian accounts and child accounts</h3>
+            <p>MonkeyHub has a family model. An adult account can create child accounts and supervise them.</p>
+            <p>
+                <strong>How a child account is made.</strong> A guardian creates it from inside their own
+                account. The guardian chooses the child's username and display name, and may record a
+                birth year. The child never sets a password — a child signs in on their own device by
+                redeeming a six-digit pairing code the guardian issues.
+            </p>
+            <p><strong>What a guardian controls.</strong> A guardian sets four switches for each child:</p>
+            <ul>
+                <li>whether the child can make and receive calls</li>
+                <li>whether the child can send photos, video and voice notes</li>
+                <li>whether the child can ask to add new contacts</li>
+                <li>whether the child can create rooms — <strong>off by default</strong></li>
+            </ul>
+            <p>
+                <strong>Public rooms are not one of those switches.</strong> Discover — the directory of
+                rooms belonging to strangers — is permanently unavailable to child accounts and cannot be
+                switched on by anyone, including a guardian. Children can still take part in rooms they
+                are invited to.
+            </p>
+            <p>
+                A guardian also approves or refuses each new contact and each room the child asks to join,
+                and can revoke a contact later. <strong>Understand what revoking does:</strong> it does
+                not just remove the person from your child's list. It permanently deletes the entire
+                direct-message conversation between them — every message, reaction, photo, video and voice
+                note — for <strong>both</strong> your child and that other person. It cannot be undone, and
+                the other person is not asked. Shared group rooms are left alone and have to be dealt with
+                separately. A guardian can also unpair the child's device, add a second guardian, graduate
+                the child to a normal adult account, and delete the child's account outright.
+            </p>
+            <p>
+                <strong>What a child cannot do.</strong> A child cannot change their own policy switches,
+                cannot become a guardian, and cannot delete their own account. Deletion has to be done by a
+                guardian. If you are a child and want your account gone, ask your guardian. If your
+                guardian will not do it, write to us at
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> and we will.
+            </p>
+            <p>
+                <strong>What a guardian is agreeing to.</strong> If you create a child account, you are
+                telling us that you are that child's parent or legal guardian and that you consent, on
+                their behalf, to MonkeyHub collecting and handling their information as described in the
+                Privacy Policy. You are responsible for what that child does on MonkeyHub and for
+                supervising them appropriately for their age. You should read the Privacy Policy in full
+                before you create the account — in particular the parts about message content not being
+                encrypted end-to-end and about push notifications passing through a third party.
+            </p>
+            <p>
+                <strong>What supervision does not mean.</strong> Guardian tools do not show you your
+                child's conversations. They control who your child can reach and what features they can
+                use. Three things a guardian does see, and you should know about them: the short message a
+                person attached to a request to add your child, the note your child writes when asking to
+                join a room, and — at the moment you remove a contact — how many messages your child
+                exchanged with that person and when the last one was. Beyond that, the message history
+                itself is not visible to a guardian.
+            </p>
+
+            <h3>Rules for using MonkeyHub</h3>
+            <p>
+                These rules apply to everything you send, post, upload or say on MonkeyHub, and to how you
+                interact with the service itself.
+            </p>
+            <p><strong>Do not do these things to other people:</strong></p>
+            <ul>
+                <li>Harass, bully, threaten, stalk or intimidate anyone.</li>
+                <li>Post hateful content aimed at people because of race, ethnicity, national origin, religion, disability, sex, gender identity or sexual orientation.</li>
+                <li>Encourage anyone to hurt themselves or anyone else.</li>
+                <li>Share someone else's private information — address, phone number, photos, anything — without their permission.</li>
+                <li>Impersonate another person, or pretend to be affiliated with us.</li>
+                <li>Contact a child on MonkeyHub for sexual purposes, or ask a child for personal information, photos or contact details. This is the rule we will act on fastest and with the least patience.</li>
+            </ul>
+            <p><strong>Do not post these things:</strong></p>
+            <ul>
+                <li>Anything illegal where you are, or where the person receiving it is.</li>
+                <li>Sexual content involving minors — see the next section.</li>
+                <li>Sexual content shown to anyone who has not asked for it, and never in a room that a child can reach.</li>
+                <li>Graphic violence, or content that glorifies violence or terrorism.</li>
+                <li>Malware, phishing links, or anything designed to break someone's device or steal their credentials.</li>
+                <li>Content you do not have the right to post.</li>
+            </ul>
+            <p><strong>Do not do these things to the service:</strong></p>
+            <ul>
+                <li>Spam. Do not send bulk unsolicited messages, mass-add strangers, or use MonkeyHub to advertise.</li>
+                <li>Do not create accounts automatically, or run bots against MonkeyHub.</li>
+                <li>Do not scrape. Do not collect usernames, profile photos, room lists, message content or any other data from MonkeyHub by automated means, and do not build a database out of what you find here.</li>
+                <li>Do not attack, overload or probe our servers, or try to get at data that is not yours.</li>
+                <li>Do not reverse engineer, decompile or disassemble the app, or try to derive its source code, except to the exact extent the law where you live says you may do so despite this clause.</li>
+                <li>Do not modify the app or build a different client against our backend, and do not redistribute the app.</li>
+                <li>Do not resell access to MonkeyHub or charge anyone for it.</li>
+            </ul>
+            <p>
+                One technical warning, because it affects the rules above. When a message contains a link,
+                every device that displays that message fetches the link itself to build a preview. The
+                fetch happens on each recipient's own phone, not on our server, and it identifies itself
+                with a crawler User-Agent. That means the site behind the link learns the IP address and
+                viewing time of everyone in the room, children included. Do not use this to track people.
+                Doing so is a breach of these terms.
+            </p>
+
+            <h3>Child sexual abuse material — zero tolerance</h3>
+            <p>This is stated separately because it is not the same as the other rules.</p>
+            <p>
+                Any sexual content involving a person under 18 is absolutely forbidden on MonkeyHub. This
+                includes photographs, video, drawings, generated images, text, and any attempt to solicit
+                such material from anyone.
+            </p>
+            <p>If we find it, or if it is reported to us and we confirm it:</p>
+            <ul>
+                <li>The account is removed immediately, without notice and without an appeal window.</li>
+                <li>Before removing it, we will export and retain whatever record we can — the content, the account identifiers and the report — outside the app so it can be handed to the authorities. We do this by hand; MonkeyHub has no built-in evidence-hold feature.</li>
+                <li>We report it to the relevant law enforcement authority, and to the National Center for Missing &amp; Exploited Children (NCMEC) or the equivalent body where we are required to report.</li>
+            </ul>
+            <p>
+                We will do this even where it means keeping data that we would otherwise have deleted, and
+                even if the account holder has asked for their account to be deleted. Legal obligations to
+                preserve and report this material override every deletion promise in this document.
+            </p>
+            <p>
+                If you come across this material on MonkeyHub, report it in the app and, if you can,
+                contact your local police. If a child is in immediate danger, contact emergency services
+                first.
+            </p>
+
+            <h3>Your content stays yours</h3>
+            <p>
+                You own what you create. Your messages, photos, videos, voice notes, documents and profile
+                picture are yours. We do not claim ownership of them and we never will.
+            </p>
+            <p>
+                To run the service at all, we need a narrow permission from you. By posting content on
+                MonkeyHub, you give us a <strong>non-exclusive, worldwide, royalty-free licence to store,
+                copy, transmit and display that content, solely for the purpose of operating MonkeyHub for
+                you and the people you send it to.</strong> That licence covers, and is limited to, the
+                things the app actually does:
+            </p>
+            <ul>
+                <li>storing your message in the database so it can be delivered and re-read later</li>
+                <li>keeping the short preview of the latest message on a room's card in your chat list</li>
+                <li>keeping a snapshot of a message you replied to, so the reply makes sense</li>
+                <li>caching your messages and media on the devices of people in the conversation</li>
+                <li>passing the text of a message to our push notification provider so it can appear on a recipient's lock screen</li>
+                <li>generating a still frame from a video you send, so it has a thumbnail</li>
+                <li>relaying the audio and video of a call through our own relay server when two devices cannot connect to each other directly</li>
+                <li>fetching a link you post so that a preview of it can be shown in the conversation</li>
+            </ul>
+            <p>
+                That is the whole list. We do not use your content to advertise, to train models, to sell
+                to anyone, or to promote MonkeyHub. There is no advertising in MonkeyHub and there are no
+                analytics, attribution or crash-reporting tools in the app.
+            </p>
+            <p>The licence ends when the content is deleted from the service. Two honest caveats:</p>
+            <ul>
+                <li>Deleting a message removes it from our database, but not from any copy someone has already downloaded to their device, screenshotted or saved.</li>
+                <li>Some fragments of a message survive elsewhere by design: the reply snapshot on someone else's reply, an @mention of your username inside someone else's message, and the last-message preview on a room card. These are described in full in the Privacy Policy.</li>
+            </ul>
+            <p>
+                You promise that you have the right to post what you post, and that it does not infringe
+                anyone else's rights.
+            </p>
+            <p>
+                <strong>MonkeyHub itself — the app, its name, its logo, its design and its code — belongs
+                to us, and all rights in it are reserved.</strong> Nothing in these terms gives you any
+                right to it beyond a personal, revocable, non-transferable licence to use the app as
+                intended. No right is granted by implication, estoppel or otherwise.
+            </p>
+
+            <h3>Reporting, blocking and moderation</h3>
+            <p>
+                <strong>Blocking.</strong> You can block any user from their profile. Blocking removes any
+                friendship between you both ways, and stops them reaching you. You can also choose to wipe
+                the direct-message room you shared with them, which deletes those messages and their media
+                for both of you. The person you block is not told. You can unblock later.
+            </p>
+            <p>
+                <strong>Reporting.</strong> You can report a user from their profile, and you can report an
+                individual message from the message's own menu. There is currently no way to report a whole
+                room from inside the app; if a room is the problem, report a message in it or email
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>. A report records what you
+                reported, the reason you picked from a short list, and when. If you pick "something else",
+                anything you type is stored as part of that reason. Please use it. On a service this small,
+                reports are the main way we find out something is wrong.
+            </p>
+            <p>
+                <strong>Moderation.</strong> We review reports and decide what to do. Be aware of what we
+                can actually do: MonkeyHub has no tool that lets us delete one message or one photo — only
+                the person who sent a message can remove it. Our options are to warn you, to delete an
+                account and everything in it, or to take no action. Judgements are made by a person, not by
+                an automated system. Because MonkeyHub is run by one developer, we cannot promise a
+                response time and we do not run a 24-hour moderation desk. We prioritise anything involving
+                a child.
+            </p>
+            <p>
+                <strong>Reports outlive accounts — please read this part.</strong> A report is a moderation
+                record, so it does not get deleted when the person who filed it deletes their account. What
+                happens instead is that your link to the report is removed and the report itself is kept:
+                the reason — including any free text you typed under "something else" — what was reported,
+                the timestamp and the status all stay in the database. If you were the person reported, the
+                report keeps a reference to your account identifier and is not touched at all when you
+                delete your account.
+            </p>
+            <p>
+                Reports are deleted automatically <strong>24 months</strong> after they were filed. We keep
+                them that long so that a pattern of behaviour is still visible after someone deletes and
+                re-registers.
+            </p>
+            <p>
+                <strong>Guardian reporting.</strong> If you are a guardian and something has happened to
+                your child on MonkeyHub, report it in the app and also email
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> so it reaches us directly.
+            </p>
+
+            <h3>Suspension and termination</h3>
+            <p>
+                <strong>We may remove your access to MonkeyHub at any time, with or without notice, for any
+                reason or none</strong> — and in particular if you break these terms. We may do this if you:
+            </p>
+            <ul>
+                <li>break any of the rules in "Rules for using MonkeyHub"</li>
+                <li>post child sexual abuse material, in which case removal is immediate and permanent</li>
+                <li>harass or endanger another user, especially a child</li>
+                <li>attack, scrape or abuse the service</li>
+                <li>create a new account to get around a previous removal</li>
+            </ul>
+            <p>
+                Be clear about what "removal" means here. MonkeyHub has no suspension or ban mechanism built
+                into it — there is no flag on an account that freezes it. In practice, enforcement means we
+                delete the account and its content from our database. That is not reversible. Where we can,
+                and where the situation allows it, we will warn you first and give you a chance to fix
+                things. For anything involving a child, we will not.
+            </p>
+            <p>
+                If you think we have got it wrong, email
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>. We will look again. We cannot
+                promise to restore data that has already been deleted, because in most cases it is genuinely
+                gone, and we accept no liability for data lost this way.
+            </p>
+            <p>You can stop using MonkeyHub at any time, for any reason, without telling us.</p>
+
+            <h3>Deleting your account</h3>
+            <p>
+                You can delete your account from inside the app, in your profile settings. There is no need
+                to email us, phone us or ask permission.
+            </p>
+            <p>
+                Deletion is immediate and permanent. It removes, among other things: your account record,
+                your profile photo, every message you sent and the photos, videos, voice notes and documents
+                attached to them, your reactions and pins, your friendships and blocks, your call records,
+                your registered devices, and your Apple or Google sign-in link — for which we also tell
+                Apple to revoke the connection to MonkeyHub. A room that is left empty by your departure is
+                wiped completely, media included. There is no grace period and no way to undo it.
+            </p>
+            <p>Some things survive. We would rather list them than let you assume otherwise:</p>
+            <ul>
+                <li><strong>Reports.</strong> Any report you filed is kept for 24 months, with your link to it removed. Any report filed against you is kept in full for the same period. See the previous section.</li>
+                <li><strong>Fragments inside other people's messages.</strong> If someone replied to you, their reply keeps your display name and a short excerpt of what you wrote. If someone @mentioned you, their message keeps your username. A room's card may still show a preview of your last message.</li>
+                <li><strong>Group call records.</strong> Because of a gap in our deletion routine, our group-call tables are not touched by account deletion at all. Rows recording that you started or joined a group call, which device you joined from, and when you joined and left are left behind — as are unconsumed connection-setup records, which can contain your device's IP address. We consider this a defect and intend to fix it.</li>
+                <li><strong>Security records.</strong> Failed-login counters tied to your account are aged out by a scheduled job rather than deleted at once. The job runs every six hours and only clears records that have been idle for a day, so they can outlast your account by up to about thirty hours.</li>
+                <li><strong>The other side of a friend request.</strong> If someone wrote to you while a friend request was pending, their messages in that exchange are not removed by your deletion.</li>
+                <li><strong>Delivery records for other people.</strong> Records that a notification for one of your messages was sent to someone else remain until they age out on their own schedule.</li>
+                <li><strong>Disappearing-photo stubs.</strong> When a view-once photo has been opened or has expired, the image is deleted but the message row stays.</li>
+                <li><strong>Copies on other people's devices and in push notifications.</strong> Messages you sent that have already been delivered stay on the recipient's device. Our push provider's own records are not deleted by this process.</li>
+                <li><strong>Anything the law requires us to keep</strong>, including material preserved for a child-safety report.</li>
+            </ul>
+            <p>
+                The Privacy Policy sets all of this out in more detail, and tells you how to make a data
+                request.
+            </p>
+            <p>
+                <strong>Child accounts.</strong> A signed-in child cannot delete their own account. A
+                guardian deletes it from their family screen, and the same teardown runs.
+            </p>
+            <p>
+                <strong>If you have already uninstalled the app</strong>, you can still ask us to delete
+                your account: use the <a href="monkeyhub-delete-account.html">account deletion page</a>, or
+                email <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> from an address we can tie
+                to the account, telling us your username.
+            </p>
+
+            <h3>MonkeyHub is free</h3>
+            <p>
+                MonkeyHub costs nothing. There are no subscriptions, no in-app purchases, no paid tiers and
+                no adverts. We do not sell your data, and there is nothing in the app that generates revenue
+                from you.
+            </p>
+            <p>
+                This has a consequence worth stating plainly: MonkeyHub is a side project, not a business
+                with a support team behind it. That shapes the two sections below.
+            </p>
+            <p>
+                If we ever introduce a paid feature, we will tell you before it applies to you, and using
+                MonkeyHub as it stands today will not start costing money without your agreement.
+            </p>
+
+            <h3>Availability — what we do not promise</h3>
+            <p>
+                MonkeyHub runs on a couple of rented virtual machines that one person maintains, behind a
+                commercial network provider. It is not a redundant, multi-region, professionally operated
+                platform, and we are not going to describe it as one.
+            </p>
+            <p>We do not promise:</p>
+            <ul>
+                <li>that MonkeyHub will be available at any particular time, or at all</li>
+                <li>any uptime percentage</li>
+                <li>that messages or calls will be delivered, or delivered promptly</li>
+                <li>that push notifications will arrive</li>
+                <li>that your data will not be lost</li>
+            </ul>
+            <p>
+                The service may go down without warning, for maintenance or because something broke. It may
+                be slow. Calls may fail to connect. Features may stop working after an operating system
+                update. We may have to restore from a backup and lose recent messages, or lose data
+                entirely.
+            </p>
+            <p>
+                <strong>Do not use MonkeyHub for anything where a lost or late message matters.</strong> It
+                is not for emergencies, for medical or safety-critical information, or for anything you
+                cannot afford to lose. If you need to reach someone urgently, use a phone.
+            </p>
+            <p>
+                We also do not promise that MonkeyHub will keep existing. If we decide to shut it down, we
+                will try to give reasonable notice on our website and in the app so you can save what you
+                want to keep — but we may have to shut down at short notice, and if that happens your data
+                will be deleted with the service.
+            </p>
+
+            <h3>Security — what MonkeyHub does not protect you from</h3>
+            <p>
+                We want you to make an informed choice, so here is the plain version. The Privacy Policy has
+                the full detail.
+            </p>
+            <ul>
+                <li><strong>Messages are not end-to-end encrypted.</strong> Your messages, photos, videos, voice notes and documents are stored in readable form in our database. We, as the operator, can read them. Anyone who gained access to the server could read them.</li>
+                <li><strong>The 12-word recovery phrase does not encrypt anything.</strong> It only authorises a password reset.</li>
+                <li><strong>Password protection is weak by modern standards.</strong> Passwords are hashed on your device with plain, unsalted SHA-256, and that hash is what we store and compare. It is not salted, stretched or run through bcrypt, scrypt or argon2. Anyone who obtained the stored value could use it to sign in. Do not reuse a password you use anywhere else on MonkeyHub.</li>
+                <li><strong>Disappearing messages are a convenience, not a guarantee.</strong> Room message lifetimes and view-once photos remove content on our side, but they cannot stop someone screenshotting, photographing the screen, or having already saved the file.</li>
+                <li><strong>Cached messages on your device are not encrypted.</strong> Recent conversations are stored as plain files in the app's folder. Someone with access to your unlocked phone, or to a device backup, can read them.</li>
+            </ul>
+            <p>
+                Connections between your device and our servers use HTTPS. That is a real protection against
+                someone on your Wi-Fi, and it is not the same thing as end-to-end encryption. Be clear about
+                what it does and does not cover:
+            </p>
+            <ul>
+                <li>MonkeyHub runs on rented virtual machines from Oracle Cloud that we administer ourselves. It is our deployment, not a managed messaging platform — but it is still someone else's hardware, and Oracle is the host.</li>
+                <li>Traffic reaches us through Cloudflare, which terminates the HTTPS connection at its edge. Cloudflare is technically positioned to see what passes through it.</li>
+            </ul>
+            <p>
+                If you need a service where the operator genuinely cannot read your messages, MonkeyHub is
+                not that service today.
+            </p>
+
+            <h3>Changes to MonkeyHub and to these terms</h3>
+            <p>
+                <strong>Changes to the app.</strong> We add, change and remove features. We may change how
+                something works, retire a feature you rely on, or require you to update to a newer version
+                to keep using the service. We are not obliged to keep any particular feature, and we are not
+                obliged to keep supporting older versions of the app or older operating systems.
+            </p>
+            <p>
+                <strong>Changes to these terms.</strong> We may update these terms at any time. When we do,
+                we will change the date at the top and publish the new version on our website.
+            </p>
+            <p>
+                If a change materially affects your rights — for example a change to how your content is
+                used, to termination, or to dispute resolution — we will give you reasonable notice in the
+                app or by email before it takes effect.
+            </p>
+            <p>
+                Continuing to use MonkeyHub after a change means you accept the new terms. If you do not
+                accept them, delete your account. That is always a live option and it costs you nothing.
+            </p>
+
+            <h3>No warranty</h3>
+            <p>
+                <strong>MonkeyHub is provided "AS IS" and "AS AVAILABLE", with all faults and without
+                warranty of any kind.</strong>
+            </p>
+            <p>
+                To the fullest extent permitted by law, we disclaim all warranties, conditions and terms,
+                express, implied or statutory, including any implied warranty of merchantability,
+                satisfactory quality, fitness for a particular purpose, accuracy, quiet enjoyment, title,
+                and non-infringement, and any warranty arising out of course of dealing or usage of trade.
+            </p>
+            <p>
+                We do not warrant that MonkeyHub will meet your requirements, that it will be
+                uninterrupted, timely, secure or error-free, that defects will be corrected, that it is
+                free of viruses or other harmful components, or that any data you store will be preserved.
+                We do not warrant the conduct of other users, or the accuracy, safety or legality of
+                anything they send you. No advice or information, oral or written, obtained from us
+                creates any warranty not expressly stated here.
+            </p>
+            <p>
+                <strong>You use MonkeyHub entirely at your own risk.</strong> You are solely responsible
+                for any damage to your device or loss of data that results from using it.
+            </p>
+            <p>
+                Some places do not permit the exclusion of implied warranties. Where that is the case,
+                the exclusions above apply only as far as that law allows, and nothing here takes away
+                consumer rights that the law where you live gives you and does not allow to be excluded.
+            </p>
+
+            <h3>Limitation of liability</h3>
+            <p>To the fullest extent permitted by law:</p>
+            <ul>
+                <li>We are not liable for any indirect, incidental, special, consequential, exemplary or punitive damages of any kind.</li>
+                <li>We are not liable for lost profits, lost revenue, lost data, lost messages, lost media, loss of goodwill, business interruption, or the cost of getting a substitute service — whether the claim is brought in contract, tort (including negligence), strict liability or any other theory.</li>
+                <li>We are not liable for anything another user does — what they send you, how they treat you, or what they do with information you gave them.</li>
+                <li>We are not liable for anything caused by services or conditions outside our control, including your network, your device, your operating system, app stores, push notification delivery, our hosting or network providers, or any third party who helps deliver the service.</li>
+                <li>We are not liable for unauthorised access to, alteration of, or deletion of your data, however caused.</li>
+            </ul>
+            <p>
+                <strong>Our total aggregate liability to you for all claims arising out of or relating to
+                MonkeyHub is limited to the amount you have paid us in the twelve months before the claim
+                — which, because MonkeyHub is free, is zero — or, where the law of your country requires a
+                higher minimum, that minimum.</strong>
+            </p>
+            <p>
+                These limits apply even if we were told a particular kind of loss was possible, and even
+                if a limited remedy fails its essential purpose. They apply in aggregate across all claims
+                and are not multiplied by the number of claims you bring.
+            </p>
+            <p>
+                <strong>Indemnity.</strong> You agree to indemnify and hold us harmless from any claim,
+                demand, loss, liability or expense (including reasonable legal fees) brought by a third
+                party and arising out of your use of MonkeyHub, your content, or your breach of these
+                terms — except to the extent the law where you live does not permit this.
+            </p>
+            <p>
+                <strong>What we do not try to exclude.</strong> Nothing in these terms limits our liability
+                for death or personal injury caused by our negligence, for fraud or fraudulent
+                misrepresentation, for gross negligence or wilful misconduct, or for anything else that the
+                law where you live does not permit us to limit. We say so because a clause that reaches
+                further than the law allows can be struck down in full, taking the protections above with
+                it — stating the limit is what keeps the rest of this section standing. Some places do not
+                allow the exclusion of certain damages, so parts of this section may not apply to you.
+            </p>
+
+            <h3>If you got MonkeyHub from the Apple App Store</h3>
+            <p>
+                These extra terms apply if you downloaded MonkeyHub from Apple's App Store. Where they
+                conflict with anything else in this document, they win for App Store downloads.
+            </p>
+            <ul>
+                <li><strong>These terms are between you and Murat Can Koç only, not with Apple.</strong> Apple is not a party to this agreement.</li>
+                <li><strong>Murat Can Koç alone is responsible for MonkeyHub</strong> and for its content. Apple is not responsible for the app or for anything in it.</li>
+                <li><strong>Your licence</strong> is a non-transferable licence to use MonkeyHub on any Apple-branded product that you own or control, as permitted by the Usage Rules in the Apple Media Services Terms and Conditions.</li>
+                <li><strong>Apple has no obligation to provide maintenance or support</strong> for MonkeyHub. If you need support, contact us at <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>.</li>
+                <li><strong>Warranty.</strong> If MonkeyHub fails to conform to any applicable warranty, you may tell Apple, and Apple will refund the purchase price — which for MonkeyHub is zero, because the app is free. To the maximum extent permitted by law, Apple has no other warranty obligation whatsoever with respect to MonkeyHub, and any other claims, losses, liabilities, damages, costs or expenses attributable to a failure to conform to any warranty are our responsibility, not Apple's.</li>
+                <li><strong>Claims.</strong> Murat Can Koç, not Apple, is responsible for addressing any claim you or a third party makes about MonkeyHub or your possession and use of it — including product liability claims, claims that MonkeyHub fails to conform to a legal or regulatory requirement, and claims under consumer protection or similar law.</li>
+                <li><strong>Intellectual property.</strong> If a third party claims that MonkeyHub infringes their intellectual property rights, Murat Can Koç, not Apple, is solely responsible for investigating, defending, settling and discharging that claim.</li>
+                <li><strong>Export.</strong> You confirm that you are not located in a country subject to a US Government embargo or designated as a "terrorist supporting" country, and that you are not on any US Government list of prohibited or restricted parties.</li>
+                <li><strong>Third-party beneficiary.</strong> Apple and Apple's subsidiaries are third-party beneficiaries of these terms, and upon your acceptance of them Apple has the right — and is deemed to have accepted the right — to enforce these terms against you as a third-party beneficiary.</li>
             </ul>
 
-            <p>Please be aware that the Service Provider does not assume responsibility for certain aspects. Some functions of the Application require an active internet connection, which can be Wi-Fi or provided by your mobile network provider. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.</p>
+            <h3>Governing law and disputes</h3>
+            <p>
+                These terms are governed by the laws of the <strong>Republic of Türkiye</strong>, without
+                regard to its conflict-of-law rules.
+            </p>
+            <p>
+                <strong>Talk to us first.</strong> If something has gone wrong, email
+                <a href="mailto:info@walhallaa.com">info@walhallaa.com</a> and describe the problem. Most
+                disputes with a service this size can be sorted out in a couple of emails, and we would
+                rather do it that way. Please give us 30 days to respond before starting formal
+                proceedings.
+            </p>
+            <p>
+                <strong>If that does not work</strong>, disputes arising out of or relating to these terms
+                or to MonkeyHub will be brought in the <strong>İstanbul (Anadolu) Courts and Enforcement
+                Offices</strong>, and you and we agree to their exclusive jurisdiction.
+            </p>
+            <p>
+                <strong>Your local rights are not taken away.</strong> If you are a consumer, this section
+                does not remove the protection of the mandatory consumer laws of the country where you
+                live, and it does not stop you bringing a claim in your local courts where the law gives
+                you that right. If you are in the EU, you may also use the European Commission's online
+                dispute resolution platform. In Türkiye, consumer disputes below the statutory threshold go
+                to the Tüketici Hakem Heyeti.
+            </p>
+            <p>
+                <strong>Severability.</strong> If a court finds any part of these terms unenforceable, that
+                part is cut down to the minimum extent needed to make it enforceable, or removed, and the
+                rest continues to apply in full.
+            </p>
+            <p>
+                <strong>No waiver.</strong> If we do not enforce a part of these terms straight away, that
+                does not mean we have given up the right to enforce it later.
+            </p>
+            <p>
+                <strong>Whole agreement.</strong> These terms, together with the Privacy Policy and the
+                End User Licence Agreement, are the entire agreement between you and us about MonkeyHub,
+                and replace anything said before.
+            </p>
+            <p>
+                <strong>Transfer.</strong> You may not transfer your rights under these terms to anyone
+                else. We may transfer ours if MonkeyHub is transferred to another operator, and we will
+                tell you in the app or by email before that happens.
+            </p>
+            <p>
+                <strong>Survival.</strong> The sections on your content licence, ownership, no warranty,
+                limitation of liability, indemnity, and governing law survive the end of this agreement
+                and the deletion of your account.
+            </p>
 
-            <p>If you are using the application outside of a Wi-Fi area, please be aware that your mobile network provider's agreement terms still apply. Consequently, you may incur charges from your mobile provider for data usage during the connection to the application, or other third-party charges. By using the application, you accept responsibility for any such charges, including roaming data charges if you use the application outside of your home territory (i.e., region or country) without disabling data roaming. If you are not the bill payer for the device on which you are using the application, they assume that you have obtained permission from the bill payer.</p>
-
-            <p>Similarly, the Service Provider cannot always assume responsibility for your usage of the application. For instance, it is your responsibility to ensure that your device remains charged. If your device runs out of battery and you are unable to access the Service, the Service Provider cannot be held responsible.</p>
-
-            <p>In terms of the Service Provider's responsibility for your use of the application, it is important to note that while they strive to ensure that it is updated and accurate at all times, they do rely on third parties to provide information to them so that they can make it available to you. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying entirely on this functionality of the application.</p>
-
-            <p>The Service Provider may wish to update the application at some point. The application is currently available as per the requirements for the operating system (and for any additional systems they decide to extend the availability of the application to) may change, and you will need to download the updates if you want to continue using the application. The Service Provider does not guarantee that it will always update the application so that it is relevant to you and/or compatible with the particular operating system version installed on your device. However, you agree to always accept updates to the application when offered to you. The Service Provider may also wish to cease providing the application and may terminate its use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the application, and (if necessary) delete it from your device.</p>
-
-            <h3>Changes to These Terms and Conditions</h3>
-            <p>The Service Provider may periodically update their Terms and Conditions. Therefore, you are advised to review this page regularly for any changes. The Service Provider will notify you of any changes by posting the new Terms and Conditions on this page.</p>
-
-            <p>These terms and conditions are effective as of 2024-08-05</p>
-
-            <h3>Contact Us</h3>
-            <p>If you have any questions or suggestions about the Terms and Conditions, please do not hesitate to contact the Service Provider at info@walhallaa.com.</p>
-
-            <p><em>This Terms and Conditions page was generated by App Privacy Policy Generator</em></p>
+            <h3>How to contact us</h3>
+            <p>
+                MonkeyHub is made and operated by <strong>Murat Can Koç</strong>, trading as
+                <strong>WalhallaApps</strong>.
+            </p>
+            <ul>
+                <li>Email: <a href="mailto:info@walhallaa.com">info@walhallaa.com</a></li>
+                <li>Postal address: Çekmeköy, 34794 İstanbul, Türkiye</li>
+                <li>Website: <a href="index.html">walhallaa.com</a></li>
+            </ul>
+            <p>
+                Use the same email for all of it: questions about these terms, privacy and data requests,
+                safety concerns, disputing an account removal, or asking us to delete an account after you
+                have uninstalled the app.
+            </p>
+            <p>
+                We are one developer. We read everything, and we answer as quickly as we can. Anything
+                involving a child's safety goes to the front of the queue — say so in the subject line and
+                we will treat it that way.
+            </p>
         </div>
+
+        <p>
+            <a href="monkeyhub-eula.html">End User Licence Agreement</a> ·
+            <a href="monkeyhub-delete-account.html">Delete your account</a> ·
+            <a href="index.html">walhallaa.com</a>
+        </p>
     </div>
 </body>
-</html> 
+</html>
