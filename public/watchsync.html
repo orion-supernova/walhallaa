@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WatchSync — Sync the moment, not the screen</title>
+<meta name="description" content="A macOS watch-party app that syncs playback instead of streaming video. Everyone plays their own copy at full quality; WatchSync keeps pause, play and seek in lockstep. Free, no account, notarized.">
+<link rel="canonical" href="https://walhallaa.com/watchsync">
+<link rel="icon" type="image/png" href="watchsync/icon.png">
+<meta name="theme-color" content="#0b1020">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="WatchSync — Sync the moment, not the screen">
+<meta property="og:description" content="Watch together on macOS without screen sharing. Everyone plays their own copy; the app syncs the controls.">
+<meta property="og:image" content="https://walhallaa.com/watchsync/icon.png">
+<meta property="og:url" content="https://walhallaa.com/watchsync">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#070a16;
+    --bg-2:#0d1330;
+    --panel:rgba(255,255,255,.055);
+    --stroke:rgba(255,255,255,.11);
+    --text:#f2f5ff;
+    --muted:#9aa5c4;
+    --accent:#2f6bff;
+    --accent-soft:rgba(47,107,255,.16);
+    --green:#37d67a;
+    --amber:#ffb020;
+    --radius:20px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font:400 17px/1.65 Inter,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* ambient glow */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(900px 620px at 50% -8%, #21306b 0%, transparent 62%),
+      radial-gradient(700px 500px at 88% 12%, #3b1d63 0%, transparent 58%),
+      radial-gradient(760px 560px at 6% 34%, #10306b 0%, transparent 60%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 48%,var(--bg) 100%);
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  /* ---------- hero ---------- */
+  header.hero{text-align:center;padding:86px 0 44px}
+  .appicon{
+    width:112px;height:112px;border-radius:25%;
+    box-shadow:0 22px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.07);
+  }
+  h1{
+    font-size:clamp(2.6rem,6.4vw,4.15rem);
+    line-height:1.03;letter-spacing:-.033em;font-weight:800;
+    margin:26px 0 0;
+  }
+  .tagline{
+    font-size:clamp(1.12rem,2.5vw,1.42rem);
+    color:#cdd6f2;font-weight:500;margin:16px auto 0;max-width:32ch;
+  }
+  .sub{color:var(--muted);max-width:52ch;margin:16px auto 0;font-size:1.02rem}
+
+  .cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin:34px 0 12px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 26px;border-radius:14px;
+    font-weight:600;font-size:1.01rem;text-decoration:none;
+    border:1px solid transparent;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg,#3f7cff,#2559e6);
+    box-shadow:0 12px 30px rgba(47,107,255,.42);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(47,107,255,.55)}
+  .btn-ghost{background:var(--panel);border-color:var(--stroke);backdrop-filter:blur(14px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+  .meta{color:var(--muted);font-size:.88rem;margin-top:6px}
+  .meta b{color:#c3cde8;font-weight:600}
+
+  .shot{
+    margin:46px auto 0;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--stroke);
+    box-shadow:0 40px 90px rgba(0,0,0,.62);
+    max-width:940px;
+  }
+  .shot img{display:block;width:100%;height:auto}
+  .caption{color:var(--muted);font-size:.87rem;margin-top:13px;text-align:center}
+
+  /* ---------- sections ---------- */
+  section{padding:66px 0}
+  h2{
+    font-size:clamp(1.75rem,3.6vw,2.4rem);letter-spacing:-.022em;
+    font-weight:750;margin:0 0 16px;
+  }
+  .lede{color:#c3cde8;font-size:1.09rem;max-width:62ch}
+  p{margin:0 0 17px}
+  .muted{color:var(--muted)}
+
+  .split{
+    display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;
+  }
+  .split.reverse .txt{order:2}
+  .split img{
+    display:block;width:100%;height:auto;border-radius:16px;
+    border:1px solid var(--stroke);box-shadow:0 26px 62px rgba(0,0,0,.5);
+  }
+  .split .shotwrap{display:flex;justify-content:center}
+  .split .shotwrap.narrow img{max-width:290px}
+  .split .shotwrap.mid img{max-width:420px}
+  h3{font-size:1.28rem;font-weight:700;letter-spacing:-.012em;margin:0 0 10px}
+
+  /* ---------- feature cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+  .card{
+    background:var(--panel);border:1px solid var(--stroke);
+    border-radius:var(--radius);padding:26px 25px;backdrop-filter:blur(16px);
+  }
+  .card h3{margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.97rem;margin:0}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:5px 12px;border-radius:999px;font-size:.8rem;font-weight:600;
+    background:rgba(55,214,122,.13);color:var(--green);
+    border:1px solid rgba(55,214,122,.3);margin-bottom:13px;
+  }
+  .pill.amber{background:rgba(255,176,32,.12);color:var(--amber);border-color:rgba(255,176,32,.3)}
+  .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+  /* ---------- faq ---------- */
+  details{
+    background:var(--panel);border:1px solid var(--stroke);
+    border-radius:15px;padding:0 22px;margin-bottom:11px;backdrop-filter:blur(14px);
+  }
+  summary{
+    cursor:pointer;padding:19px 0;font-weight:600;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--muted);font-size:1.4rem;font-weight:400;line-height:1}
+  details[open] summary::after{content:"−"}
+  details p{color:var(--muted);font-size:.97rem;padding-bottom:5px}
+  details p:last-child{margin-bottom:14px}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87em;
+    background:rgba(255,255,255,.08);padding:2px 7px;border-radius:6px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--stroke);margin-top:50px;
+    padding:38px 0 54px;text-align:center;color:var(--muted);font-size:.9rem;
+  }
+  footer a{color:#c3cde8;text-decoration:none;margin:0 11px;white-space:nowrap}
+  footer a:hover{color:#fff;text-decoration:underline}
+
+  @media(max-width:820px){
+    .split{grid-template-columns:1fr;gap:26px}
+    .split.reverse .txt{order:0}
+    .cards{grid-template-columns:1fr}
+    header.hero{padding:56px 0 30px}
+    section{padding:48px 0}
+    .split .shotwrap.mid img,.split .shotwrap.narrow img{max-width:330px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <img class="appicon" src="watchsync/icon.png" alt="WatchSync app icon">
+    <h1>WatchSync</h1>
+    <p class="tagline">Sync the moment, not the screen.</p>
+    <p class="sub">Nobody streams anything to anybody. Everyone opens their own copy, and WatchSync keeps the play button in lockstep.</p>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/orion-supernova/WatchSync/releases/latest">Download for macOS</a>
+      <a class="btn btn-ghost" href="https://github.com/orion-supernova/WatchSync">View source</a>
+    </div>
+    <p class="meta">Free · macOS 15+ · <b>Notarized by Apple</b> · No account</p>
+
+    <div class="shot">
+      <img src="watchsync/hero.gif" alt="Clicking Enter Sidebar Mode: the Chrome window resizes and the WatchSync panel snaps flush to the right edge of the screen" loading="lazy">
+    </div>
+    <p class="caption">Sidebar mode: your video keeps the screen, the party gets the edge.</p>
+  </header>
+
+  <section>
+    <h2>Screen sharing is a bad way to watch a movie</h2>
+    <p class="lede">It re-encodes a 4K file into a smeary 720p, it dies the moment someone's Wi-Fi hiccups, and one person's laptop does all the work while their fan screams.</p>
+    <p class="lede">WatchSync goes the other way. Everyone plays their own copy at full quality, in whatever app they already use, and only the controls travel between you. You pause, everyone pauses. You skip back ten seconds because somebody was talking, everyone skips back ten seconds.</p>
+    <p class="lede">It knows what you're playing by asking macOS the same question the Now Playing widget asks — so YouTube in Chrome, a local file, Spotify and Apple Music all work the same way. No browser extension, nothing to set up per app.</p>
+  </section>
+
+  <section>
+    <div class="split">
+      <div class="txt">
+        <h3>Getting in takes six characters</h3>
+        <p class="muted">Somebody creates a party and reads out a code. No email, no account, no invite link to chase down. The alphabet skips <code>0</code>, <code>1</code>, <code>I</code> and <code>O</code>, so nobody has to ask whether that's a zero or a letter O over a bad mic.</p>
+        <p class="muted">Pick a name and an emoji and you're in. Your seat is held by an ID generated on your own Mac — there's no profile of you anywhere.</p>
+      </div>
+      <div class="shotwrap mid">
+        <img src="watchsync/join.gif" alt="The Watch together screen, typing a six-character party code, and landing in a party with two members" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="split reverse">
+      <div class="txt">
+        <span class="pill"><span class="dot"></span>All in sync</span>
+        <span class="pill amber"><span class="dot"></span>Play state mixed</span>
+        <h3>It tells you when it's lying</h3>
+        <p class="muted">Sync that silently doesn't work is worse than no sync. So the party header always says which of eight states you're actually in — everyone together, drifted by nine seconds, split on play state, or watching entirely different things. Hover it and it explains itself.</p>
+        <p class="muted">Underneath, the chat narrates what the room did: <em>orion played</em>, <em>zeynep jumped to 0:32</em>, <em>orion paused</em>. When something desyncs, you can see which pause caused it.</p>
+      </div>
+      <div class="shotwrap narrow">
+        <img src="watchsync/sync.gif" alt="The sync status pill flipping from Play state mixed back to All in sync while action lines arrive in the chat" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Built for the awkward parts</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>It drives apps with no API</h3>
+        <p>After macOS 15.4, the private framework behind Now Playing stopped answering in-process calls — which is why a lot of media widgets quietly broke. WatchSync reaches it the one way that still works, so detection isn't a per-app integration list that rots.</p>
+      </div>
+      <div class="card">
+        <h3>It doesn't fight you</h3>
+        <p>A pause arriving mid-buffer looks exactly like a real pause from a friend. So a mismatch has to persist before anything happens, and the app then sets the absolute state rather than toggling — which is how these things end up in a pause/play war.</p>
+      </div>
+      <div class="card">
+        <h3>Different films don't collide</h3>
+        <p>Before applying anything it checks you're even on the same content. Safari and Chrome on the same video still sync. Your Spotify and their movie leave each other alone.</p>
+      </div>
+      <div class="card">
+        <h3>It stays out of the frame</h3>
+        <p>Sidebar mode parks the panel against the right edge and re-snaps every time you switch apps — and rides into fullscreen instead of being hidden by it. Close the window and it drops to the menu bar, still syncing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions people actually ask</h2>
+
+    <details>
+      <summary>Do we all need the same video file?</summary>
+      <p>Yes. WatchSync syncs the controls, not the pixels — it never sees or sends a frame of what you're watching. Everyone needs their own copy, or their own tab on the same streaming service. Think shared remote, not projector.</p>
+    </details>
+
+    <details>
+      <summary>Does it work with Netflix, Disney+, YouTube?</summary>
+      <p>Play and pause work anywhere macOS reports Now Playing, because they go out as a system-wide media key — the same event as the play button on your keyboard.</p>
+      <p>Seeking is fussier. In browsers it works by setting <code>currentTime</code> on the page's video element, which covers nearly every video site, but the browser has to allow it: <b>Chrome → View → Developer → Allow JavaScript from Apple Events</b>, or <b>Safari → Develop → Allow JavaScript from Apple Events</b>. Without that, play/pause still syncs and seek quietly doesn't.</p>
+    </details>
+
+    <details>
+      <summary>Do I need an account?</summary>
+      <p>No. There's no sign-up, no email and no password anywhere in the app. You're identified by a random ID generated on your Mac the first time you launch it, and "Clear all data" in Settings throws it away.</p>
+    </details>
+
+    <details>
+      <summary>What happens if someone's connection drops?</summary>
+      <p>They fall out of the member list after three minutes and everyone else keeps syncing. When they come back, their seat is re-created automatically — a network blip can't wedge them out of the room.</p>
+    </details>
+
+    <details>
+      <summary>Is any of this stored?</summary>
+      <p>Barely, and not for long. A party holds a six-character code, a display name and emoji per person, one row of current playback state, and the chat. Members are dropped after three minutes without a heartbeat, and the whole party — chat included — is deleted after 30 minutes of inactivity, or a minute after the last person leaves.</p>
+    </details>
+
+    <details>
+      <summary>Why does it want Accessibility permission?</summary>
+      <p>Two things, both for sidebar mode: reading the frontmost window's frame so it can size itself next to your video, and posting system-wide media keys so a remote pause reaches whatever app is playing. Deny it and everything else still works — you just get a floating window instead of a snapped one.</p>
+    </details>
+
+    <details>
+      <summary>Why isn't it on the Mac App Store?</summary>
+      <p>It can't be. Accessibility, system-wide media keys, AppleEvents into other apps and a subprocess reaching a private framework are each independently disqualifying. So it ships the way Rectangle and Bartender do: a Developer ID app, signed and notarized by Apple, in a DMG. Gatekeeper opens it normally — no right-click-to-open dance.</p>
+    </details>
+
+    <details>
+      <summary>Is it really free?</summary>
+      <p>Yes, and it's open source under the MIT license. No ads, no accounts, nothing to buy. If you'd rather not use the hosted backend, the whole thing runs on your own Convex instance — that's <a href="https://github.com/orion-supernova/WatchSync#running-your-own-backend">two commands</a>.</p>
+    </details>
+  </section>
+
+  <footer>
+    <nav>
+      <a href="https://github.com/orion-supernova/WatchSync/releases/latest">Download</a>·
+      <a href="https://github.com/orion-supernova/WatchSync">Source</a>·
+      <a href="https://github.com/orion-supernova/WatchSync/issues">Report a bug</a>·
+      <a href="mailto:info@walhallaa.com">info@walhallaa.com</a>·
+      <a href="/">walhallaa.com</a>
+    </nav>
+    <p>Built by Murat Can Koç · MIT licensed</p>
+  </footer>
+
+</div>
+</body>
+</html>
