@@ -55,6 +55,10 @@
       linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 48%,var(--bg) 100%);
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .backhome{display:inline-flex;align-items:center;gap:8px;margin:26px 0 -8px;padding:9px 15px;border:1px solid var(--stroke);border-radius:999px;
+    background:var(--panel);color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.01em;
+    transition:color .25s,border-color .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+  .backhome:hover{color:var(--text);border-color:rgba(255,255,255,.28);transform:translateY(-1px)}
   a{color:inherit}
 
   /* ---------- hero ---------- */
@@ -181,6 +185,8 @@
 <body>
 
 <div class="wrap">
+
+  <a class="backhome" href="/">&larr; Murat Can Koç — all work</a>
 
   <header class="hero">
     <img class="appicon" src="watchsync/icon.png" alt="WatchSync app icon">

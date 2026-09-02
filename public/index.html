@@ -1,196 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rabbit Hole</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <meta name="description" content="Walhallaa - A.M.M.C.K. Productions.">
-    <meta name="keywords" content="walhallaa, ammck productions, iOS, Swift, UIKit, SwiftUI, Mobile Development">
-    <link rel="canonical" href="https://www.muratcankoc.wixsite.com/ammckproductions">
-    <!-- Add favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="manifest.json">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Murat Can Koç — iOS &amp; macOS Developer</title>
+<meta name="description" content="Murat Can Koç designs, builds and ships apps on his own — Swift and SwiftUI for iPhone and Mac, Flutter when a project has to land on Android and the web too.">
+<link rel="canonical" href="https://walhallaa.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Murat Can Koç — iOS &amp; macOS Developer">
+<meta property="og:description" content="iPhone, Mac and Android apps, built end to end. Swift and SwiftUI first, Flutter where it earns its place.">
+<meta property="og:url" content="https://walhallaa.com/">
+<meta name="theme-color" content="#F05138">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/devices.css">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <canvas id="matrix-rain"></canvas>
-    <div id="intro-screen">
-        <div id="typewriter-text">Welcome, Earthling</div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top">Murat Can Koç</a>
+    <span class="bar-role">iOS &amp; macOS developer</span>
+    <nav class="bar-nav" aria-label="Sections"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-ink btn-sm" href="mailto:info@walhallaa.com">Email</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero on-orange" id="top" data-tilt-zone data-magnet-zone>
+    <div class="light" aria-hidden="true"></div>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <div class="hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow ld" style="--l:.05s">Murat Can Koç · Swift, SwiftUI, UIKit, Objective-C · Flutter</p>
+        <h1 class="poster">
+          <span class="line" style="--i:0"><span>Apps for iPhone,</span></span>
+          <span class="line" style="--i:1"><span>Mac and Android,</span></span>
+          <span class="line line-white" style="--i:2"><span>built end to end.</span></span>
+        </h1>
+        <p class="lede ld" style="--l:.5s">I design them, write them, submit them and keep them alive — on my own. Swift and SwiftUI are home; Flutter comes out when something has to run everywhere at once.</p>
+        <div class="cta-row ld" style="--l:.62s">
+          <a class="btn btn-ink" href="mailto:info@walhallaa.com" data-magnetic><span class="btn-t"><span>Email me</span><span>Email me</span></span></a>
+          <a class="btn btn-line" href="#work"><span class="btn-t"><span>See the work</span><span>See the work</span></span><i class="btn-arrow">↓</i></a>
+        </div>
+        <a class="stamp ld" style="--l:.8s" href="#work" aria-label="See the work">
+          <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="stampPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text><textPath href="#stampPath">Swift · SwiftUI · Flutter · iPhone · Mac · </textPath></text></svg>
+          <span class="stamp-core" aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="hero-devices" data-parallax="-0.08">
+        <div id="heroDevices"></div>
+      </div>
     </div>
-    <div id="portfolio-content">
-        <header>
-            <nav>
-                <div class="hamburger-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+    <dl class="meta">
+      <div class="meta-item reveal" style="--d:0ms"><dt>Platforms</dt><dd>iOS · macOS · Android · Web</dd></div>
+      <div class="meta-item reveal" style="--d:80ms"><dt>Stack</dt><dd>Swift · SwiftUI · UIKit · Objective-C · Flutter</dd></div>
+      <div class="meta-item reveal" style="--d:160ms"><dt>Shipped</dt><dd>8 on the App Store · 10+ open source</dd></div>
+    </dl>
+  </section>
 
-        <main id="main-content" tabindex="-1">
-            <section id="home" class="parallax">
-                <div class="content">
-                    
-                </div>
-            </section>
-
-            <section id="about">
-                <div class="content">
-                    <h2>About Us</h2>
-                    <p>Passionate iOS developer with over 4 years of experience creating innovative mobile applications, specializing in Swift and Objective-C. Proven track record of delivering high-quality apps. Expertise in problem solving, teamwork, attention to detail and time management. Committed to staying at the forefront of iOS development trends and best practices</p>
-                </div>
-            </section>
-
-            <section id="projects">
-                <div class="content">
-                    <h2>Featured Projects</h2>
-                    <div class="project-grid">
-                        <article class="project">
-                            <h3>Tic Tac Toe for Dummies (iOS)</h3>
-                            <p>It's just a recreation of our old, loved game tic-tac-toe. There is nothing special about it, purely made with SwiftUI.</p>
-                            <p><small>May 23, 2021</small></p>
-                            <div class="project-links">
-                                <a href="tic-tac-toe-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>MonkeyHub (iOS)</h3>
-                            <p>It started as just an ordinary social media app solution for private, fun content sharing. Then we decided to upload it. Nothing's special.</p>
-                            <p><small>May 25, 2021</small></p>
-                            <div class="project-links">
-                                <a href="monkeyhub-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                                <a href="monkeyhub-eula.html" class="project-link" target="_blank">EULA</a>
-                                <a href="monkeyhub-delete-account.html" class="project-link" target="_blank">Delete Account</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>JustHelloWorld (iOS)</h3>
-                            <p>This looks like an app that just shows "Hello World" in multiple languages and colors. But is it?</p>
-                            <p><small>Feb 09, 2022</small></p>
-                            <div class="project-links">
-                                <a href="justhelloworld-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>MonkeyChat (iOS)</h3>
-                            <p>This is a chat app for everyday use. Privacy focused.</p>
-                            <p><small>May 02, 2022</small></p>
-                            <div class="project-links">
-                                <a href="monkeychat-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                                <a href="monkeychat-eula.html" class="project-link" target="_blank">EULA</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>Cosmic Clicker (iOS)</h3>
-                            <p>Your favorite idle clicker game without an eye-tiring UI.</p>
-                            <p><small>August 4, 2024</small></p>
-                            <div class="project-links">
-                                <a href="cosmic-clicker-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>Mahmut Clipboard (macOS)</h3>
-                            <p>Best open-source clipboard manager for everyday use.</p>
-                            <p><small>March 28, 2023</small></p>
-                            <div class="project-links">
-                                <a href="mahmut-clipboard-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>PictureClock: Frame Pro (macOS)</h3>
-                            <p>Your favorite clock & timer.</p>
-                            <p><small>August 13, 2024</small></p>
-                            <div class="project-links">
-                                <a href="pictureclock-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>BookVerse: Beyond the Pages (iOS)</h3>
-                            <p>Your digital gateway to endless literary adventures.</p>
-                            <p><small>November 1, 2024</small></p>
-                            <div class="project-links">
-                                <a href="bookverse-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>Where am I? (iOS &amp; Android)</h3>
-                            <p>A real-time party game of bluffing and deduction. Everyone shares a secret location — except for one. Find the spy, or be the spy. 3 to 12 players.</p>
-                            <p><small>May 8, 2026</small></p>
-                            <div class="project-links">
-                                <a href="whereami-privacy-terms.html" class="project-link" target="_blank">Privacy Policy & Terms</a>
-                                <a href="whereami-eula.html" class="project-link" target="_blank">EULA</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>WatchSync (macOS)</h3>
-                            <p>Watch a film together without screen sharing. Everyone plays their own copy at full quality and the app syncs the controls — pause, play, seek — over a six-character code. No account.</p>
-                            <p><small>September 1, 2026</small></p>
-                            <div class="project-links">
-                                <a href="watchsync" class="project-link">Website</a>
-                                <a href="https://github.com/orion-supernova/WatchSync" class="project-link" target="_blank">Source</a>
-                            </div>
-                        </article>
-                        <article class="project">
-                            <h3>Elixir: Daily Ritual (iOS)</h3>
-                            <p>A medication and water tracker that levels up. Every dose is XP, every streak is a multiplier, and the potion bottle on your home screen gets visibly annoyed when you're late.</p>
-                            <p><small>In development</small></p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="content">
-                    <h2>Contact Us</h2>
-                    <div class="contact-info">
-                        <p class="glitch-text">Greetings, fellow traveler of the digital realm!</p>
-                        <p>To establish a secure connection, transmit your message to:</p>
-                        <p class="contact-email glitch-text">info@walhallaa.com</p>
-                        <div class="project-links">
-                            <button id="secure-connection-btn" class="cyberpunk-btn">Establish Secure Connection</button>
-                        </div>
-                        <p>Prepare for a response from the cybervoid within 48 Earth rotations.</p>
-                        <p class="warning-text">WARNING: Unsecured transmissions may be intercepted by you know who/what.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <nav aria-label="Footer links">
-                <a href="https://apps.apple.com/se/developer/murat-can-koc/id1546710591" target="_blank" aria-label="App Store">App Store</a>
-                <a href="https://github.com/orion-supernova" target="_blank" aria-label="GitHub profile">GitHub</a>
-                <a href="https://linkedin.com/in/muratcankoc" target="_blank" aria-label="LinkedIn profile">LinkedIn</a>
-            </nav>
-            <p>&copy; 2024 A.M.M.C.K Productions. All rights reserved.</p>
-        </footer>
+  <!-- ============ WORK ============ -->
+  <section class="work" id="work">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Fourteen projects · strongest first</p>
+      <h2>The work</h2>
+      <p class="hint">Scroll. Whatever reaches the middle of the screen opens on the device.</p>
+    </header>
+    <div class="work-grid">
+      <aside class="rail" aria-hidden="true">
+        <div class="rail-line"></div>
+        <div class="rail-marker" id="railMarker">
+          <span class="rail-n" id="railN">01</span>
+          <span class="rail-of" id="railTotal">/ 14</span>
+          <span class="rail-glyph" id="railGlyph"></span>
+        </div>
+      </aside>
+      <ol class="entries" id="entries"></ol>
+      <aside class="pin" aria-hidden="true">
+        <div class="pin-in"><div id="workDevices"></div></div>
+      </aside>
     </div>
-    <div id="install-banner" style="display: none;">
-        <p>Install this web app on your device</p>
-        <button id="install-button">Install</button>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about on-peach" id="about">
+    <div class="light light-warm" aria-hidden="true"></div>
+    <div class="about-in">
+      <div class="about-copy reveal">
+        <p class="eyebrow">About</p>
+        <h2>One developer, the whole app.</h2>
+        <p class="statement">A clipboard manager, a catalogue of what a phone knows about itself, a watch-party tool for the Mac, a real-time party game, a speed reader. Designed, written, submitted and maintained by me.</p>
+        <p class="body">Swift and SwiftUI are where I'm quickest, and where most of this lives. When a project has to land on iOS, Android and the browser at the same time, I reach for Flutter instead — the party game and the reader are both Dart. What keeps my attention lately: real-time sync that survives a bad connection, keeping data on the device, and interfaces that don't shout.</p>
+      </div>
+      <dl class="specs reveal" data-stagger aria-label="Specifications">
+        <div class="spec"><dt>Platforms</dt><dd>iOS, macOS, Android, Web</dd></div>
+        <div class="spec"><dt>Primary</dt><dd>Swift, SwiftUI, UIKit, Objective-C</dd></div>
+        <div class="spec"><dt>Cross-platform</dt><dd>Flutter, Dart</dd></div>
+        <div class="spec"><dt>Backends</dt><dd>Convex, Firebase, Node</dd></div>
+        <div class="spec"><dt>Patterns</dt><dd>TCA, MVVM, Clean Architecture</dd></div>
+        <div class="spec"><dt>Open source</dt><dd>Clipboard Mahmut, WatchSync, Specdeck, Ka-Chaow, Elixir <span class="dim">— 10+ public repositories</span></dd></div>
+        <div class="spec"><dt>Currently</dt><dd><a href="https://www.swirlyourwines.com" target="_blank" rel="noopener">Swirl AB</a> <span class="dim">— Stockholm</span></dd></div>
+        <div class="spec"><dt>Based in</dt><dd>Istanbul</dd></div>
+      </dl>
     </div>
-    <div id="custom-cursor"></div>
-    <script src="script.js" defer></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-       (function() {
-          emailjs.init("VYv9s2KZy7__Oj--0"); // Replace with your actual Public Key
-       })();
-    </script>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact on-orange" id="contact" data-magnet-zone>
+    <div class="light" aria-hidden="true"></div>
+    <div class="contact-in">
+      <div class="contact-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk.</h2>
+        <p class="lede">Questions about any of these, or about how something was built — the address below works.</p>
+      </div>
+      <div class="email-row reveal">
+        <a class="email" href="mailto:info@walhallaa.com"><span class="email-t">info@walhallaa.com</span></a>
+        <button class="btn btn-ink copy" id="copyEmail" type="button" data-magnetic aria-label="Copy email address">
+          <span class="copy-t"><span class="t1">Copy address</span><span class="t2">Copied ✓</span></span>
+        </button>
+      </div>
+      <div class="keys reveal" data-stagger id="keys"></div>
+      <p class="status reveal"><i class="dot"></i>Currently at <b>Swirl</b> — wine recommendations built from your own palate. <a href="https://www.swirlyourwines.com" target="_blank" rel="noopener">swirlyourwines.com&nbsp;↗</a></p>
+      <a class="stamp stamp-sm" href="#top" aria-label="Back to top">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="stampPath2" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text><textPath href="#stampPath2">Let's talk · info@walhallaa.com · </textPath></text></svg>
+        <span class="stamp-core" aria-hidden="true">↑</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span>© 2026 A.M.M.C.K. Productions</span>
+    <a class="foot-mid" href="https://walhallaa.com" target="_blank" rel="noopener">walhallaa.com</a>
+    <a class="top" href="#top">Back to top <span>↑</span></a>
+  </div>
+</footer>
+
+<script src="assets/motion.js"></script>
+<script src="assets/apps.js"></script>
+<script src="assets/devices.js"></script>
+<script src="assets/app.js"></script>
 </body>
 </html>

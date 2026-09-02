@@ -1,19 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dürümcü Ökkeş</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dürümcü Ökkeş — Hesap bilgileri</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F05138">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F6F6F4; --peach: #FDE9E2; --ink: #111111; --ink-2: #33333a; --gray: #8C8C8C;
+    --orange: #F05138; --line: rgba(17, 17, 17, .12);
+    --display: "Bricolage Grotesque", -apple-system, "SF Pro Display", system-ui, sans-serif;
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto;
+    background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--serif); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--orange); color: #fff; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+  .bar { border-bottom: 1.5px solid var(--line); }
+  .bar-in { max-width: 780px; margin: 0 auto; height: 60px; padding: 0 24px; display: flex; align-items: center; gap: 14px; }
+  .brand { font: 700 17px/1 var(--display); letter-spacing: -.03em; color: var(--ink); text-decoration: none; }
+  .bar-role { font: italic 400 14px/1 var(--serif); color: var(--gray); margin-right: auto; }
+  .bar-in > a:last-child { font: 500 13px/1 var(--mono); letter-spacing: .06em; color: var(--ink); text-decoration: none;
+    background: linear-gradient(var(--orange), var(--orange)) no-repeat left 100% / 0 2px; transition: background-size .35s var(--ease); padding: 6px 0; }
+  .bar-in > a:last-child:hover { background-size: 100% 2px; }
+
+  main { max-width: 780px; width: 100%; margin: 0 auto; padding: 56px 24px 80px; }
+  .eyebrow { margin: 0 0 14px; font: 500 11.5px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+  h1 { margin: 0 0 10px; font-family: var(--display); font-optical-sizing: auto; font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: .98; letter-spacing: -.035em; }
+  .sub { margin: 0 0 40px; color: var(--ink-2); max-width: 46ch; }
+
+  .card { border: 3px solid var(--ink); border-radius: 4px; background: var(--peach); padding: 30px 28px; }
+  dl { margin: 0; display: grid; gap: 22px; }
+  dt { font: 500 11px/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; color: var(--gray); margin-bottom: 7px; }
+  dd { margin: 0; font: 600 1.28rem/1.3 var(--display); letter-spacing: -.015em; }
+  dd.iban { font: 500 clamp(1rem, 3.4vw, 1.32rem)/1.45 var(--mono); letter-spacing: .04em; word-break: break-all; }
+
+  .copy { margin-top: 26px; display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    font: 600 14px/1 var(--display); padding: 13px 20px; border-radius: 999px; border: 0;
+    background: var(--ink); color: var(--paper); transition: transform .3s var(--ease); }
+  .copy:hover { transform: translateY(-1px); }
+  .copy .t2 { display: none; }
+  .copy.is-done .t1 { display: none; }
+  .copy.is-done .t2 { display: inline; }
+  .copy.is-done { background: #1DB954; }
+
+  footer { border-top: 3px solid var(--ink); }
+  .foot-in { max-width: 780px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+    font: 500 12.5px/1 var(--mono); letter-spacing: .04em; color: var(--gray); }
+  .foot-in a { color: var(--ink); text-decoration: none; margin-left: auto; }
+  .foot-in a:hover { color: var(--orange); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
 </head>
 <body>
-    <h1>
-        Türkiye Ekonomi Bankası(TEB)
-        Ahmet Mısırlı
-    </h1>
-    <br>
-    <h2>
-        TR430003200000000045685080
-    </h2>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="index.html" target="_blank" rel="noopener">Murat Can Koç</a>
+    <span class="bar-role">iOS &amp; macOS developer</span>
+    <a href="index.html" target="_blank" rel="noopener">walhallaa.com&nbsp;↗</a>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow">Hesap bilgileri</p>
+  <h1>Dürümcü Ökkeş</h1>
+  <p class="sub">Ödeme için banka hesap bilgileri aşağıdadır.</p>
+
+  <div class="card">
+    <dl>
+      <div>
+        <dt>Banka</dt>
+        <dd>Türkiye Ekonomi Bankası (TEB)</dd>
+      </div>
+      <div>
+        <dt>Hesap sahibi</dt>
+        <dd>Ahmet Mısırlı</dd>
+      </div>
+      <div>
+        <dt>IBAN</dt>
+        <dd class="iban" id="iban">TR43 0003 2000 0000 0045 6850 80</dd>
+      </div>
+    </dl>
+    <button class="copy" id="copyIban" type="button">
+      <span class="t1">IBAN'ı kopyala</span>
+      <span class="t2">Kopyalandı ✓</span>
+    </button>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <span>© 2026 A.M.M.C.K. Productions</span>
+    <a href="index.html" target="_blank" rel="noopener">walhallaa.com</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('copyIban').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const iban = document.getElementById('iban').textContent.replace(/\s+/g, '');
+    try { await navigator.clipboard.writeText(iban); }
+    catch { const r = document.createRange(); r.selectNode(document.getElementById('iban')); getSelection().removeAllRanges(); getSelection().addRange(r); }
+    btn.classList.add('is-done');
+    setTimeout(() => btn.classList.remove('is-done'), 1800);
+  });
+</script>
 </body>
 </html>
