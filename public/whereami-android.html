@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where am I? — Android beta</title>
+<meta name="description" content="Join the Where am I? Android beta in three taps. Spy party game for 3–12 friends.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0D12">
+<meta property="og:title" content="Where am I? — Android beta">
+<meta property="og:description" content="Help launch the spy party game on Google Play. Three taps to join.">
+<meta property="og:image" content="https://walhallaa.com/assets/media/whereami-icon.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B0D12; --raised: #141821; --outline: #262C38;
+    --paper: #F2F2EE; --muted: #A3A8B4; --faint: #6B7280;
+    --accent: #C6F135; --on-accent: #0B0D12;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ink); color: var(--paper); }
+  body {
+    font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+    min-height: 100vh; display: flex; justify-content: center;
+    padding: max(24px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom));
+  }
+  main { width: 100%; max-width: 460px; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .eyebrow { font: 600 11px/1 "JetBrains Mono", monospace; letter-spacing: .22em; color: var(--accent); }
+  .lang { display: flex; gap: 4px; }
+  .lang button {
+    font: 600 11px/1 "JetBrains Mono", monospace; letter-spacing: .1em;
+    background: transparent; color: var(--faint); border: 1px solid var(--outline);
+    border-radius: 999px; padding: 7px 11px; cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+  .hero { display: flex; gap: 16px; align-items: center; margin: 28px 0 10px; }
+  .hero img { width: 72px; height: 72px; border-radius: 18px; flex: none; }
+  h1 { font-size: 30px; line-height: 1.08; margin: 0; letter-spacing: -.01em; }
+  .lead { color: var(--muted); font-size: 16px; line-height: 1.5; margin: 14px 0 26px; }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  li { background: var(--raised); border: 1px solid var(--outline); border-radius: 18px; padding: 16px; }
+  .step { display: flex; gap: 12px; align-items: baseline; }
+  .num { font: 600 12px/1 "JetBrains Mono", monospace; color: var(--accent); flex: none; }
+  .step h2 { font-size: 17px; margin: 0 0 4px; }
+  .step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+  a.btn {
+    display: block; text-align: center; text-decoration: none; margin-top: 14px;
+    background: var(--accent); color: var(--on-accent); font-weight: 700; font-size: 16px;
+    padding: 14px 16px; border-radius: 14px;
+  }
+  a.btn.secondary { background: transparent; color: var(--paper); border: 1.5px solid var(--outline); }
+  .note {
+    margin-top: 18px; padding: 14px 16px; border-radius: 14px;
+    border: 1px dashed var(--outline); color: var(--muted); font-size: 14px; line-height: 1.5;
+  }
+  .note strong { color: var(--paper); }
+  footer { margin-top: 22px; color: var(--faint); font-size: 12px; text-align: center; }
+  footer a { color: var(--muted); }
+  [data-lang] { display: none; }
+  html[lang="en"] [data-lang="en"], html[lang="tr"] [data-lang="tr"] { display: revert; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <span class="eyebrow">ANDROID BETA</span>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set="tr">TR</button>
+      <button type="button" data-set="en">EN</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="assets/media/whereami-icon.png" alt="Where am I? icon" width="72" height="72">
+    <h1>
+      <span data-lang="en">Help us launch<br>Where am I?</span>
+      <span data-lang="tr">Where am I?'ı<br>birlikte yayınlayalım</span>
+    </h1>
+  </div>
+  <p class="lead">
+    <span data-lang="en">The spy party game is coming to Google Play. Google needs real testers first. It takes three taps and you get the game free before anyone else.</span>
+    <span data-lang="tr">Casus parti oyunu Google Play'e geliyor. Google önce gerçek test kullanıcıları istiyor. Üç dokunuş sürüyor ve oyunu herkesten önce ücretsiz oynuyorsun.</span>
+  </p>
+
+  <ol>
+    <li>
+      <div class="step"><span class="num">01</span><div>
+        <h2><span data-lang="en">Join the tester group</span><span data-lang="tr">Test grubuna katıl</span></h2>
+        <p><span data-lang="en">Tap “Join group”. Use the Google account that's on your Android phone.</span><span data-lang="tr">“Gruba katıl”a dokun. Android telefonunda kullandığın Google hesabıyla katıl.</span></p>
+      </div></div>
+      <a class="btn" href="https://groups.google.com/g/whereami-android-testers" target="_blank" rel="noopener">
+        <span data-lang="en">Join the group</span><span data-lang="tr">Gruba katıl</span>
+      </a>
+    </li>
+    <li>
+      <div class="step"><span class="num">02</span><div>
+        <h2><span data-lang="en">Become a tester</span><span data-lang="tr">Test kullanıcısı ol</span></h2>
+        <p><span data-lang="en">Tap “Become a tester” on the Google Play page.</span><span data-lang="tr">Google Play sayfasında “Test kullanıcısı ol”a dokun.</span></p>
+      </div></div>
+      <a class="btn" href="https://play.google.com/apps/testing/com.walhallaa.spygame.v02202404" target="_blank" rel="noopener">
+        <span data-lang="en">Become a tester</span><span data-lang="tr">Test kullanıcısı ol</span>
+      </a>
+    </li>
+    <li>
+      <div class="step"><span class="num">03</span><div>
+        <h2><span data-lang="en">Install and play</span><span data-lang="tr">Yükle ve oyna</span></h2>
+        <p><span data-lang="en">Install from Google Play and open it once.</span><span data-lang="tr">Google Play'den yükle ve bir kez aç.</span></p>
+      </div></div>
+      <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.walhallaa.spygame.v02202404" target="_blank" rel="noopener">
+        <span data-lang="en">Open in Google Play</span><span data-lang="tr">Google Play'de aç</span>
+      </a>
+    </li>
+  </ol>
+
+  <div class="note">
+    <span data-lang="en"><strong>One small favour:</strong> please keep the app installed for 14 days. Google only lets us launch after testers have had it for two weeks. Thank you! 🕵️</span>
+    <span data-lang="tr"><strong>Küçük bir ricam var:</strong> lütfen uygulamayı 14 gün silme. Google, yayına almamız için test kullanıcılarının uygulamayı iki hafta tutmasını şart koşuyor. Çok teşekkürler! 🕵️</span>
+  </div>
+
+  <footer>
+    <span data-lang="en">On iPhone? It's already on the <a href="https://apps.apple.com/app/id6764593980">App Store</a>.</span>
+    <span data-lang="tr">iPhone mu kullanıyorsun? <a href="https://apps.apple.com/app/id6764593980">App Store</a>'da zaten var.</span>
+  </footer>
+</main>
+<script>
+  (function () {
+    var root = document.documentElement;
+    function set(lang) {
+      root.lang = lang;
+      document.querySelectorAll('.lang button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.set === lang));
+      });
+    }
+    var q = new URLSearchParams(location.search).get('lang');
+    var guess = (navigator.language || '').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+    set(q === 'tr' || q === 'en' ? q : guess);
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.addEventListener('click', function () { set(b.dataset.set); });
+    });
+  })();
+</script>
+</body>
+</html>
