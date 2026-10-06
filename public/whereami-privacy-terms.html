@@ -58,7 +58,7 @@
 
             <h2>Privacy Policy</h2>
             <div class="policy-content">
-                <p>This privacy policy applies to the Where am I? app (hereby referred to as "Application") for mobile devices that was created by Murat Can Koç (hereby referred to as "Service Provider"). The Application is offered as a free download with optional one-time in-app purchases for additional location packs. The Application is provided "AS IS".</p>
+                <p>This privacy policy applies to the Where am I? app (hereby referred to as "Application") for mobile devices that was created by Murat Can Koç (hereby referred to as "Service Provider"). The Application is offered as a free download, supported by ads, with optional one-time in-app purchases for additional location packs. The Application is provided "AS IS".</p>
 
                 <h3>What the Application Stores On Your Device</h3>
                 <p>To let you create and rejoin rooms without an account, the Application stores the following on your device only:</p>
@@ -86,9 +86,14 @@
                     <li>Your real name, email address, phone number, or postal address.</li>
                     <li>Your physical location.</li>
                     <li>Your contacts, calendar, photos, microphone, or camera data.</li>
-                    <li>Any third-party advertising identifiers (IDFA on iOS, AAID on Android).</li>
+                    <li>Your advertising identifier on iOS (IDFA). The Application never asks for App Tracking Transparency permission, so the IDFA is not available to it or to its ad provider.</li>
                     <li>Any analytics events. The Application contains no analytics SDK (no Google Analytics, no Firebase Analytics, no Mixpanel, etc.).</li>
                 </ul>
+
+                <h3>Advertising</h3>
+                <p>The Application shows ads served by Google AdMob (Google LLC) in two places: an optional rewarded ad in the lobby, which any player can choose to watch to unlock a random location pack or location for that game, and a full-screen ad on the screen shown when a game ends.</p>
+                <p>To serve and measure ads, the Google Mobile Ads SDK collects information from your device such as your IP address, device and operating system type, app interactions with the ads, and, on Android, the device's advertising ID (AAID), which you can reset or delete in your device settings. In the European Economic Area, the United Kingdom, Switzerland and other regions where it is required, the Application asks for your consent through Google's consent message before ads can be personalized, and you can change your choice at any time. On iOS, ads are not personalized based on tracking across other companies' apps and websites. How Google uses this information is described at <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">https://policies.google.com/technologies/partner-sites</a> and in Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
+                <p>When you finish a rewarded ad, Google confirms it to the Service Provider's backend with a one-time random reward code generated for that single ad view, so that the unlock can only be granted for an ad that was actually watched. This code is not linked to your identity, and these confirmations are deleted after 24 hours.</p>
 
                 <h3>In-App Purchases</h3>
                 <p>The Application offers optional one-time, non-consumable in-app purchases for additional location packs (e.g. Istanbul Pack, Cyberpunk Pack). Purchase processing is handled by Apple (App Store) on iOS or Google (Google Play) on Android. The Service Provider does not see, store, or have access to your payment card or billing details — that information stays with Apple or Google.</p>
@@ -108,6 +113,7 @@
                     <li><strong>Convex</strong> — hosts the real-time backend that synchronizes the game state between players. Receives the data described in "Information Sent to the Backend" above.</li>
                     <li><strong>Apple App Store</strong> / <strong>Google Play Store</strong> — process payments, deliver purchase receipts, and distribute the app. Their own privacy policies apply.</li>
                     <li><strong>RevenueCat</strong> — validates purchase receipts and tracks entitlements. Receives anonymous identifiers and receipts only.</li>
+                    <li><strong>Google AdMob</strong> (Google) — serves and measures the ads described in "Advertising" above and confirms completed rewarded ads. Receives the device and ad-interaction data described there.</li>
                     <li><strong>Firebase Cloud Messaging</strong> (Google) — delivers push notifications on Android. Receives the push token and the notification payload.</li>
                     <li><strong>Apple Push Notification service</strong> — delivers Live Activity updates and push notifications on iOS. Receives the push token and the notification payload.</li>
                 </ul>
@@ -119,10 +125,10 @@
                     <li>with their trusted services providers who work on their behalf, do not have an independent use of the information disclosed to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
                 </ul>
 
-                <p>The Application does not sell, rent, or share information with any party for advertising or marketing purposes.</p>
+                <p>Apart from the data Google AdMob collects to serve ads as described in "Advertising" above, the Application does not sell, rent, or share information with any party for advertising or marketing purposes.</p>
 
                 <h3>Opt-Out Rights</h3>
-                <p>You can stop all collection of information by the Application by uninstalling it. Use the standard uninstall process for your device or app store. Once uninstalled, the per-install identifier is gone and the server cannot re-associate any future installation with your prior data.</p>
+                <p>Where Google's consent message is shown, you can withdraw or change your ad consent at any time. On Android you can also reset or delete your advertising ID in your device settings. You can stop all collection of information by the Application by uninstalling it. Use the standard uninstall process for your device or app store. Once uninstalled, the per-install identifier is gone and the server cannot re-associate any future installation with your prior data.</p>
 
                 <h3>Data Retention Policy</h3>
                 <p>Game state (rooms, players, in-flight rounds) is automatically deleted by the backend within hours after the room becomes inactive. Push tokens are deleted when revoked by the OS or after a period of inactivity. If you would like the Service Provider to delete any data associated with your random identifier, please contact muratcankoc@gmail.com with the identifier (you can find it by emailing us; we do not display it in the app) and they will respond in a reasonable time.</p>
@@ -138,7 +144,7 @@
                 <h3>Changes</h3>
                 <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
 
-                <p>This privacy policy is effective as of 2026-05-08.</p>
+                <p>This privacy policy is effective as of 2026-10-06.</p>
 
                 <h3>Your Consent</h3>
                 <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended.</p>
@@ -179,7 +185,7 @@
                 <p>Similarly, the Service Provider cannot always assume responsibility for your usage of the Application. For instance, it is your responsibility to ensure that your device remains charged. If your device runs out of battery and you are unable to access the Service, the Service Provider cannot be held responsible.</p>
 
                 <h3>Limitation of Liability</h3>
-                <p>While the Service Provider strives to ensure that the Application is updated and accurate at all times, third-party services (Apple, Google, RevenueCat, Convex, Firebase) provide infrastructure that the Application depends on. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of an outage or change in any of these third-party services.</p>
+                <p>While the Service Provider strives to ensure that the Application is updated and accurate at all times, third-party services (Apple, Google, Google AdMob, RevenueCat, Convex, Firebase) provide infrastructure that the Application depends on. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of an outage or change in any of these third-party services.</p>
 
                 <h3>Updates and Termination</h3>
                 <p>The Service Provider may wish to update the Application at some point. Operating system requirements may change, and you will need to download updates if you want to continue using the Application. The Service Provider does not guarantee that updates will always be released, that the Application will remain compatible with future operating system versions, or that the Application will remain available indefinitely. The Service Provider may also cease providing the Application and may terminate its use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the Application, and (if necessary) delete it from your device.</p>
