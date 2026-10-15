@@ -258,7 +258,7 @@
 
                 <p><strong>Reports and blocks</strong></p>
                 <p>
-                    If you block someone, we record it. If you report a user or a message, we record who
+                    If you block someone, we record it. If you report a user, a message, a room, a moment or a comment, we record who
                     filed it (unless the account is later deleted), what was reported, the reason you
                     chose, and when. When you report a message, a copy of that message and of a few of
                     the messages just before it in the same conversation is attached to the report, so a
@@ -277,6 +277,17 @@
                     call is relayed our coturn server logs the relay session — and because the relay
                     credential contains your MonkeyHub user ID, those logs associate a user ID with an IP
                     address and a call time.
+                </p>
+
+                <p><strong>Usage limits</strong></p>
+                <p>
+                    To stop spam and abuse we count how often an account does certain things: sending
+                    messages, uploading files, starting calls, sending friend requests and invitations, and
+                    similar. At sign-up, where there is no account yet, we count by the device ID your app
+                    sends. These counters hold no content, only a number and a time window, and are deleted
+                    within about a day of going idle. For each file you upload we also record that it is
+                    yours and how large it is, so that storage limits can be applied; that record is deleted
+                    with the file.
                 </p>
 
                 <p><strong>Presence</strong></p>
@@ -330,7 +341,7 @@
                     things support it, and both involve your data:
                 </p>
                 <ul>
-                    <li><strong>Reports.</strong> You can report a message (long-press it, then Report) or a person (from their profile). A report sends our moderators what was reported and the reason you picked. For a message, it also sends a copy of that message plus a few of the messages just before it in the same conversation, including messages written by other people in that conversation, because a single line out of context is often impossible to judge. The person you report is not told who reported them. Moderators review reports within 24 hours and act on them by removing the offending content and removing the account that posted it.</li>
+                    <li><strong>Reports.</strong> You can report a message (long-press it, then Report), a person (from their profile), a room (from its info page), a moment (from its menu) or a comment (long-press it). A report sends our moderators what was reported and the reason you picked. For a message, it also sends a copy of that message plus a few of the messages just before it in the same conversation, including messages written by other people in that conversation, because a single line out of context is often impossible to judge. The person you report is not told who reported them. Moderators review reports within 24 hours and act on them by removing the offending content and removing the account that posted it.</li>
                     <li><strong>Automated filtering of objectionable language.</strong> MonkeyHub automatically checks message text against a list of objectionable words and phrases and filters what matches. This is a pattern check, not a profile of you: it does not build a record of what you write, and it is not machine-learning analysis of your messages.</li>
                 </ul>
                 <p>
@@ -525,7 +536,8 @@
                 <ul>
                     <li><strong>Messages, photos, videos, voice notes and documents</strong> — kept until you delete them, until the room is deleted or emptied, until your account is deleted, or until the message's lifetime expires if it was sent in a room with a message lifetime set. In an ordinary room with no lifetime, messages are kept indefinitely. Note that deleting a room's last member wipes that room and its media entirely.</li>
                     <li><strong>View-once photos</strong> — the image is deleted as soon as every recipient has opened it, or after 14 days, whichever comes first. The record that a view-once photo was sent remains in the conversation.</li>
-                    <li><strong>Attachments no message points to any more</strong> — automatically cleaned up, with anything under 24 hours old left alone.</li>
+                    <li><strong>Uploads that were never attached to anything</strong> are deleted automatically after about 6 hours. <strong>Attachments no message points to any more</strong> are cleaned up automatically, with anything under 24 hours old left alone.</li>
+                    <li><strong>Usage-limit counters</strong> are deleted within about a day of going idle.</li>
                     <li><strong>Call records</strong> — completed, missed and rejected calls are deleted about a day after they end. Call connection data containing IP addresses is deleted within a few minutes once it has been picked up.</li>
                     <li><strong>Call relay logs</strong> — when a call has to be relayed through our own server, that server records the session, and because the relay credential contains your MonkeyHub user ID those log lines associate a user ID with an IP address and a time. They are rotated by the operating system's standard log rotation on that machine.</li>
                     <li><strong>Push notification delivery records</strong> — deleted every few hours, once the notification can no longer be recalled.</li>
@@ -667,16 +679,17 @@
                 <ul>
                     <li>All traffic between the app and our servers uses TLS (HTTPS and secure websockets).</li>
                     <li>The server is a machine the developer administers directly, with no third-party chat platform in the middle.</li>
-                    <li>Failed sign-in and failed recovery attempts are counted, and an account under attack is temporarily locked.</li>
-                    <li>Six-digit pairing codes and room passwords are stored as an unsalted SHA-256 hash rather than in readable form. Be aware that for a six-digit code this offers very little real protection — the whole range can be tried in a fraction of a second — so its value is that the digits are short-lived and single-use, not that the hash is hard to reverse.</li>
+                    <li>Failed sign-in, recovery, guardian-password, device sign-in code and pairing-code attempts are counted, and the path under attack is temporarily locked.</li>
+                    <li>A room's messages, members and attachments are served only to the room's members.</li>
+                    <li>Six-digit pairing codes and room passwords are stored as an unsalted SHA-256 hash rather than in readable form. For a six-digit code the hash itself offers little protection, so what protects it is that the digits are short-lived, single-use, and that guessing them online is limited.</li>
                     <li>Call media is encrypted between participants by WebRTC and is never recorded.</li>
                 </ul>
                 <p>What is also true, and which we would rather state than let you assume otherwise:</p>
                 <ul>
                     <li><strong>Messages are not end-to-end encrypted.</strong> The operator can read them. This is the most important sentence in this policy.</li>
-                    <li><strong>Password hashing is weak by modern standards.</strong> Your password is hashed on your device with a single pass of SHA-256, without a salt, and that hash is what we store and compare. There is no bcrypt, scrypt or Argon2, and no key stretching. In practice this means two things: a copy of our database would let an attacker sign in as any user without needing to crack anything, and common passwords would be recoverable from it easily. <strong>Please use a long, unique password on MonkeyHub, and do not reuse a password you use anywhere else.</strong> We intend to move to a proper password hashing scheme.</li>
-                    <li><strong>There are no server-side sessions.</strong> Most operations in MonkeyHub identify you by a user ID your app sends with the request, rather than by a session token the server issued and can revoke. This is a known weakness we intend to fix. Setting or changing a recovery phrase, and linking a sign-in provider, are deliberately password-gated because they would otherwise be complete account-takeover routes; other operations do not have that gate.</li>
-                    <li><strong>Attachment links do not expire.</strong> Files are served from long, unguessable but permanent web addresses that are not tied to your session. Anyone who obtains such an address keeps access to that file.</li>
+                    <li><strong>Password hashing is moderate, not state of the art.</strong> Your device hashes your password with SHA-256 before sending it, and our server then salts that value with a random salt unique to your account and stretches it with PBKDF2-SHA256 (60,000 rounds) before storing it. A copy of our database alone no longer lets anyone sign in, and identical passwords no longer look identical. Accounts created before 15 October 2026 are converted to this form the next time they sign in. It is still not Argon2 or bcrypt, and a weak password can still be guessed offline with enough effort, so <strong>please use a long, unique password on MonkeyHub, and do not reuse a password you use anywhere else.</strong></li>
+                    <li><strong>Sessions.</strong> Each signed-in device holds a session token the server issued and can revoke; signing out elsewhere, and resetting your password, end the other devices' sessions. Setting or changing a recovery phrase, changing your username and linking a sign-in provider additionally ask for your password.</li>
+                    <li><strong>Attachment links do not expire.</strong> The app only hands a file's address to members of the room it was sent in, but the address itself is long, unguessable and permanent, and not tied to your session. Anyone who obtains such an address keeps access to that file.</li>
                     <li><strong>Cached conversations on your device are not encrypted by the app</strong> — they rely on your device's own passcode and disk encryption.</li>
                     <li><strong>TLS terminates before our machine.</strong> Cloudflare decrypts your traffic at its edge in order to route and protect it. That is normal for any site behind a network provider, and it means your traffic is readable at that point.</li>
                 </ul>
@@ -800,9 +813,8 @@
                     for 15 minutes, and five wrong recovery phrases shuts the recovery path for 15 minutes.
                     The two limits are separate — tripping one does not close the other. This protects you,
                     but it also means someone else can lock you out of one of those paths temporarily by
-                    guessing at your account. That is a trade we have chosen on purpose. One path is not
-                    throttled today: the guardian-password check used to release a child's device. We know,
-                    and it is on the list.
+                    guessing at your account. That is a trade we have chosen on purpose. The guardian-password
+                    check used to release a child's device shares the guardian's password limit.
                 </p>
                 <p>
                     One honest point about the recovery phrase: it authorises a password reset and nothing
@@ -899,6 +911,11 @@
                     <li>Do not reverse engineer, decompile or disassemble the app, or try to derive its source code, except to the exact extent the law where you live says you may do so despite this clause.</li>
                     <li>Do not modify the app or build a different client against our backend, and do not redistribute the app.</li>
                     <li>Do not resell access to MonkeyHub or charge anyone for it.</li>
+                    <li>Do not use MonkeyHub as file storage or a file host. MonkeyHub is for conversations, so
+                    it applies limits: a single file can be up to 25 MB; each account can upload up to 1 GB a
+                    day and keep up to 10 GB in total, of which at most 1 GB in chats nobody else is in (such as
+                    Saved Messages). Sending, calling, reacting, friend requests and invitations are also
+                    limited in how often they can happen. Delete files you no longer need to free space.</li>
                 </ul>
                 <p>
                     One technical warning, because it affects the rules above. When a message contains a link,
@@ -981,14 +998,15 @@
                 <h3>Reporting, blocking and moderation</h3>
                 <p>
                     <strong>Blocking.</strong> You can block any user from their profile. Blocking removes any
-                    friendship between you both ways, and stops them reaching you. You can also choose to wipe
+                    friendship between you both ways, stops them reaching you, and hides their messages and
+                    comments from you in rooms and moments you both still share. You can also choose to wipe
                     the direct-message room you shared with them, which deletes those messages and their media
                     for both of you. The person you block is not told. You can unblock later.
                 </p>
                 <p>
-                    <strong>Reporting.</strong> You can report a user from their profile, and you can report an
-                    individual message from the message's own menu. There is currently no way to report a whole
-                    room from inside the app; if a room is the problem, report a message in it or email
+                    <strong>Reporting.</strong> You can report a user from their profile, an individual message
+                    from the message's own menu, a room from its info page, a moment from its menu, and a
+                    comment by long-pressing it. You can also email
                     <a href="mailto:info@walhallaa.com" target="_blank" rel="noopener">info@walhallaa.com</a>. A report records what you
                     reported, the reason you picked from a short list, and when. When you report a message, a
                     copy of it and of a few of the messages just before it in that conversation goes with the
@@ -1148,7 +1166,7 @@
                 <ul>
                     <li><strong>Messages are not end-to-end encrypted.</strong> Your messages, photos, videos, voice notes and documents are stored in readable form in our database. We, as the operator, can read them. Anyone who gained access to the server could read them.</li>
                     <li><strong>The 12-word recovery phrase does not encrypt anything.</strong> It only authorises a password reset.</li>
-                    <li><strong>Password protection is weak by modern standards.</strong> Passwords are hashed on your device with plain, unsalted SHA-256, and that hash is what we store and compare. It is not salted, stretched or run through bcrypt, scrypt or argon2. Anyone who obtained the stored value could use it to sign in. Do not reuse a password you use anywhere else on MonkeyHub.</li>
+                    <li><strong>Password protection is moderate, not state of the art.</strong> Passwords are hashed on your device with SHA-256 and then salted and stretched on our server with PBKDF2-SHA256 before they are stored. It is not Argon2 or bcrypt, and a weak password can still be guessed offline with enough effort. Do not reuse a password you use anywhere else on MonkeyHub.</li>
                     <li><strong>Disappearing messages are a convenience, not a guarantee.</strong> Room message lifetimes and view-once photos remove content on our side, but they cannot stop someone screenshotting, photographing the screen, or having already saved the file.</li>
                     <li><strong>Cached messages on your device are not encrypted.</strong> Recent conversations are stored as plain files in the app's folder. Someone with access to your unlocked phone, or to a device backup, can read them.</li>
                 </ul>

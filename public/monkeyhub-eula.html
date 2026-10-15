@@ -267,7 +267,9 @@
                 </ul>
                 <p>
                     MonkeyHub gives every user tools to deal with this: you can block a user, and you can report
-                    a user or a message, choosing a reason and optionally adding a written explanation.
+                    a user, a message, a room, a moment or a comment, choosing a reason and optionally adding a
+                    written explanation. Blocking also hides that person's messages and comments from you in
+                    rooms and moments you still share.
                     <strong>We act on reports of objectionable content within 24 hours by removing the content
                     and ejecting the user who provided it.</strong> Consequences for breaching this section
                     range from removal of the content and the account to permanent ejection from the service,
@@ -289,8 +291,8 @@
                     <li><strong>Messages are not end-to-end encrypted.</strong> They are stored in our database in readable form on infrastructure the developer controls, and the developer can read them.</li>
                     <li><strong>Message text leaves our servers to deliver notifications.</strong> When we send a push notification about a message, the notification body is the message text itself, and it is handed to our push notification provider along with the sender's name and the room it belongs to, so the recipient's device can show it on the lock screen. This happens for every text message, not only when the recipient is away, and there is no setting that prevents it.</li>
                     <li><strong>The 12-word recovery phrase is not an encryption key.</strong> It derives nothing and encrypts nothing; it authorises exactly one action, resetting your password.</li>
-                    <li><strong>Password protection is weak by modern standards.</strong> Passwords are hashed on your device with plain, unsalted SHA-256, and that digest is what is stored and compared. Do not reuse a password you use anywhere else.</li>
-                    <li><strong>Attachment links are permanent and unguessable rather than access-controlled.</strong> Photos, videos, voice notes and documents are served from long random addresses with no expiry and no signature. That address is effectively the file: anyone who obtains one keeps access to it for as long as it exists on our servers, whether or not they are still in the room.</li>
+                    <li><strong>Password protection is moderate, not state of the art.</strong> Passwords are hashed on your device with SHA-256, then salted and stretched on our server with PBKDF2-SHA256 before they are stored. Do not reuse a password you use anywhere else.</li>
+                    <li><strong>Attachment links are permanent and unguessable rather than access-controlled.</strong> The app only hands an attachment's address to members of the room it was sent in, but the address itself has no expiry and no signature. That address is effectively the file: anyone who obtains one keeps access to it for as long as it exists on our servers, whether or not they are still in the room.</li>
                     <li><strong>View-once and message-lifetime features are not guarantees.</strong> They delete the file on our side, and the record that a view-once photo was sent remains. They cannot stop a recipient photographing their screen with another device. On Android we ask the operating system to block screenshots and screen recording while a disappearing item is on screen; on iOS the operating system offers no equivalent, so an in-device screenshot is not blocked there.</li>
                     <li><strong>Content you save leaves the app.</strong> Anything saved to your photo library, shared to another app, or exported is outside our control from that moment.</li>
                 </ul>
