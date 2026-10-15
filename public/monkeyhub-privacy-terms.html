@@ -54,7 +54,7 @@
   <article class="doc" id="doc">
         
         
-            <p><em>Last updated: 4 August 2026</em></p>
+            <p><em>Last updated: 15 October 2026</em></p>
             <p>
                 This page contains two documents: the <a href="#privacy">Privacy Policy</a> and the
                 <a href="#terms">Terms of Service</a>. The
@@ -79,10 +79,10 @@
 
                 <p>The short version:</p>
                 <ul>
-                    <li>We do not run ads. We do not sell or rent your data. There is no analytics SDK, no attribution SDK and no crash-reporting SDK in this app — none.</li>
+                    <li>There are no ads in your chats, calls, games or feed. The only ads in MonkeyHub are sponsored tiles that <a href="#klipy">KLIPY</a>, our GIF and sticker provider, mixes into GIF &amp; sticker search on iPhone, iPad and Android, and supervised child accounts never get them. We do not sell or rent your data. There is no analytics SDK, no attribution SDK and no crash-reporting SDK in this app, and MonkeyHub does no cross-app tracking.</li>
                     <li>MonkeyHub runs on servers the developer rents and administers directly, not on a third-party chat platform.</li>
                     <li><strong>Your messages are NOT end-to-end encrypted.</strong> They are stored on our server in a form the operator can read. Please read that section before you decide whether MonkeyHub is right for your family.</li>
-                    <li>Your data reaches other parties in a few specific places: our push provider, the network provider that carries all our traffic, sign-in with Apple or Google, and — from your own device rather than our server — call setup and link previews. Every one of them is named below.</li>
+                    <li>Your data reaches other parties in a few specific places: our push provider, the network provider that carries all our traffic, sign-in with Apple or Google, and, from your own device rather than our server, call setup, link previews and GIF &amp; sticker search. Every one of them is named below.</li>
                     <li>You can delete your account from inside the app, or <a href="monkeyhub-delete-account.html" target="_blank" rel="noopener">from the web</a>. Almost everything is erased. A short, specific list of things is kept, and we say exactly what.</li>
                 </ul>
 
@@ -140,7 +140,8 @@
                 <h3>What we do not do</h3>
                 <p>These are commitments, not marketing:</p>
                 <ul>
-                    <li><strong>No advertising.</strong> There is no ad SDK anywhere in the app, and no advertising identifier is collected. On Android, MonkeyHub does not request the advertising ID permission. On iOS, MonkeyHub never asks for tracking permission and cannot access the IDFA.</li>
+                    <li><strong>No ads outside GIF &amp; sticker search, and no ad SDK.</strong> There is no ad SDK anywhere in the app. The only ads are the sponsored tiles KLIPY returns inside GIF &amp; sticker search results on iPhone, iPad and Android, described under <a href="#klipy">KLIPY</a> below. Supervised child accounts never request or see them. No advertising identifier is collected or sent to anyone: on Android, MonkeyHub does not request the advertising ID permission, and on iOS it never asks for tracking permission and cannot access the IDFA.</li>
+                    <li><strong>No cross-app tracking.</strong> MonkeyHub does not link what you do in the app with data from other companies' apps or websites for advertising or measurement, and does not share data with data brokers.</li>
                     <li><strong>No analytics or product-tracking SDK.</strong> No Google Analytics, Firebase Analytics, Amplitude, Mixpanel, Segment, PostHog, or anything comparable.</li>
                     <li><strong>No crash-reporting SDK.</strong> No Crashlytics, Sentry, Bugsnag or similar. When the app crashes, we do not find out unless you tell us.</li>
                     <li><strong>No attribution or install-tracking SDK.</strong> No AppsFlyer, Adjust, Branch, or Facebook SDK.</li>
@@ -259,8 +260,11 @@
                 <p>
                     If you block someone, we record it. If you report a user or a message, we record who
                     filed it (unless the account is later deleted), what was reported, the reason you
-                    chose, and when. Reports are moderation records and are handled differently from
-                    everything else on deletion — see "Deleting your account".
+                    chose, and when. When you report a message, a copy of that message and of a few of
+                    the messages just before it in the same conversation is attached to the report, so a
+                    moderator can see the context. Reports are moderation records and are handled
+                    differently from everything else on deletion; see <a href="#moderation">Moderation</a>
+                    and "Deleting your account".
                 </p>
 
                 <p><strong>Security records</strong></p>
@@ -320,6 +324,23 @@
                     that copy leaves MonkeyHub entirely and is no longer governed by this policy.
                 </p>
 
+                <h3 id="moderation">Moderation: reports and automated filtering</h3>
+                <p>
+                    MonkeyHub has a zero-tolerance policy for objectionable content and abusive users. Two
+                    things support it, and both involve your data:
+                </p>
+                <ul>
+                    <li><strong>Reports.</strong> You can report a message (long-press it, then Report) or a person (from their profile). A report sends our moderators what was reported and the reason you picked. For a message, it also sends a copy of that message plus a few of the messages just before it in the same conversation, including messages written by other people in that conversation, because a single line out of context is often impossible to judge. The person you report is not told who reported them. Moderators review reports within 24 hours and act on them by removing the offending content and removing the account that posted it.</li>
+                    <li><strong>Automated filtering of objectionable language.</strong> MonkeyHub automatically checks message text against a list of objectionable words and phrases and filters what matches. This is a pattern check, not a profile of you: it does not build a record of what you write, and it is not machine-learning analysis of your messages.</li>
+                </ul>
+                <p>
+                    Report records, including the copied messages attached to them, are kept for
+                    <strong>24 months</strong> for review and to spot repeat abuse, then deleted
+                    automatically. They are kept even if the original messages are later deleted or the
+                    sender deletes their account, because a report that vanished with the evidence would be
+                    no protection at all. Only the developer, acting as moderator, can read them.
+                </p>
+
                 <h3>Why we are allowed to process this (legal bases)</h3>
                 <p>
                     For users in the UK, the EU and other places with equivalent law, here is the lawful
@@ -328,7 +349,8 @@
                 <ul>
                     <li><strong>Running the service</strong> — creating your account, signing you in, delivering messages and media, showing presence and read receipts, connecting calls, sending push notifications. Basis: <strong>performance of a contract</strong> with you (our Terms of Service). Without a username and a password we cannot give you an account at all; without the message data there is no service.</li>
                     <li><strong>Keeping accounts secure</strong> — counting failed sign-in attempts, temporarily locking an account under attack, rate limiting. Basis: <strong>legitimate interests</strong>. Our interest is preventing account takeover, which is also directly in your interest.</li>
-                    <li><strong>Safety and moderation</strong> — blocks, reports, and acting on them; guardian controls; keeping a moderation record after an account is deleted. Basis: <strong>legitimate interests</strong> in keeping the service, and particularly its child users, safe from abuse. This interest is what allows us to retain a report after its author leaves; you can object, and we will weigh it, but a service where reporters can erase their own reports by deleting their account is not a safe service.</li>
+                    <li><strong>GIF &amp; sticker search</strong>: sending your searches to KLIPY so it can return results, when you open that panel. Basis: <strong>performance of a contract</strong>, because it is a feature you choose to use. Showing KLIPY's sponsored tiles in those results on phones and tablets, which is what keeps the feature free. Basis: <strong>legitimate interests</strong>. MonkeyHub sends KLIPY no advertising identifier and no account details, and child accounts are excluded entirely.</li>
+                    <li><strong>Safety and moderation</strong>: blocks, reports (including the copied context messages attached to a message report), automated filtering of objectionable language, and acting on them; guardian controls; keeping a moderation record after an account is deleted. Basis: <strong>legitimate interests</strong> in keeping the service, and particularly its child users, safe from abuse. This interest is what allows us to retain a report after its author leaves; you can object, and we will weigh it, but a service where reporters can erase their own reports by deleting their account is not a safe service.</li>
                     <li><strong>Child accounts</strong> — creating and supervising them, storing birth year and guardian permissions. Basis: <strong>performance of a contract</strong> with the guardian, plus <strong>legitimate interests</strong> in child safety, and where local law requires it, <strong>holder-of-parental-responsibility authorisation</strong>. We deliberately do not rely on a child's own consent for anything.</li>
                     <li><strong>Responding to you and to legal obligations</strong> — support requests, and any disclosure we are legally compelled to make. Basis: <strong>legitimate interests</strong> and <strong>legal obligation</strong> respectively.</li>
                 </ul>
@@ -340,8 +362,9 @@
 
                 <h3>Who else receives your data</h3>
                 <p>
-                    MonkeyHub uses very few external services, and none of them are analytics or advertising.
-                    But some of them receive real data, and one of them receives more than you might expect.
+                    MonkeyHub uses very few external services, and none of them is an analytics service. One
+                    of them, KLIPY, carries advertising, and only inside GIF &amp; sticker search. Some of
+                    them receive real data, and one of them receives more than you might expect.
                 </p>
                 <p>
                     Where we have a contractual relationship with a recipient — our push provider, and the
@@ -352,6 +375,44 @@
                     because your device contacts them. We have no agreement with those parties and no control
                     over what they do with what they see. That is a reason to remove those flows, and we
                     intend to.
+                </p>
+
+                <p id="klipy"><strong>KLIPY (GIF &amp; sticker search, and its sponsored results)</strong></p>
+                <p>
+                    The GIFs and stickers you search for come from <strong>KLIPY</strong>, a third-party
+                    content provider. KLIPY's rules require these requests to come straight from your
+                    device, so your device talks to KLIPY directly, not through our server. When you open
+                    GIF &amp; sticker search, browse it, or send something from it, KLIPY receives:
+                </p>
+                <ul>
+                    <li><strong>A scrambled per-user ID.</strong> A one-way hash of your MonkeyHub user ID, so KLIPY can keep your "recently sent" list across devices. It is not your user ID, username, display name or email, and it means nothing outside this feature.</li>
+                    <li><strong>What you type into the search box</strong>, as you type it (for suggestions and autocomplete), and the searches you run.</li>
+                    <li><strong>Which GIF or sticker you sent</strong>, and the search that found it. KLIPY's terms require us to tell it about each send.</li>
+                    <li><strong>Anything you report</strong> to KLIPY from the panel, with the reason you picked.</li>
+                    <li><strong>Your IP address</strong>, which any internet request reveals, plus your device's language and region setting.</li>
+                    <li><strong>On iPhone, iPad and Android, for ads:</strong> your operating system (iOS or Android), your screen size and pixel density, the space available for an ad tile, and your device web view's standard browser "User-Agent" string, which KLIPY needs before it will serve an ad.</li>
+                </ul>
+                <p>
+                    KLIPY never receives your messages, your contacts, your friends list, your name or your
+                    email, and we send it no advertising identifier (IDFA or Google advertising ID).
+                </p>
+                <p>
+                    <strong>Ads.</strong> On iPhone, iPad and Android, KLIPY places the occasional sponsored
+                    tile among GIF &amp; sticker results; that is how KLIPY, and in turn MonkeyHub, is paid
+                    for the feature. There are no ads anywhere else in the app, and none in the web,
+                    Windows, macOS or Linux versions. An ad tile is a small web page supplied by KLIPY and
+                    its advertising partners, so loading it lets those parties see your IP address and
+                    browser details, as any web page would. Tapping an ad opens it in your browser, where
+                    the advertiser's own policies apply. KLIPY uses the information above under its own
+                    <a href="https://klipy.com/support/privacy-policy" target="_blank" rel="noopener">privacy policy</a>,
+                    which describes using search terms and similar information to measure and choose ads.
+                </p>
+                <p>
+                    <strong>Supervised child accounts</strong> never request ads: the app turns them off for
+                    every child account regardless of any other setting, and every GIF and sticker request
+                    from a child account asks KLIPY for its strictest content rating. A child's searches
+                    still go to KLIPY in the same way as above (the scrambled ID, search words and IP
+                    address), because that is how results are fetched.
                 </p>
 
                 <p><strong>OneSignal (push notifications) — the largest disclosure</strong></p>
@@ -450,7 +511,8 @@
                     Oracle are US companies with global infrastructure. Where personal data is transferred
                     internationally, we rely on the transfer safeguards those providers put in place, which
                     include the EU Standard Contractual Clauses and, where applicable, certification under the
-                    EU–US and UK–US Data Privacy Framework. You can ask us for details of the safeguards for
+                    EU–US and UK–US Data Privacy Framework. KLIPY and the advertising partners it works with
+                    may also process data outside your country. You can ask us for details of the safeguards for
                     any specific recipient at <a href="mailto:info@walhallaa.com" target="_blank" rel="noopener">info@walhallaa.com</a>.
                 </p>
                 <p>
@@ -470,7 +532,7 @@
                     <li><strong>Pairing codes</strong> — expire automatically. Redeemed codes stay attached to the child's account until the account is deleted.</li>
                     <li><strong>Failed sign-in records</strong> — deleted automatically once the account has had no failed attempts for a day.</li>
                     <li><strong>Presence</strong> — we store only your current status and last-seen time, overwritten each time; there is no history.</li>
-                    <li><strong>Reports</strong> — kept for <strong>24 months</strong> from the date the report was filed, then deleted automatically by a scheduled job. This applies whether the report was acted on or not.</li>
+                    <li><strong>Reports</strong>, including the copied messages attached to a message report, are kept for <strong>24 months</strong> from the date the report was filed, then deleted automatically by a scheduled job. This applies whether the report was acted on or not.</li>
                     <li><strong>Your account and profile</strong> — kept until you delete the account.</li>
                 </ul>
 
@@ -507,7 +569,7 @@
                 <p>We would rather tell you this than let you find out:</p>
                 <ul>
                     <li><strong>Reports you filed are kept</strong> for the 24-month retention period. We remove your identity from them — your user ID is erased and the report becomes anonymous — but the reason, what you reported and when are retained. This is deliberate: a service where anyone can erase their own report trail by deleting their account cannot protect its users.</li>
-                    <li><strong>Reports filed about you are kept in full</strong> for the same period, including the identifier of the account that was reported.</li>
+                    <li><strong>Reports filed about you are kept in full</strong> for the same period, including the identifier of the account that was reported and the copies of reported messages (and the few messages before them) attached to a report.</li>
                     <li><strong>Group call records are currently not deleted at all.</strong> Rows recording that you started or joined a group call, which device you joined from, and when you joined and left are left behind — as are unconsumed connection-setup records, which can contain your device's IP address. <strong>This is a defect in our deletion code, not a policy decision, and we are fixing it.</strong> If you want these removed now, email us and we will remove them by hand.</li>
                     <li><strong>Failed sign-in records</strong> tied to your account are aged out by a scheduled job rather than deleted at once. The job runs every six hours and only clears records idle for a day, so they can outlast your account by up to about thirty hours.</li>
                     <li><strong>@mentions of you inside other people's messages</strong> keep your user ID and username, because they are part of someone else's message.</li>
@@ -583,8 +645,11 @@
                     <strong>Third parties and children's data.</strong> A child's messages travel through the
                     same push notification path as everyone else's, which means the text of a message sent to
                     or from a child reaches our push provider, and their device contacts call-setup servers
-                    and linked websites exactly as an adult's device does. We do not share children's
-                    personal information with anyone for advertising, and we never sell it.
+                    and linked websites exactly as an adult's device does. GIF &amp; sticker search on a child
+                    account sends its searches to KLIPY as described under <a href="#klipy">KLIPY</a>, but a
+                    child account is never shown ads and always gets KLIPY's strictest content rating. We do
+                    not share children's personal information with anyone for advertising, and we never
+                    sell it.
                 </p>
                 <p>
                     <strong>Age.</strong> You must be at least <strong>13</strong> to hold your own adult
@@ -892,8 +957,10 @@
                 </ul>
                 <p>
                     That is the whole list. We do not use your content to advertise, to train models, to sell
-                    to anyone, or to promote MonkeyHub. There is no advertising in MonkeyHub and there are no
-                    analytics, attribution or crash-reporting tools in the app.
+                    to anyone, or to promote MonkeyHub. The only
+                    ads in MonkeyHub are the sponsored tiles KLIPY places in GIF &amp; sticker search results on
+                    phones and tablets (never for supervised child accounts), and there are no analytics,
+                    attribution or crash-reporting tools in the app.
                 </p>
                 <p>The licence ends when the content is deleted from the service. Two honest caveats:</p>
                 <ul>
@@ -923,18 +990,19 @@
                     individual message from the message's own menu. There is currently no way to report a whole
                     room from inside the app; if a room is the problem, report a message in it or email
                     <a href="mailto:info@walhallaa.com" target="_blank" rel="noopener">info@walhallaa.com</a>. A report records what you
-                    reported, the reason you picked from a short list, and when. If you pick "something else",
-                    anything you type is stored as part of that reason. Please use it. On a service this small,
+                    reported, the reason you picked from a short list, and when. When you report a message, a
+                    copy of it and of a few of the messages just before it in that conversation goes with the
+                    report, so the moderator can see the context. If you pick "something else", anything you
+                    type is stored as part of that reason. Please use it. On a service this small,
                     reports are the main way we find out something is wrong.
                 </p>
                 <p>
-                    <strong>Moderation.</strong> We review reports and decide what to do. Be aware of what we
-                    can actually do: MonkeyHub has no tool that lets us delete one message or one photo — only
-                    the person who sent a message can remove it. Our options are to warn you, to delete an
-                    account and everything in it, or to take no action. Judgements are made by a person, not by
-                    an automated system. Because MonkeyHub is run by one developer, we cannot promise a
-                    response time and we do not run a 24-hour moderation desk. We prioritise anything involving
-                    a child.
+                    <strong>Moderation.</strong> There is no tolerance for objectionable content or abusive
+                    users. We act on reports within 24 hours by removing the offending content and ejecting
+                    the user who posted it. Where a report does not show a breach, we may take no action.
+                    Message text is also automatically checked against a list of objectionable words and
+                    phrases, and matches are filtered, but decisions about a report are made by a person, not
+                    by an automated system. Anything involving a child goes to the front of the queue.
                 </p>
                 <p>
                     <strong>Reports outlive accounts — please read this part.</strong> A report is a moderation
@@ -1025,9 +1093,11 @@
 
                 <h3>MonkeyHub is free</h3>
                 <p>
-                    MonkeyHub costs nothing. There are no subscriptions, no in-app purchases, no paid tiers and
-                    no adverts. We do not sell your data, and there is nothing in the app that generates revenue
-                    from you.
+                    MonkeyHub costs nothing. There are no subscriptions, no in-app purchases and no paid tiers.
+                    There are no adverts in your chats, calls, games or feed. The only ads are the sponsored
+                    tiles KLIPY places among GIF &amp; sticker search results on phones and tablets, never for
+                    supervised child accounts; KLIPY shares the revenue from those with us, and that is the
+                    only money MonkeyHub makes. We do not sell your data.
                 </p>
                 <p>
                     This has a consequence worth stating plainly: MonkeyHub is a side project, not a business
