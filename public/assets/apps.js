@@ -94,6 +94,20 @@
       glyph: svg('<path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><path d="M9 10c1-1.5 5-1.5 6 0-1 1.5-5 1.5-6 0z"/><circle cx="12" cy="10" r=".7" fill="currentColor"/>'),
     },
     {
+      id: 'tvguide', name: 'TV Guide', full: "TV Guide: What's On Tonight", short: 'TV Guide',
+      tagline: 'What’s on now, and the one show worth watching tonight.',
+      platforms: ['ios'], device: 'phone', cat: 'Entertainment', hue: '#FF3B30',
+      status: 'dev', statusLabel: 'In App Review', price: 'Free',
+      stack: ['React Native', 'Expo', 'GitHub Actions'],
+      desc: 'TV listings for thirteen countries in a native Liquid Glass app. Instead of every channel’s evening news, “Tonight” picks each channel’s main event by scoring the prime-time window; a pinch-to-zoom timeline, swipe-to-remind and saved custom tabs sit on top. The listings are rebuilt every few hours by a free GitHub Actions pipeline, with a sandboxed home relay for the Turkish sources that block datacenters. No accounts, no tracking, nothing leaves the phone.',
+      icon: M + 'tvguide-icon.png',
+      screen: null,
+      links: [
+        K('privacy', 'Privacy & Terms', 'tvguide-privacy-terms.html'),
+      ],
+      glyph: svg('<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M8.5 3l3.5 4 3.5-4"/>'),
+    },
+    {
       id: 'elixir', name: 'Elixir: Daily Ritual', short: 'Elixir',
       tagline: 'Take your pills. Drink your water. Level up.',
       platforms: ['ios'], device: 'phone', cat: 'Health', hue: '#BF5AF2',
