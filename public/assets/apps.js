@@ -108,6 +108,23 @@
       glyph: svg('<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M8.5 3l3.5 4 3.5-4"/>'),
     },
     {
+      id: 'savormap', name: 'SavorMap', full: 'SavorMap: Saved Places by City', short: 'SavorMap',
+      tagline: 'Every place you’ve saved, on one map.',
+      platforms: ['ios', 'android'], device: 'phone', cat: 'Travel', hue: '#F05138',
+      status: 'dev', statusLabel: 'Coming soon', price: 'Free',
+      stack: ['React Native', 'Expo', 'Convex'],
+      desc: 'Places you save from Instagram, TikTok and Google Maps end up scattered across apps. Share a link or copy it, and SavorMap reads the post, finds the place and pins it on a map grouped by city. Build walking guides, share a list with friends by link, and keep one tidy home for every café, bar and viewpoint you meant to visit. Native Liquid Glass on iOS, Material on Android. Free, with an optional Pro plan.',
+      icon: M + 'savormap-icon.png',
+      screen: null,
+      links: [
+        K('privacy', 'Privacy & Terms', 'savormap-privacy-terms.html'),
+        K('eula', 'EULA', 'savormap-eula.html'),
+        K('delete', 'Delete account', 'savormap-delete-account.html'),
+        K('web', 'Support', 'savormap-support.html'),
+      ],
+      glyph: svg('<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>'),
+    },
+    {
       id: 'elixir', name: 'Elixir: Daily Ritual', short: 'Elixir',
       tagline: 'Take your pills. Drink your water. Level up.',
       platforms: ['ios'], device: 'phone', cat: 'Health', hue: '#BF5AF2',
