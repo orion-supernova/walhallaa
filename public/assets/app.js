@@ -70,7 +70,7 @@
     const buttons = '<i class="pb pb-action"></i><i class="pb pb-up"></i><i class="pb pb-down"></i><i class="pb pb-power"></i>';
     const all = a.more && s ? [s.src, ...a.more] : [];
     const dots = all.length ? `<div class="shots" role="group" aria-label="Screenshots">${all.map((src, i) => `<button type="button" class="shot-dot" data-src="${src}" aria-label="Screenshot ${i + 1} of ${all.length}" aria-pressed="${i === 0}"></button>`).join('')}</div>` : '';
-    if (s && s.frame === false) return `<div class="plain"${ar}>${scr}</div>${dots}`;
+    if (s && s.frame === false) return `<div class="plain${a.device === 'mac' ? '' : ' is-tall'}"${ar}>${scr}</div>${dots}`;
     return (a.device === 'mac'
       ? `<div class="mac"${ar}><div class="mac-lid">${scr}<i class="mac-notch"></i></div><div class="mac-base"></div></div>`
       : classic ? `<div class="phone is-classic">${buttons}<i class="pe"></i>${scr}</div>`

@@ -132,6 +132,22 @@
       glyph: svg('<ellipse cx="12" cy="12" rx="6.5" ry="9" transform="rotate(20 12 12)"/><path d="M14.5 4.5c-3 3-1.5 5.5-2.5 7.500s-3 3.500-2.500 7.500"/>'),
     },
     {
+      id: 'nestzone', name: 'NestZone', short: 'NestZone',
+      tagline: 'Everything your household needs, in one calm place.',
+      platforms: ['ios'], device: 'phone', cat: 'Home', hue: '#7B4DF0',
+      status: 'dev', statusLabel: 'Coming soon', openSource: true,
+      stack: ['Swift', 'SwiftUI', 'TCA', 'Convex'],
+      desc: 'A shared home for the people you live with. Chores, shopping lists and notes update live for everyone, next to a shared calendar, meal plans with recipes and a swipe game that settles what to watch tonight. Split bills and see who owes whom, log problems around the house until they’re fixed, and talk it all over in the household chat.',
+      icon: M + 'nestzone-icon.png',
+      screen: { type: 'image', src: M + 'nestzone-shot-1.jpg', w: 600, h: 1266 },
+      more: [2, 3, 4, 5, 6, 7, 8].map((n) => M + `nestzone-shot-${n}.jpg`),
+      links: [
+        K('source', 'Source', 'https://github.com/orion-supernova/NestZone'),
+        K('privacy', 'Privacy & Terms', 'nestzone-privacy-terms.html'),
+      ],
+      glyph: svg('<path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M10 20v-5h4v5"/>'),
+    },
+    {
       id: 'savormap', name: 'SavorMap', full: 'SavorMap: Saved Places by City', short: 'SavorMap',
       tagline: 'Every place you’ve saved, on one map.',
       platforms: ['ios', 'android'], device: 'phone', cat: 'Travel', hue: '#F05138',
