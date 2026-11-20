@@ -61,15 +61,20 @@
     } else if (s.type === 'video') {
       scr = `<div class="scr"><video src="${s.src}" poster="${s.poster || ''}" muted loop playsinline preload="metadata" aria-label="Screen recording of ${a.name}"></video></div>`;
     } else {
-      scr = `<div class="scr"><img src="${s.src}" alt="${a.name} screenshot" decoding="async"></div>`;
+      scr = `<div class="scr"><img class="scr-main" src="${s.src}" alt="${a.name} screenshot" decoding="async"></div>`;
     }
-    const ar = s && s.w ? ` style="--ar:${s.w} / ${s.h}"` : '';
+    const ar = s && s.w ? ` style="--aw:${s.w}; --ah:${s.h}"` : '';
+    // a 16:9 screenshot comes from a home-button iPhone, so it's shown on one: the picture
+    // fits its screen exactly instead of being stretched onto a taller display
+    const classic = !!s && a.device !== 'mac' && s.frame !== false && s.w && s.h / s.w < 2.05;
+    const buttons = '<i class="pb pb-action"></i><i class="pb pb-up"></i><i class="pb pb-down"></i><i class="pb pb-power"></i>';
     const all = a.more && s ? [s.src, ...a.more] : [];
     const dots = all.length ? `<div class="shots" role="group" aria-label="Screenshots">${all.map((src, i) => `<button type="button" class="shot-dot" data-src="${src}" aria-label="Screenshot ${i + 1} of ${all.length}" aria-pressed="${i === 0}"></button>`).join('')}</div>` : '';
     if (s && s.frame === false) return `<div class="plain"${ar}>${scr}</div>${dots}`;
     return (a.device === 'mac'
-      ? `<div class="mac"><div class="mac-lid"${ar}>${scr}</div><div class="mac-base"></div></div>`
-      : `<div class="phone"${ar}>${scr}</div>`) + dots;
+      ? `<div class="mac"${ar}><div class="mac-lid">${scr}<i class="mac-notch"></i></div><div class="mac-base"></div></div>`
+      : classic ? `<div class="phone is-classic">${buttons}<i class="pe"></i>${scr}</div>`
+      : `<div class="phone has-island">${buttons}${scr}</div>`) + dots;
   };
 
   const isLegal = (l) => l.kind === 'privacy' || l.kind === 'eula' || l.kind === 'delete';
@@ -121,7 +126,7 @@
   }
   // an app with several screenshots: the dots pick one, and clicking the screen moves on
   function setShot(dot) {
-    const img = $('.scr img', body); if (!img || !dot) return;
+    const img = $('.scr .scr-main', body); if (!img || !dot) return;
     $$('.shot-dot', body).forEach((d) => d.setAttribute('aria-pressed', String(d === dot)));
     const next = new Image();
     next.onload = () => { if (dot.getAttribute('aria-pressed') === 'true') img.src = next.src; };

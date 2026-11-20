@@ -38,15 +38,17 @@
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;
 }
 .dv-ph-body {
-  position: absolute; inset: 0; border-radius: 15.5cqw; background: #101014;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), inset 0 0 0 2.6cqw #1b1b21, 0 30px 60px -22px rgba(11, 11, 15, .5), 0 2px 0 rgba(255, 255, 255, .25);
+  position: absolute; inset: 0; border-radius: 16.5cqw;
+  background: linear-gradient(140deg, #8E8F95 0%, #3B3C41 16%, #62636A 40%, #25262A 68%, #77787E 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .34), 0 0 0 1px rgba(11, 11, 15, .55), 0 34px 60px -24px rgba(11, 11, 15, .6), 0 12px 20px -12px rgba(11, 11, 15, .4);
 }
-.dv-ph-side { position: absolute; background: #2a2a30; border-radius: 1cqw; }
-.dv-ph-side.mute { left: -1.2cqw; top: 18cqw; width: 1.2cqw; height: 6cqw; }
-.dv-ph-side.v1 { left: -1.2cqw; top: 29cqw; width: 1.2cqw; height: 12cqw; }
-.dv-ph-side.v2 { left: -1.2cqw; top: 44cqw; width: 1.2cqw; height: 12cqw; }
-.dv-ph-side.pw { right: -1.2cqw; top: 34cqw; width: 1.2cqw; height: 18cqw; }
-.dv-ph-screen { position: absolute; inset: 3.4cqw; border-radius: 12.4cqw; overflow: hidden; background: #f4f4f9; transform: translateZ(0); }
+.dv-ph-body::before { content: ""; position: absolute; inset: 1.15cqw; border-radius: 15.4cqw; background: #050506; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.dv-ph-side { position: absolute; background: linear-gradient(90deg, #2B2C30, #6E6F75 55%, #3A3B40); border-radius: .6cqw; }
+.dv-ph-side.mute { left: -.8cqw; top: 34cqw; width: 1cqw; height: 8cqw; }
+.dv-ph-side.v1 { left: -.8cqw; top: 49cqw; width: 1cqw; height: 15cqw; }
+.dv-ph-side.v2 { left: -.8cqw; top: 68cqw; width: 1cqw; height: 15cqw; }
+.dv-ph-side.pw { right: -.8cqw; top: 56cqw; width: 1cqw; height: 23cqw; }
+.dv-ph-screen { position: absolute; inset: 3.4cqw; border-radius: 13.3cqw; overflow: hidden; background: #f4f4f9; transform: translateZ(0); }
 .dv-wall {
   position: absolute; inset: -25%;
   background: radial-gradient(55% 45% at 30% 22%, #dcdcff 0%, transparent 70%), radial-gradient(45% 40% at 85% 85%, #ffe0ea 0%, transparent 70%),
@@ -56,7 +58,7 @@
 @keyframes dv-drift { from { transform: translate(-3%, -2%) rotate(0deg); } to { transform: translate(3%, 2%) rotate(3deg); } }
 .dv-ph-status { position: absolute; z-index: 3; top: 4.2cqw; left: 9cqw; right: 8cqw; display: flex; justify-content: space-between; align-items: center; font: 600 4.8cqw/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif; color: #0b0b0f; letter-spacing: -.01em; }
 .dv-ph-status svg { width: 13cqw; height: 4cqw; fill: #0b0b0f; stroke: none; }
-.dv-ph-island { position: absolute; z-index: 3; top: 3.6cqw; left: 50%; translate: -50% 0; width: 30cqw; height: 8.4cqw; border-radius: 99px; background: #0b0b0f; }
+.dv-ph-island { position: absolute; z-index: 5; top: 3cqw; left: 50%; translate: -50% 0; width: 30cqw; height: 8.4cqw; border-radius: 99px; background: #0b0b0f; }
 .dv-ph-home { position: absolute; inset: 0; z-index: 2; padding: 19cqw 5cqw 5.5cqw; display: flex; flex-direction: column; justify-content: space-between; transform-origin: 50% 50%; }
 .dv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5.2cqw 2cqw; }
 .dv-icon { display: flex; flex-direction: column; align-items: center; gap: 1.8cqw; min-width: 0; opacity: 0; scale: .5; }
@@ -84,34 +86,29 @@
 .dv-d-desc { font: 400 3.9cqw/1.45 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: var(--dv-ink-2); }
 .dv-d-links { display: flex; flex-wrap: wrap; gap: 1.6cqw; margin-top: auto; }
 .dv-d-links span { font: 500 3.1cqw/1 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: var(--dv-ink); background: rgba(255, 255, 255, .7); border: 1px solid var(--dv-line); border-radius: 99px; padding: 2.2cqw 3.4cqw; }
-.dv-sheen { position: absolute; inset: 0; border-radius: 15.5cqw; pointer-events: none; z-index: 5; mix-blend-mode: screen;
+.dv-sheen { position: absolute; inset: 0; border-radius: 16.5cqw; pointer-events: none; z-index: 5; mix-blend-mode: screen;
   background: radial-gradient(circle at var(--gx, 50%) var(--gy, 40%), rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 42%); }
 
 /* ---------- MacBook ---------- */
 .dv-mac {
-  position: relative; width: 82cqw; aspect-ratio: 16 / 11.4; container-type: inline-size;
+  position: relative; width: 82cqw; aspect-ratio: 16 / 11; container-type: inline-size;
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;
 }
 .dv-mac-lid {
-  position: absolute; left: 0; top: 0; width: 100cqw; height: 63cqw; border-radius: 3cqw 3cqw 1.2cqw 1.2cqw;
-  background: linear-gradient(180deg, #2d2d33, #1a1a1f); transform-origin: 50% 100%; transform: rotateX(-7deg) translateZ(.5cqw);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14), 0 26px 50px -22px rgba(11, 11, 15, .55);
+  position: absolute; left: 0; top: 0; width: 100cqw; height: 64.6cqw; border-radius: 2.6cqw 2.6cqw .9cqw .9cqw; background: #060607;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1), 0 0 0 .32cqw #C9CBD0, 0 0 0 calc(.32cqw + 1px) rgba(11, 11, 15, .35);
 }
-.dv-mac-screen { position: absolute; inset: 2.4cqw 2.4cqw 2.8cqw; border-radius: 1.6cqw 1.6cqw .6cqw .6cqw; overflow: hidden; background: linear-gradient(160deg, #eceef7, #f6f6fb 55%, #e9ecf6); transform: translateZ(0); }
-.dv-mac-notch { position: absolute; left: 50%; top: 2.4cqw; translate: -50% 0; width: 14cqw; height: 1.6cqw; border-radius: 0 0 1cqw 1cqw; background: #1a1a1f; z-index: 4; }
+.dv-mac-screen { position: absolute; inset: 1.9cqw 1.75cqw 2.4cqw; border-radius: 1.1cqw 1.1cqw .35cqw .35cqw; overflow: hidden; background: linear-gradient(160deg, #eceef7, #f6f6fb 55%, #e9ecf6); transform: translateZ(0); }
+.dv-mac-notch { position: absolute; left: 50%; top: 0; translate: -50% 0; width: 11.5cqw; height: 3.2cqw; border-radius: 0 0 .9cqw .9cqw; background: #060607; z-index: 4; }
+.dv-mac-notch::after { content: ""; position: absolute; left: 50%; top: 45%; width: .6cqw; height: .6cqw; translate: -50% -50%; border-radius: 50%; background: radial-gradient(#2C3340, #0B0D12 70%); }
 .dv-mac-sheen { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 5; mix-blend-mode: screen;
-  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 40%), rgba(255, 255, 255, .22), rgba(255, 255, 255, 0) 45%); }
-.dv-mac-base {
-  position: absolute; left: -1.5cqw; top: 63cqw; width: 103cqw; height: 46cqw; transform-origin: 50% 0; transform: rotateX(78deg);
-  border-radius: 1.2cqw 1.2cqw 3cqw 3cqw; background: linear-gradient(180deg, #d6d6dc, #b9b9c2 70%, #9d9da6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
-}
-.dv-mac-kb { position: absolute; left: 10cqw; right: 10cqw; top: 4cqw; height: 22cqw; border-radius: 1cqw; background-color: #c3c3cb;
-  background-image: repeating-linear-gradient(90deg, #8f8f98 0 5.2cqw, transparent 5.2cqw 6cqw), repeating-linear-gradient(0deg, #8f8f98 0 3.6cqw, transparent 3.6cqw 4.4cqw);
-  background-size: 6cqw 4.4cqw; opacity: .55; }
-.dv-mac-tp { position: absolute; left: 34cqw; right: 34cqw; top: 29cqw; height: 13cqw; border-radius: 1.2cqw; background: #c9c9d1; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08); }
-.dv-mac-lip { position: absolute; left: -1.5cqw; top: 63cqw; width: 103cqw; height: 1.6cqw; background: linear-gradient(180deg, #e2e2e8, #9a9aa3); border-radius: 0 0 1cqw 1cqw; transform: translateZ(1cqw); }
-.dv-mac-shadow { position: absolute; left: 4cqw; right: 4cqw; top: 70cqw; height: 10cqw; border-radius: 50%; background: radial-gradient(closest-side, rgba(11, 11, 15, .35), transparent); filter: blur(6px); transform: translateZ(-4cqw); }
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 40%), rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 45%); }
+.dv-mac-base { display: none; }
+.dv-mac-lip { position: absolute; left: -6.2cqw; top: 64.95cqw; width: 112.4cqw; height: 1.75cqw; border-radius: .25cqw .25cqw 1.5cqw 1.5cqw;
+  background: linear-gradient(#F1F2F4 0%, #D3D5D9 22%, #B4B6BC 62%, #8C8E95 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), inset 0 -1px 0 rgba(11, 11, 15, .25); }
+.dv-mac-lip::before { content: ""; position: absolute; left: 50%; top: 0; width: 15cqw; height: .75cqw; translate: -50% 0; border-radius: 0 0 1.1cqw 1.1cqw; background: linear-gradient(#9A9CA3, #BFC1C6); box-shadow: inset 0 1px 1px rgba(11, 11, 15, .28); }
+.dv-mac-shadow { position: absolute; left: -2cqw; right: -2cqw; top: 65.6cqw; height: 7cqw; border-radius: 50%; background: radial-gradient(closest-side, rgba(11, 11, 15, .42), transparent); filter: blur(5px); }
 
 /* macOS chrome inside the lid */
 .dv-menubar { position: absolute; z-index: 3; left: 0; right: 0; top: 0; height: 3.6cqw; padding: 0 2.4cqw; display: flex; align-items: center; gap: 2cqw; background: rgba(255, 255, 255, .55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);

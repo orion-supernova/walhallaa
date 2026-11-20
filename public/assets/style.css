@@ -198,9 +198,35 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
 .shot-dot[aria-pressed="true"]::before { background: var(--ink); transform: scale(1.3); }
 .d-media::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(130%, 560px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none;
   background: radial-gradient(closest-side, color-mix(in oklab, var(--hue) 34%, transparent), transparent); }
-.phone { position: relative; height: var(--ph-h, 440px); max-width: 100%; aspect-ratio: var(--ar, 9 / 19.5); padding: 7px; border-radius: 40px; background: #0D0D10;
-  box-shadow: inset 0 0 0 1.5px #3B3B42, 0 0 0 1px rgba(17, 17, 17, .5), 0 34px 50px -30px rgba(17, 17, 17, .6), 0 12px 20px -14px rgba(17, 17, 17, .35); }
-.phone .scr { border-radius: 33px; }
+/* iPhone: a titanium band, a black bezel and the glass. Every measure is a share of the
+   phone's own width (--u is 1% of it), so the frame keeps its proportions at any size. */
+.phone { --aw: 9; --ah: 19.5; --pw: calc(var(--ph-h, 440px) * var(--aw) / var(--ah)); --u: calc(var(--pw) / 100);
+  position: relative; height: var(--ph-h, 440px); max-width: 100%; aspect-ratio: var(--aw) / var(--ah); padding: calc(3.4 * var(--u)); border-radius: calc(17.5 * var(--u));
+  background: linear-gradient(140deg, #8E8F95 0%, #3B3C41 16%, #62636A 40%, #25262A 68%, #77787E 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .32), 0 0 0 1px rgba(17, 17, 17, .6),
+    0 calc(14 * var(--u)) calc(16 * var(--u)) calc(-11 * var(--u)) rgba(17, 17, 17, .62), 0 calc(4 * var(--u)) calc(7 * var(--u)) calc(-4 * var(--u)) rgba(17, 17, 17, .4); }
+.phone::before { content: ""; position: absolute; inset: calc(1.15 * var(--u)); border-radius: calc(16.4 * var(--u)); background: #050506; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.phone .scr { border-radius: calc(14.2 * var(--u)); }
+.phone .scr::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: linear-gradient(118deg, rgba(255, 255, 255, .11) 0%, rgba(255, 255, 255, .03) 22%, transparent 34%); }
+.phone.has-island .scr::before { content: ""; position: absolute; z-index: 3; left: 50%; top: calc(2.9 * var(--u)); width: calc(29.5 * var(--u)); height: calc(8.6 * var(--u)); translate: -50% 0; border-radius: 99px; background: #000; }
+/* the home-button iPhone (SE proportions): 16:9 screen, forehead with the earpiece, chin with the button */
+.phone.is-classic { --aw: 67.3; --ah: 138.4; padding: calc(25.56 * var(--u)) calc(6.54 * var(--u)); border-radius: calc(15 * var(--u)); }
+.phone.is-classic::before { border-radius: calc(13.9 * var(--u)); }
+.phone.is-classic .scr { border-radius: calc(.5 * var(--u)); }
+.phone.is-classic::after { content: ""; position: absolute; left: 50%; bottom: calc(4.9 * var(--u)); width: calc(15.6 * var(--u)); aspect-ratio: 1; translate: -50% 0; border-radius: 50%;
+  background: #08080A; box-shadow: inset 0 0 0 calc(.7 * var(--u)) #2E2F34, inset 0 0 0 calc(1 * var(--u)) #0E0E10; }
+.pe { position: absolute; left: 50%; top: calc(11.6 * var(--u)); width: calc(14.5 * var(--u)); height: calc(1.7 * var(--u)); translate: -50% 0; border-radius: 99px; background: #1D1E22; box-shadow: inset 0 1px 1px rgba(0, 0, 0, .8); }
+.pe::before { content: ""; position: absolute; right: calc(100% + 3.4 * var(--u)); top: 50%; width: calc(2.3 * var(--u)); aspect-ratio: 1; translate: 0 -50%; border-radius: 50%; background: radial-gradient(#2C3340, #0B0D12 70%); }
+.phone.is-classic .pb-action { top: 14%; height: 3.2%; }
+.phone.is-classic .pb-up { top: 21%; height: 6.4%; }
+.phone.is-classic .pb-down { top: 29.5%; height: 6.4%; }
+.phone.is-classic .pb-power { top: 21%; height: 9%; }
+.pb { position: absolute; width: calc(.95 * var(--u)); border-radius: calc(.5 * var(--u)); background: linear-gradient(90deg, #2B2C30, #6E6F75 55%, #3A3B40); }
+.pb-action { left: calc(-.75 * var(--u)); top: 17%; height: 4.2%; }
+.pb-up { left: calc(-.75 * var(--u)); top: 24.5%; height: 7.6%; }
+.pb-down { left: calc(-.75 * var(--u)); top: 34%; height: 7.6%; }
+.pb-power { right: calc(-.75 * var(--u)); top: 28%; height: 11.5%; background: linear-gradient(270deg, #2B2C30, #6E6F75 55%, #3A3B40); }
 .scr { position: relative; width: 100%; height: 100%; overflow: hidden; background: #0D0D10; }
 .scr img, .scr video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .scr-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 8%; text-align: center; color: var(--ink);
@@ -208,14 +234,21 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
 .scr-empty .ic { width: 44%; margin-bottom: 10px; box-shadow: 0 16px 30px -14px rgba(17, 17, 17, .5); }
 .scr-empty b { font-weight: 700; font-size: 17px; line-height: 1.1; letter-spacing: -.02em; }
 .scr-empty span:last-child { font-size: 12.5px; line-height: 1.3; color: var(--ink-2); }
-.plain { position: relative; width: min(100%, var(--mac-w, 560px)); aspect-ratio: var(--ar, 16 / 10); border-radius: 18px; overflow: hidden;
+.plain { --aw: 16; --ah: 10; position: relative; width: min(100%, var(--mac-w, 560px)); aspect-ratio: var(--aw) / var(--ah); border-radius: 18px; overflow: hidden;
   box-shadow: 0 0 0 1px rgba(17, 17, 17, .14), 0 34px 50px -30px rgba(17, 17, 17, .6), 0 12px 20px -14px rgba(17, 17, 17, .35); }
-.mac { position: relative; width: min(100%, var(--mac-w, 560px)); }
-.mac-lid { aspect-ratio: var(--ar, 16 / 10); padding: 2.4% 2.4% 3%; border-radius: 16px 16px 5px 5px; background: #0D0D10; box-shadow: inset 0 0 0 1.5px #3B3B42, 0 0 0 1px rgba(17, 17, 17, .5); }
-.mac-lid .scr { border-radius: 7px 7px 2px 2px; }
-.mac-base { position: relative; height: 13px; margin: 0 -7%; border-radius: 3px 3px 14px 14px; background: linear-gradient(#E4E5E8, #C4C6CB 45%, #9FA1A8);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 26px 30px -18px rgba(17, 17, 17, .55); }
-.mac-base::before { content: ""; position: absolute; left: 50%; top: 0; width: 16%; height: 5px; translate: -50% 0; border-radius: 0 0 8px 8px; background: #A9ABB2; }
+/* MacBook, seen straight on: aluminium lid edge, black bezel with the camera notch, and the
+   front edge of the base with its thumb scoop. Sizes are shares of the lid's width (cqw). */
+.mac { --aw: 16; --ah: 10; position: relative; width: min(100%, var(--mac-w, 560px)); container-type: inline-size; padding: 0 5.5%; }
+.mac-lid { position: relative; aspect-ratio: calc(var(--aw) + .62) / calc(var(--ah) + .78); padding: 1.9cqw 1.75cqw 2.4cqw; border-radius: 2.6cqw 2.6cqw .9cqw .9cqw; background: #060607;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1), 0 0 0 .32cqw #C9CBD0, 0 0 0 calc(.32cqw + 1px) rgba(17, 17, 17, .35); }
+.mac-lid .scr { border-radius: 1.1cqw 1.1cqw .35cqw .35cqw; }
+.mac-lid .scr::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(118deg, rgba(255, 255, 255, .08) 0%, rgba(255, 255, 255, .02) 24%, transparent 36%); }
+.mac-notch { position: absolute; left: 50%; top: 0; width: 11.5cqw; height: 3.2cqw; translate: -50% 0; border-radius: 0 0 .9cqw .9cqw; background: #060607; }
+.mac-notch::after { content: ""; position: absolute; left: 50%; top: 40%; width: .6cqw; height: .6cqw; translate: -50% -50%; border-radius: 50%; background: radial-gradient(#2C3340, #0B0D12 70%); }
+.mac-base { position: relative; height: 1.75cqw; margin: .32cqw -6.2cqw 0; border-radius: .25cqw .25cqw 1.5cqw 1.5cqw;
+  background: linear-gradient(#F1F2F4 0%, #D3D5D9 22%, #B4B6BC 62%, #8C8E95 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), inset 0 -1px 0 rgba(17, 17, 17, .25), 0 3.4cqw 3.6cqw -2.4cqw rgba(17, 17, 17, .6), 0 1cqw 1.4cqw -.9cqw rgba(17, 17, 17, .45); }
+.mac-base::before { content: ""; position: absolute; left: 50%; top: 0; width: 15cqw; height: .75cqw; translate: -50% 0; border-radius: 0 0 1.1cqw 1.1cqw; background: linear-gradient(#9A9CA3, #BFC1C6); box-shadow: inset 0 1px 1px rgba(17, 17, 17, .28); }
 
 /* narrow: the stage is a bottom sheet */
 .scrim { position: fixed; inset: 0; z-index: 140; background: rgba(17, 17, 17, .5); opacity: 0; visibility: hidden; }
@@ -232,9 +265,8 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
     padding: 6px 20px max(28px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 22px; }
   .d-media { padding: 6px 0 14px; }
   .phone { --ph-h: min(48dvh, 430px); }
-  .phone:has(.scr-empty) { --ph-h: min(36dvh, 300px); border-radius: 32px; }
-  .phone:has(.scr-empty) .scr { border-radius: 25px; }
-  .mac { --mac-w: 86%; margin: 10px 0 6px; }
+  .phone:has(.scr-empty) { --ph-h: min(36dvh, 300px); }
+  .mac { --mac-w: 92%; margin: 10px 0 6px; }
   .plain { --mac-w: 100%; border-radius: 14px; }
 }
 
@@ -288,8 +320,7 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
   .d-tag { font-size: clamp(1.0625rem, 2.1cqw, 1.25rem); margin-top: 8px; }
   .d-text { align-self: start; }
   .d-media { align-self: center; }
-  .phone { --ph-h: min(calc(var(--frame-h) - 146px), 580px); padding: 8px; border-radius: 46px; }
-  .phone .scr { border-radius: 38px; }
+  .phone { --ph-h: min(calc(var(--frame-h) - 146px), 580px); }
   .mac, .plain { --mac-w: 600px; }
   /* small laptop windows: quieter type so the whole entry still fits the frame */
   @container stage (max-width: 880px) {
