@@ -4,7 +4,8 @@
    App Store listing or the project's own repository.
    screen.w / screen.h are the media's pixel size, so the device frame can take its shape
    before the file has loaded. screen.frame: false shows the image on its own, for artwork
-   that already pictures a device. */
+   that already pictures a device. `more` lists further screenshots of the same size; the
+   stage lets you step through them. */
 (function () {
   'use strict';
   const svg = (inner) => `<svg viewBox="0 0 24 24" aria-hidden="true">${inner}</svg>`;
@@ -19,7 +20,7 @@
       tagline: 'Wine chosen by your palate, not a crowd average.',
       platforms: ['ios', 'android'], device: 'phone', cat: 'Food & Drink',
       hue: '#9B2242', status: 'now', statusLabel: 'Current work',
-      note: 'My current company — Swirl AB, Stockholm.',
+      note: 'This is where I work now, at Swirl AB in Stockholm.',
       stack: [],
       desc: 'Scan a label and get a match score built from your own taste profile instead of strangers’ stars. The database is assembled from winemakers’ technical sheets, and your ratings stay private, so nothing you log turns into somebody else’s average.',
       icon: M + 'swirl-icon.png',
@@ -31,14 +32,15 @@
       glyph: svg('<path d="M7 3h10l-1 6a5 5 0 0 1-8 0z"/><path d="M12 14v7M8.5 21h7"/>'),
     },
     {
-      id: 'mahmut', name: 'Clipboard Mahmut', short: 'Mahmut',
+      id: 'mahmut', name: 'Mahmut: Clipboard Manager', short: 'Mahmut',
       tagline: 'Everything you copy, one ⌘⇧V away.',
       platforms: ['macos'], device: 'mac', cat: 'Productivity', hue: '#5856D6',
       status: 'live', openSource: true, price: 'Free',
       stack: ['Swift', 'SwiftUI', 'TCA'],
-      desc: 'Text, code, links, colours, images and files, all one shortcut away. It recognises fifteen programming languages, OCRs screenshots on device so you can search inside them, and masks cards, IBANs and API keys before forgetting them on a timer. History never leaves the Mac.',
+      desc: 'Your whole clipboard history in one panel: text, code, links, images, colours and files. It knows what you copied, so a phone number offers a call, a flight number its status, a tracking code its parcel, and a sum pastes as the answer. Search reaches the words inside your screenshots, and cards, IBANs and API keys are masked and forgotten on a timer. History never leaves the Mac.',
       icon: M + 'mahmut-icon.png',
-      screen: { type: 'image', src: M + 'mahmut-screen.jpg', w: 820, h: 513, frame: false },
+      screen: { type: 'image', src: M + 'mahmut-shot-1.jpg', w: 1280, h: 800 },
+      more: [2, 3, 4, 5, 6, 7, 8, 9].map((n) => M + `mahmut-shot-${n}.jpg`),
       links: [
         K('store', 'Mac App Store', 'https://apps.apple.com/app/id6446905294'),
         K('source', 'Source', 'https://github.com/orion-supernova/clipboardManager'),
@@ -78,12 +80,12 @@
       glyph: svg('<path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor" stroke="none"/><path d="M4 12a8 8 0 0 1 13.5-5.8M20 12a8 8 0 0 1-13.5 5.8"/><path d="M17.5 3v3.5H14M6.5 21v-3.5H10"/>'),
     },
     {
-      id: 'whereami', name: 'Where am I?', short: 'Where am I?',
+      id: 'whereami', name: 'Where am I?', full: 'Where am I? Spy Party Game', short: 'Where am I?',
       tagline: 'Find the spy. Or be one.',
       platforms: ['ios', 'web', 'android'], device: 'phone', cat: 'Game · Real-time', hue: '#FF453A',
       status: 'live', openSource: true,
       stack: ['Flutter', 'Dart', 'Convex'],
-      desc: 'A party game of bluffing and deduction for three to twelve people already sitting next to each other. Everyone sees the same secret location except one. The round clock lives on the server, so locking your phone or walking out of Wi-Fi range doesn’t break anyone else’s timer — and the app never votes for you or announces a winner.',
+      desc: 'A party game of bluffing and deduction for three to twelve people already sitting next to each other. Everyone sees the same secret location except one. The round clock lives on the server, so locking your phone or walking out of Wi-Fi range doesn’t break anyone else’s timer. The app never votes for you or announces a winner.',
       icon: M + 'whereami-icon.png',
       screen: { type: 'video', src: M + 'whereami-screen.mp4', w: 440, h: 958, poster: M + 'whereami-poster.jpg' },
       links: [
@@ -100,15 +102,34 @@
       id: 'tvguide', name: 'TV Guide', full: "TV Guide: What's On Tonight", short: 'TV Guide',
       tagline: 'What’s on now, and the one show worth watching tonight.',
       platforms: ['ios'], device: 'phone', cat: 'Entertainment', hue: '#FF3B30',
-      status: 'dev', statusLabel: 'In App Review', price: 'Free',
+      status: 'live', price: 'Free',
       stack: ['React Native', 'Expo', 'GitHub Actions'],
-      desc: 'TV listings for thirteen countries in a native Liquid Glass app. Instead of every channel’s evening news, “Tonight” picks each channel’s main event by scoring the prime-time window; a pinch-to-zoom timeline, swipe-to-remind and saved custom tabs sit on top. The listings are rebuilt every few hours by a free GitHub Actions pipeline, with a sandboxed home relay for the Turkish sources that block datacenters. No accounts, no tracking, nothing leaves the phone.',
+      desc: 'TV listings for thirteen countries in one clean iPhone app. See what’s on every channel right now, or open Tonight, which skips the evening news and shows each channel’s main event. There is a timeline you can pinch to zoom, reminders a swipe away, and custom tabs for the things you follow, like football or films. No account, no ads, no tracking. Your favourites and reminders stay on your phone.',
       icon: M + 'tvguide-icon.png',
-      screen: null,
+      screen: { type: 'image', src: M + 'tvguide-shot-1.jpg', w: 598, h: 1300 },
+      more: [2, 3, 4, 5].map((n) => M + `tvguide-shot-${n}.jpg`),
       links: [
+        K('store', 'App Store', 'https://apps.apple.com/app/id6834437929'),
         K('privacy', 'Privacy & Terms', 'tvguide-privacy-terms.html'),
       ],
       glyph: svg('<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M8.5 3l3.5 4 3.5-4"/>'),
+    },
+    {
+      id: 'beanprint', name: 'Beanprint: Coffee Scanner', short: 'Beanprint',
+      tagline: 'Know your coffee. Know your taste.',
+      platforms: ['ios'], device: 'phone', cat: 'Food & Drink', hue: '#9A6A45',
+      status: 'live', price: 'Free',
+      stack: [],
+      desc: 'Point the camera at a bag of coffee and Beanprint reads the label: origin, roaster, process, roast and tasting notes, each shown with where it came from. If the bag doesn’t say, it says “Not listed” and never guesses. Your own ratings build a taste profile that scores how well the next bag is likely to suit you, alongside short hands-on lessons, a map of the world’s coffee regions and specialty cafés within walking distance.',
+      icon: M + 'beanprint-icon.png',
+      screen: { type: 'image', src: M + 'beanprint-shot-1.jpg', w: 598, h: 1300 },
+      more: [2, 3, 4, 5, 6].map((n) => M + `beanprint-shot-${n}.jpg`),
+      links: [
+        K('store', 'App Store', 'https://apps.apple.com/app/id6815748427'),
+        K('web', 'Try without installing', 'https://beanprint.walhallaa.com'),
+      ],
+      clip: { qr: M + 'beanprint-qr.svg', note: 'Point your iPhone camera at the code to try Beanprint as an App Clip, with nothing to install.' },
+      glyph: svg('<ellipse cx="12" cy="12" rx="6.5" ry="9" transform="rotate(20 12 12)"/><path d="M14.5 4.5c-3 3-1.5 5.5-2.5 7.500s-3 3.500-2.500 7.500"/>'),
     },
     {
       id: 'savormap', name: 'SavorMap', full: 'SavorMap: Saved Places by City', short: 'SavorMap',
@@ -116,7 +137,7 @@
       platforms: ['ios', 'android'], device: 'phone', cat: 'Travel', hue: '#F05138',
       status: 'dev', statusLabel: 'Coming soon', price: 'Free',
       stack: ['React Native', 'Expo', 'Convex'],
-      desc: 'Places you save from Instagram, TikTok and Google Maps end up scattered across apps. Share a link or copy it, and SavorMap reads the post, finds the place and pins it on a map grouped by city. Build walking guides, share a list with friends by link, and keep one tidy home for every café, bar and viewpoint you meant to visit. Native Liquid Glass on iOS, Material on Android. Free, with an optional Pro plan.',
+      desc: 'Places you save from Instagram, TikTok and Google Maps end up scattered across apps. Share a link or copy it, and SavorMap reads the post, finds the place and pins it on a map grouped by city. Build walking guides, share a list with friends by link, and keep one tidy home for every café, bar and viewpoint you meant to visit. Built for iPhone and Android. Free, with an optional Pro plan.',
       icon: M + 'savormap-icon.png',
       screen: null,
       links: [
@@ -147,7 +168,7 @@
       platforms: ['ios', 'macos', 'android'], device: 'phone', cat: 'Reading', hue: '#E23A3A',
       openSource: true,
       stack: ['Flutter', 'Dart'],
-      desc: 'A speed reader that plays a book back one word at a time, each word placed so its pivot letter lands exactly where the last one did — your eye stops travelling and the words come to it. The pace is not a metronome: long words, proper nouns and full stops each bend their own dwell time, and the weights are tunable mid-chapter.',
+      desc: 'A speed reader that plays a book back one word at a time, each word placed so its pivot letter lands exactly where the last one did. Your eye stops travelling and the words come to it. The pace is not a metronome: long words, proper nouns and full stops each bend their own dwell time, and the weights are tunable mid-chapter.',
       icon: M + 'kachaow-icon.png',
       screen: { type: 'video', src: M + 'kachaow-screen.mp4', w: 420, h: 914, poster: M + 'kachaow-poster.jpg' },
       links: [
@@ -163,7 +184,8 @@
       stack: ['Swift', 'SwiftUI'],
       desc: 'Turns any photo into a desktop clock and countdown timer, cycling through your own pictures while it runs. Built for the hours you spend studying, cooking or training with the Mac in the corner of your eye.',
       icon: M + 'pictureclock-icon.png',
-      screen: { type: 'image', src: M + 'pictureclock-screen.jpg', w: 820, h: 513 },
+      screen: { type: 'image', src: M + 'pictureclock-shot-1.jpg', w: 1280, h: 800 },
+      more: [2, 3].map((n) => M + `pictureclock-shot-${n}.jpg`),
       links: [
         K('store', 'Mac App Store', 'https://apps.apple.com/app/id6502960875'),
         K('privacy', 'Privacy & Terms', 'pictureclock-privacy-terms.html'),
@@ -255,7 +277,7 @@
       platforms: ['ios'], device: 'phone', cat: 'Game', hue: '#34C759',
       status: 'live', openSource: true, first: true,
       stack: ['Swift', 'SwiftUI'],
-      desc: 'The game at its simplest form, and the first thing I ever put in front of App Review — written to learn SwiftUI and shipped because the only way to learn the submission process is to survive it.',
+      desc: 'The game at its simplest form, and the first thing I ever put in front of App Review. I wrote it to learn SwiftUI and shipped it because the only way to learn the submission process is to go through it.',
       icon: M + 'tictactoe-icon.png',
       screen: { type: 'image', src: M + 'tictactoe-screen.jpg', w: 292, h: 520 },
       links: [

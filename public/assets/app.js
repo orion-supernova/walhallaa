@@ -1,7 +1,8 @@
-/* SHELF — behaviour.
-   The grid renders from APPS. Opening an app shows it on the stage: a pane beside the grid
-   on wide screens, a bottom sheet on narrow ones. The address bar carries the open app
-   (#swirl), so every app has a link and the phone's Back button closes the sheet. */
+/* SIGNAL — behaviour.
+   The work is a shelf: a grid rendered from APPS. Opening an app shows it on the stage — a
+   pane beside the grid on wide screens, a bottom sheet on narrow ones. The address bar
+   carries the open app (#swirl), so every app has a link and the phone's Back button closes
+   the sheet. Around it: the poster's load choreography, the hero devices and the contact keys. */
 (function () {
   'use strict';
   const M = window.Motion, APPS = window.APPS, P = window.PROFILE, LK = window.LINK_KINDS;
@@ -16,14 +17,21 @@
   const byId = new Map(APPS.map((a) => [a.id, a]));
 
   const grid = $('#grid'), filters = $('#filters'), stage = $('#stage'), body = $('#stageBody'), scrim = $('#scrim');
-  const count = $('#count'), aboutLink = $('#aboutLink');
+  const count = $('#count');
+
+  // ---------- load choreography ----------
+  const start = () => requestAnimationFrame(() => document.body.classList.add('is-loaded'));
+  if (document.fonts?.ready) { let done = false; const kick = () => { if (!done) { done = true; start(); } }; document.fonts.ready.then(kick); setTimeout(kick, 700); } else start();
 
   const iconFor = (a) => a.icon
     ? `<span class="ic" style="--c:${a.hue}"><img src="${a.icon}" alt="" width="192" height="192" decoding="async"></span>`
     : `<span class="ic" style="--c:${a.hue}" aria-hidden="true">${a.glyph}</span>`;
 
   // ---------- shelf ----------
-  grid.innerHTML = APPS.map((a) => `<li data-id="${a.id}"><a class="tile" href="#${a.id}" data-id="${a.id}" aria-label="${a.name} — ${a.tagline}">${iconFor(a)}<span class="tile-name" aria-hidden="true">${a.short}</span></a></li>`).join('');
+  grid.innerHTML = APPS.map((a) => `<li data-id="${a.id}"><a class="tile" href="#${a.id}" data-id="${a.id}" aria-label="${a.name}: ${a.tagline}">${iconFor(a)}<span class="tile-text" aria-hidden="true"><span class="tile-name">${a.short}</span><span class="tile-cat">${a.cat}</span></span></a></li>`).join('');
+  const NUM = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty'];
+  $('#workCount').textContent = `${NUM[APPS.length] || APPS.length} projects · strongest first`;
+  grid.style.setProperty('--rows', Math.ceil(APPS.length / 2));
   const tiles = new Map($$('.tile', grid).map((t) => [t.dataset.id, t]));
 
   let filter = 'all';
@@ -38,9 +46,9 @@
     filter = b.dataset.f;
     $$('.seg', filters).forEach((s) => s.setAttribute('aria-pressed', String(s.dataset.f === filter)));
     const keep = new Set(visible().map((a) => a.id));
-    $$('li', grid).forEach((li) => { li.hidden = !keep.has(li.dataset.id); });
+    $$('li', grid).forEach((li) => { const off = !keep.has(li.dataset.id); li.classList.toggle('is-off', off); li.inert = off; });
     // on a wide screen the stage always shows something from the list you're looking at
-    if (wide.matches && view === 'app' && !keep.has(current)) go(visible()[0].id, { replace: true });
+    if (wide.matches && !keep.has(current)) go(visible()[0].id, { replace: true });
     else updateCount();
   });
 
@@ -56,10 +64,12 @@
       scr = `<div class="scr"><img src="${s.src}" alt="${a.name} screenshot" decoding="async"></div>`;
     }
     const ar = s && s.w ? ` style="--ar:${s.w} / ${s.h}"` : '';
-    if (s && s.frame === false) return `<div class="plain"${ar}>${scr}</div>`;
-    return a.device === 'mac'
+    const all = a.more && s ? [s.src, ...a.more] : [];
+    const dots = all.length ? `<div class="shots" role="group" aria-label="Screenshots">${all.map((src, i) => `<button type="button" class="shot-dot" data-src="${src}" aria-label="Screenshot ${i + 1} of ${all.length}" aria-pressed="${i === 0}"></button>`).join('')}</div>` : '';
+    if (s && s.frame === false) return `<div class="plain"${ar}>${scr}</div>${dots}`;
+    return (a.device === 'mac'
       ? `<div class="mac"><div class="mac-lid"${ar}>${scr}</div><div class="mac-base"></div></div>`
-      : `<div class="phone"${ar}>${scr}</div>`;
+      : `<div class="phone"${ar}>${scr}</div>`) + dots;
   };
 
   const isLegal = (l) => l.kind === 'privacy' || l.kind === 'eula' || l.kind === 'delete';
@@ -70,7 +80,7 @@
     const legal = a.links.filter(isLegal);
     // the one thing you'd most likely want: get the app, or failing that, read its source
     const primary = main.find((l) => l.kind !== 'source' && offSite(l)) || main.find((l) => l.kind === 'source');
-    const btn = (l) => `<a class="btn ${l === primary ? 'btn-ink' : 'btn-soft'}" href="${l.href}"${attrs(l)}>${(LK[l.kind] || {}).icon || ''}${l.label}</a>`;
+    const btn = (l) => `<a class="btn ${l === primary ? 'btn-ink' : 'btn-line'}" href="${l.href}"${attrs(l)}>${(LK[l.kind] || {}).icon || ''}${l.label}</a>`;
     return (main.length ? `<div class="d-links">${[primary, ...main.filter((l) => l !== primary)].filter(Boolean).map(btn).join('')}</div>` : '')
       + (legal.length ? `<div class="d-legal">${legal.map((l) => `<a href="${l.href}"${attrs(l)}>${l.label}</a>`).join('')}</div>` : '');
   };
@@ -88,38 +98,66 @@
   };
 
   function render(a, dir) {
-    const status = a.status && STATUS[a.status] ? `<li class="chip chip-status${a.status === 'retired' ? ' is-quiet' : ''}">${a.statusLabel || STATUS[a.status]}</li>` : '';
+    const status = a.status && STATUS[a.status] ? `<li class="chip chip-status${a.status === 'retired' ? ' is-quiet' : a.status === 'dev' || a.status === 'v2' ? ' is-dev' : ''}">${a.statusLabel || STATUS[a.status]}</li>` : '';
+    // "Mahmut: Clipboard Manager" reads as a name and a descriptor, so set it that way
+    const [title, sub] = a.name.includes(': ') ? a.name.split(': ') : [a.name, ''];
     stage.style.setProperty('--hue', a.hue);
     body.classList.toggle('is-mac', a.device === 'mac');
     body.innerHTML = `
-      <header class="d-head">${iconFor(a)}<div><h2 id="dName">${a.name}</h2><p class="d-tag">${a.tagline}</p></div></header>
+      <header class="d-head">${iconFor(a)}<div><h2 id="dName">${title}${sub ? `<span class="d-sub">${sub}</span>` : ''}</h2><p class="d-tag">${a.tagline}</p></div></header>
       <div class="d-media">${deviceFor(a)}</div>
       <div class="d-text">
-        <ul class="chips">${status}${a.platforms.map((p) => `<li class="chip">${PLATFORM[p] || p}</li>`).join('')}<li class="chip">${a.cat}</li></ul>
+        <ul class="chips">${status}${a.platforms.map((p) => `<li class="chip">${PLATFORM[p] || p}</li>`).join('')}<li class="chip chip-cat">${a.cat}</li></ul>
         <p class="d-desc">${a.desc}</p>
         <p class="d-facts">${factsFor(a)}</p>
         ${linksFor(a)}
+        ${a.clip ? `<p class="d-clip"><img src="${a.clip.qr}" alt="QR code that opens ${title} as an App Clip" width="84" height="84"><span>${a.clip.note}</span></p>` : ''}
       </div>`;
     body.scrollTop = 0;
-    playMedia();
+    if (!wide.matches || stageInView) playMedia();
     if (dir != null && !M.reduced() && body.animate) {
-      body.animate([{ opacity: 0, transform: `translate3d(${dir * 26}px, ${dir ? 0 : 8}px, 0)` }, { opacity: 1, transform: 'none' }], { duration: 340, easing: EASE });
+      body.animate([{ opacity: .55, transform: `translate3d(${dir * 18}px, ${dir ? 0 : 6}px, 0)` }, { opacity: 1, transform: 'none' }], { duration: 260, easing: EASE });
     }
   }
+  // an app with several screenshots: the dots pick one, and clicking the screen moves on
+  function setShot(dot) {
+    const img = $('.scr img', body); if (!img || !dot) return;
+    $$('.shot-dot', body).forEach((d) => d.setAttribute('aria-pressed', String(d === dot)));
+    const next = new Image();
+    next.onload = () => { if (dot.getAttribute('aria-pressed') === 'true') img.src = next.src; };
+    next.src = dot.dataset.src;
+  }
+  body.addEventListener('click', (e) => {
+    const dot = e.target.closest('.shot-dot');
+    if (dot) return setShot(dot);
+    if (e.target.closest('.scr') && $('.shot-dot', body)) {
+      const dots = $$('.shot-dot', body), i = dots.findIndex((d) => d.getAttribute('aria-pressed') === 'true');
+      setShot(dots[(i + 1) % dots.length]);
+    }
+  });
+  // fetch an app's screen (or a recording's poster) ahead of time, so opening it never
+  // shows an empty device while the file arrives
+  const warmed = new Set();
+  function warm(a) {
+    if (!a || !a.screen || warmed.has(a.id)) return;
+    warmed.add(a.id);
+    new Image().src = a.screen.type === 'video' ? (a.screen.poster || '') : a.screen.src;
+  }
+  grid.addEventListener('pointerover', (e) => { const t = e.target.closest('.tile'); if (t) warm(byId.get(t.dataset.id)); });
+  grid.addEventListener('focusin', (e) => { const t = e.target.closest('.tile'); if (t) warm(byId.get(t.dataset.id)); });
   function playMedia() { const v = $('video', body); if (v && !M.reduced()) v.play().catch(() => {}); }
   function pauseMedia() { const v = $('video', body); if (v) v.pause(); }
 
   // ---------- state ----------
-  let current = null, view = 'app', sheetOpen = false, lastTile = null;
+  let current = null, sheetOpen = false, lastTile = null;
 
   function updateCount() {
     const list = visible(), i = list.findIndex((a) => a.id === current);
     count.textContent = i < 0 ? '' : `${i + 1} of ${list.length}`;
   }
   function mark() {
-    const on = view === 'app' && (wide.matches || sheetOpen) ? current : null;
+    const on = wide.matches || sheetOpen ? current : null;
     tiles.forEach((t, id) => { if (id === on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); });
-    if (view === 'about') aboutLink.setAttribute('aria-current', 'true'); else aboutLink.removeAttribute('aria-current');
   }
   function show(a) {
     if (a.id !== current) {
@@ -130,6 +168,9 @@
     }
     stepDir = null;
     updateCount();
+    // the neighbours are the likeliest next stop
+    const list = visible(), i = list.findIndex((x) => x.id === a.id);
+    if (i >= 0) { warm(list[(i + 1) % list.length]); warm(list[(i - 1 + list.length) % list.length]); }
   }
 
   // The address is the source of truth; everything that changes what's open goes through go()/route().
@@ -145,14 +186,8 @@
     const a = byId.get(h);
     if (wide.matches) {
       settleSheet();
-      view = h === 'about' ? 'about' : 'app';
-      document.body.dataset.view = view;
-      if (view === 'app') { show(a || byId.get(current) || visible()[0]); playMedia(); } else pauseMedia();
-    } else {
-      view = 'app';
-      document.body.dataset.view = view;
-      if (a) { show(a); openSheet(); } else closeSheet();
-    }
+      show(a || byId.get(current) || visible()[0]);
+    } else if (a) { show(a); openSheet(); } else closeSheet();
     mark();
   }
   function step(d) {
@@ -176,12 +211,6 @@
     lastTile = t;
     go(t.dataset.id, { replace: wide.matches || sheetOpen });
   });
-  aboutLink.addEventListener('click', (e) => {
-    if (!wide.matches) return;             // narrow: it's a plain jump down the page
-    e.preventDefault();
-    if (view === 'about') go(current, { replace: true });
-    else { history.replaceState(history.state, '', '#about'); route(); }
-  });
   $('#prev').addEventListener('click', () => step(-1));
   $('#next').addEventListener('click', () => step(1));
   $('#close').addEventListener('click', () => dismiss());
@@ -192,11 +221,20 @@
 
   document.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
-    const showing = wide.matches ? view === 'app' : sheetOpen;
-    if (e.key === 'Escape') { if (!wide.matches && sheetOpen) dismiss(); else if (view === 'about') go(current, { replace: true }); }
+    const showing = wide.matches ? stageInView : sheetOpen;
+    if (e.key === 'Escape') { if (!wide.matches && sheetOpen) dismiss(); }
     else if (showing && e.key === 'ArrowRight') { e.preventDefault(); step(1); }
     else if (showing && e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
   });
+
+  // arrow keys step through the apps only while the stage is what you're looking at,
+  // and its recording only plays while it's on screen
+  let stageInView = false;
+  new IntersectionObserver((en) => {
+    stageInView = en[0].isIntersecting;
+    if (!wide.matches) return;
+    if (stageInView) playMedia(); else pauseMedia();
+  }, { threshold: 0.4 }).observe(stage);
 
   // ---------- the sheet (narrow screens) ----------
   // One spring owns the sheet's offset in px: 0 is open, its own height is closed. Dragging
@@ -307,10 +345,42 @@
     },
   });
 
+  // ---------- hero devices: a slow tour through the work while the poster is on screen ----------
+  const heroStage = $('#heroDevices');
+  const heroDv = window.Devices.mount(heroStage, { apps: APPS, mode: 'pair' });
+  if (!M.reduced()) {
+    let i = -1, paused = false, inView = true;
+    const tour = () => { i = (i + 1) % APPS.length; heroDv.show(APPS[i].id); };
+    setTimeout(() => { tour(); setInterval(() => { if (!paused && inView && !sheetOpen) tour(); }, 4200); }, 2000);
+    heroStage.addEventListener('pointerenter', () => { paused = true; });
+    heroStage.addEventListener('pointerleave', () => { paused = false; });
+    new IntersectionObserver((en) => { inView = en[0].isIntersecting; if (!inView) heroDv.idle(); }, { threshold: 0.2 }).observe(heroStage);
+  }
+
   // ---------- contact ----------
-  $('#elsewhere').innerHTML = [['GitHub', P.github, P.glyphs.github], ['LinkedIn', P.linkedin, P.glyphs.linkedin], ['App Store', P.appstore, P.glyphs.appstore]]
-    .map(([label, href, g]) => `<li><a href="${href}" target="_blank" rel="noopener">${g}${label}</a></li>`).join('');
+  const keys = $('#keys');
+  [['GitHub', 'orion-supernova', P.github], ['LinkedIn', 'in/muratcankoc', P.linkedin], ['App Store', 'Developer page', P.appstore]].forEach(([b, s, href]) => {
+    const a = document.createElement('a'); a.className = 'key'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = `<span class="key-t"><b>${b}</b><small>${s}</small></span><span class="key-arrow" aria-hidden="true">↗</span>`;
+    keys.appendChild(a);
+  });
+  M.specular('.key', { response: 0.3, home: [0.5, 0.5] });
   M.copyEmail($('#copyEmail'), P.email);
 
+  // ---------- physics & ambience ----------
+  M.specular('.light', { response: 0.8 });
+  M.parallax('[data-parallax]');
+  M.tilt('.stamp', { max: 14, glare: false });
+  M.pressable('.btn, .stamp, .key', { scale: 0.985 });
+  M.magnetic('[data-magnetic]', { strength: 0.28, radius: 120 });
+  M.reveal('.reveal', { stagger: 70 });
+
+  // ---------- bar ----------
+  const bar = $('#bar');
+  M.onScroll((y) => bar.classList.toggle('is-scrolled', y > 8));
+  M.spy('.bar-nav a', { offset: 0.4 });
+
   route();
+  // a link straight to an app lands on the shelf, not the poster
+  if (wide.matches && byId.has(decodeURIComponent(location.hash.slice(1)))) $('.work-grid').scrollIntoView();
 })();

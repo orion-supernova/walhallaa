@@ -1,0 +1,182 @@
+/* devices.css — CSS-3D iPhone + MacBook stage shared by the design candidates.
+   The stage is a container; inner devices are nested containers so their
+   internals scale with cqw. Tilt comes from --rx/--ry written on the stage. */
+.dv-stage {
+  position: relative; width: var(--dv-w, 100%); aspect-ratio: 1 / .92; container-type: inline-size;
+  --dv-ease: cubic-bezier(.2, .8, .2, 1); --dv-pop: cubic-bezier(.34, 1.56, .64, 1);
+  --dv-ink: #0b0b0f; --dv-ink-2: #4b4b55; --dv-ink-3: #8a8a94; --dv-line: rgba(11, 11, 15, .08); --dv-accent: #F05138;
+  perspective: 1600px;
+}
+.dv-stage svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.dv-glow {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 100%; aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, var(--dv-glow-a, rgba(240, 81, 56, .16)), var(--dv-glow-b, rgba(88, 86, 214, .08)) 45%, transparent 70%);
+  filter: blur(12px); animation: dv-glow 14s ease-in-out infinite alternate;
+}
+@keyframes dv-glow { from { transform: translate(-4%, -3%) scale(.96); } to { transform: translate(4%, 3%) scale(1.04); } }
+
+.dv-wrap { position: absolute; left: 50%; top: 50%; width: fit-content; height: fit-content; will-change: transform; }
+.dv-float { animation: dv-float 7s ease-in-out infinite; }
+.dv-wrap-mac .dv-float { animation-duration: 9s; animation-delay: -3s; }
+@keyframes dv-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.2cqw); } }
+.dv-phone, .dv-mac { opacity: 0; translate: 0 6cqw; }
+.dv-stage.is-ready .dv-phone { animation: dv-enter 1s var(--dv-ease) .15s forwards; }
+.dv-stage.is-ready .dv-mac { animation: dv-enter 1s var(--dv-ease) .3s forwards; }
+@keyframes dv-enter { to { opacity: 1; translate: 0 0; } }
+
+/* ---------- modes ---------- */
+.dv-stage.dv-pair { aspect-ratio: 1 / .66; }
+.dv-pair .dv-mac { width: 64cqw; }
+.dv-pair .dv-phone { width: 32cqw; }
+.dv-stage.dv-single { aspect-ratio: 1 / .96; }
+.dv-single .dv-phone { width: 50cqw; }
+.dv-single .dv-mac { width: 90cqw; }
+
+/* ---------- iPhone ---------- */
+.dv-phone {
+  position: relative; width: 44cqw; aspect-ratio: 300 / 612; container-type: inline-size;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;
+}
+.dv-ph-body {
+  position: absolute; inset: 0; border-radius: 15.5cqw; background: #101014;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), inset 0 0 0 2.6cqw #1b1b21, 0 30px 60px -22px rgba(11, 11, 15, .5), 0 2px 0 rgba(255, 255, 255, .25);
+}
+.dv-ph-side { position: absolute; background: #2a2a30; border-radius: 1cqw; }
+.dv-ph-side.mute { left: -1.2cqw; top: 18cqw; width: 1.2cqw; height: 6cqw; }
+.dv-ph-side.v1 { left: -1.2cqw; top: 29cqw; width: 1.2cqw; height: 12cqw; }
+.dv-ph-side.v2 { left: -1.2cqw; top: 44cqw; width: 1.2cqw; height: 12cqw; }
+.dv-ph-side.pw { right: -1.2cqw; top: 34cqw; width: 1.2cqw; height: 18cqw; }
+.dv-ph-screen { position: absolute; inset: 3.4cqw; border-radius: 12.4cqw; overflow: hidden; background: #f4f4f9; transform: translateZ(0); }
+.dv-wall {
+  position: absolute; inset: -25%;
+  background: radial-gradient(55% 45% at 30% 22%, #dcdcff 0%, transparent 70%), radial-gradient(45% 40% at 85% 85%, #ffe0ea 0%, transparent 70%),
+              radial-gradient(40% 35% at 70% 40%, #d9f1ff 0%, transparent 70%), linear-gradient(180deg, #f6f6fb, #ededf7);
+  animation: dv-drift 26s ease-in-out infinite alternate;
+}
+@keyframes dv-drift { from { transform: translate(-3%, -2%) rotate(0deg); } to { transform: translate(3%, 2%) rotate(3deg); } }
+.dv-ph-status { position: absolute; z-index: 3; top: 4.2cqw; left: 9cqw; right: 8cqw; display: flex; justify-content: space-between; align-items: center; font: 600 4.8cqw/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif; color: #0b0b0f; letter-spacing: -.01em; }
+.dv-ph-status svg { width: 13cqw; height: 4cqw; fill: #0b0b0f; stroke: none; }
+.dv-ph-island { position: absolute; z-index: 3; top: 3.6cqw; left: 50%; translate: -50% 0; width: 30cqw; height: 8.4cqw; border-radius: 99px; background: #0b0b0f; }
+.dv-ph-home { position: absolute; inset: 0; z-index: 2; padding: 19cqw 5cqw 5.5cqw; display: flex; flex-direction: column; justify-content: space-between; transform-origin: 50% 50%; }
+.dv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5.2cqw 2cqw; }
+.dv-icon { display: flex; flex-direction: column; align-items: center; gap: 1.8cqw; min-width: 0; opacity: 0; scale: .5; }
+.dv-stage.is-ready .dv-icon { animation: dv-pop .55s var(--dv-pop) forwards; animation-delay: calc(.9s + var(--i) * 32ms); }
+@keyframes dv-pop { to { opacity: 1; scale: 1; } }
+.dv-sq {
+  position: relative; width: 15.4cqw; height: 15.4cqw; border-radius: 3.9cqw; color: #fff; display: grid; place-items: center;
+  background: linear-gradient(150deg, var(--c), color-mix(in oklab, var(--c), #000 24%));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 1.2cqw 2.4cqw rgba(11, 11, 15, .16);
+  transition: transform .45s var(--dv-pop), box-shadow .35s var(--dv-ease);
+}
+.dv-sq svg { width: 8.2cqw; height: 8.2cqw; }
+.dv-sq::after { content: ""; position: absolute; inset: -1.6cqw; border-radius: 5.2cqw; border: .9cqw solid var(--dv-accent); opacity: 0; transform: scale(.85); transition: opacity .3s var(--dv-ease), transform .45s var(--dv-pop); }
+.dv-icon.is-hot .dv-sq { transform: translateY(-1cqw) scale(1.06); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 3cqw 5cqw rgba(11, 11, 15, .22); }
+.dv-icon.is-hot .dv-sq::after { opacity: 1; transform: scale(1); }
+.dv-lb { font: 500 2.95cqw/1.1 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif; color: #1b1b20; white-space: nowrap; max-width: 21cqw; overflow: hidden; text-overflow: ellipsis; }
+.dv-dock { display: flex; justify-content: space-around; align-items: center; padding: 3.2cqw 2cqw; border-radius: 9cqw; background: rgba(255, 255, 255, .5); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.dv-dk { width: 15.4cqw; height: 15.4cqw; border-radius: 3.9cqw; display: grid; place-items: center; color: #fff; background: linear-gradient(150deg, var(--c), color-mix(in oklab, var(--c), #000 24%)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 1.2cqw 2.4cqw rgba(11, 11, 15, .16); }
+.dv-dk svg { width: 8.2cqw; height: 8.2cqw; }
+.dv-ph-detail { position: absolute; inset: 0; z-index: 2; padding: 22cqw 7cqw 8cqw; opacity: 0; pointer-events: none; display: flex; flex-direction: column; gap: 3cqw; transform-origin: 50% 60%; }
+.dv-d-ic { width: 24cqw; height: 24cqw; border-radius: 6cqw; color: #fff; display: grid; place-items: center; background: linear-gradient(150deg, var(--c), color-mix(in oklab, var(--c), #000 24%)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 2.4cqw 5cqw rgba(11, 11, 15, .2); margin-bottom: 2cqw; }
+.dv-d-ic svg { width: 13cqw; height: 13cqw; }
+.dv-d-name { font: 700 7cqw/1.08 -apple-system, "SF Pro Display", "Inter Tight", system-ui, sans-serif; letter-spacing: -.03em; color: #0b0b0f; }
+.dv-d-meta { font: 500 3.5cqw/1.3 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: var(--dv-ink-3); }
+.dv-d-desc { font: 400 3.9cqw/1.45 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: var(--dv-ink-2); }
+.dv-d-links { display: flex; flex-wrap: wrap; gap: 1.6cqw; margin-top: auto; }
+.dv-d-links span { font: 500 3.1cqw/1 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: var(--dv-ink); background: rgba(255, 255, 255, .7); border: 1px solid var(--dv-line); border-radius: 99px; padding: 2.2cqw 3.4cqw; }
+.dv-sheen { position: absolute; inset: 0; border-radius: 15.5cqw; pointer-events: none; z-index: 5; mix-blend-mode: screen;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 40%), rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 42%); }
+
+/* ---------- MacBook ---------- */
+.dv-mac {
+  position: relative; width: 82cqw; aspect-ratio: 16 / 11.4; container-type: inline-size;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;
+}
+.dv-mac-lid {
+  position: absolute; left: 0; top: 0; width: 100cqw; height: 63cqw; border-radius: 3cqw 3cqw 1.2cqw 1.2cqw;
+  background: linear-gradient(180deg, #2d2d33, #1a1a1f); transform-origin: 50% 100%; transform: rotateX(-7deg) translateZ(.5cqw);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14), 0 26px 50px -22px rgba(11, 11, 15, .55);
+}
+.dv-mac-screen { position: absolute; inset: 2.4cqw 2.4cqw 2.8cqw; border-radius: 1.6cqw 1.6cqw .6cqw .6cqw; overflow: hidden; background: linear-gradient(160deg, #eceef7, #f6f6fb 55%, #e9ecf6); transform: translateZ(0); }
+.dv-mac-notch { position: absolute; left: 50%; top: 2.4cqw; translate: -50% 0; width: 14cqw; height: 1.6cqw; border-radius: 0 0 1cqw 1cqw; background: #1a1a1f; z-index: 4; }
+.dv-mac-sheen { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 5; mix-blend-mode: screen;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 40%), rgba(255, 255, 255, .22), rgba(255, 255, 255, 0) 45%); }
+.dv-mac-base {
+  position: absolute; left: -1.5cqw; top: 63cqw; width: 103cqw; height: 46cqw; transform-origin: 50% 0; transform: rotateX(78deg);
+  border-radius: 1.2cqw 1.2cqw 3cqw 3cqw; background: linear-gradient(180deg, #d6d6dc, #b9b9c2 70%, #9d9da6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
+}
+.dv-mac-kb { position: absolute; left: 10cqw; right: 10cqw; top: 4cqw; height: 22cqw; border-radius: 1cqw; background-color: #c3c3cb;
+  background-image: repeating-linear-gradient(90deg, #8f8f98 0 5.2cqw, transparent 5.2cqw 6cqw), repeating-linear-gradient(0deg, #8f8f98 0 3.6cqw, transparent 3.6cqw 4.4cqw);
+  background-size: 6cqw 4.4cqw; opacity: .55; }
+.dv-mac-tp { position: absolute; left: 34cqw; right: 34cqw; top: 29cqw; height: 13cqw; border-radius: 1.2cqw; background: #c9c9d1; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08); }
+.dv-mac-lip { position: absolute; left: -1.5cqw; top: 63cqw; width: 103cqw; height: 1.6cqw; background: linear-gradient(180deg, #e2e2e8, #9a9aa3); border-radius: 0 0 1cqw 1cqw; transform: translateZ(1cqw); }
+.dv-mac-shadow { position: absolute; left: 4cqw; right: 4cqw; top: 70cqw; height: 10cqw; border-radius: 50%; background: radial-gradient(closest-side, rgba(11, 11, 15, .35), transparent); filter: blur(6px); transform: translateZ(-4cqw); }
+
+/* macOS chrome inside the lid */
+.dv-menubar { position: absolute; z-index: 3; left: 0; right: 0; top: 0; height: 3.6cqw; padding: 0 2.4cqw; display: flex; align-items: center; gap: 2cqw; background: rgba(255, 255, 255, .55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font: 500 1.9cqw/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif; color: #111; }
+.dv-menubar b { font-weight: 700; }
+.dv-menubar .dv-mb-r { margin-left: auto; display: flex; gap: 1.6cqw; align-items: center; color: #333; }
+.dv-menubar .dv-mb-r i { display: block; width: 3cqw; height: 1.6cqw; border: 1px solid #333; border-radius: .4cqw; position: relative; }
+.dv-menubar .dv-mb-r i::after { content: ""; position: absolute; inset: .3cqw; right: .9cqw; background: #333; border-radius: .2cqw; }
+.dv-window { position: absolute; left: 7cqw; right: 7cqw; top: 8cqw; bottom: 6cqw; border-radius: 1.6cqw; background: #fff; overflow: hidden;
+  box-shadow: 0 2cqw 5cqw rgba(11, 11, 15, .22), 0 0 0 1px rgba(11, 11, 15, .08); display: grid; grid-template-rows: 4.4cqw 1fr; opacity: 0; transform: scale(.94) translateY(2cqw); transform-origin: 50% 60%; }
+.dv-win-bar { display: flex; align-items: center; gap: 1cqw; padding: 0 2cqw; background: #f3f3f6; border-bottom: 1px solid rgba(11, 11, 15, .08); font: 600 1.9cqw/1 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: #333; }
+.dv-win-bar i { width: 1.6cqw; height: 1.6cqw; border-radius: 50%; display: block; }
+.dv-win-bar i:nth-child(1) { background: #ff5f57; } .dv-win-bar i:nth-child(2) { background: #febc2e; } .dv-win-bar i:nth-child(3) { background: #28c840; margin-right: 1.4cqw; }
+.dv-win-body { display: grid; grid-template-columns: 24cqw 1fr; min-height: 0; }
+.dv-win-side { background: #f7f7fa; border-right: 1px solid rgba(11, 11, 15, .06); padding: 2cqw 1.6cqw; display: flex; flex-direction: column; gap: 1.2cqw; }
+.dv-win-side .dv-app-id { display: flex; align-items: center; gap: 1.2cqw; font: 600 1.9cqw/1.1 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: #111; margin-bottom: 1.4cqw; }
+.dv-win-side .dv-app-id .dv-sq { width: 4.4cqw; height: 4.4cqw; border-radius: 1.2cqw; }
+.dv-win-side .dv-app-id .dv-sq svg { width: 2.6cqw; height: 2.6cqw; }
+.dv-win-side u { display: block; height: 2.2cqw; border-radius: .6cqw; background: rgba(11, 11, 15, .07); }
+.dv-win-side u.on { background: color-mix(in oklab, var(--c), #fff 78%); }
+.dv-win-main { padding: 3cqw; display: flex; flex-direction: column; gap: 1.6cqw; min-height: 0; }
+.dv-win-main .dv-title { font: 700 3.2cqw/1.1 -apple-system, "SF Pro Display", "Inter Tight", system-ui, sans-serif; letter-spacing: -.02em; color: #111; }
+.dv-win-main .dv-sub { font: 400 1.9cqw/1.4 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: #666; }
+.dv-win-main u { display: block; height: 2.2cqw; border-radius: .6cqw; background: rgba(11, 11, 15, .06); }
+.dv-win-main u.w60 { width: 60%; } .dv-win-main u.w80 { width: 80%; }
+.dv-row { display: flex; align-items: center; gap: 1.6cqw; padding: 1.4cqw 1.6cqw; border-radius: 1cqw; background: #f7f7fa; font: 500 1.9cqw/1 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: #222; }
+.dv-row i { width: 1.4cqw; height: 1.4cqw; border-radius: 50%; background: var(--c); display: block; }
+.dv-row u { flex: 1; height: 1.6cqw; }
+.dv-clock { font: 700 12cqw/1 -apple-system, "SF Pro Display", "Inter Tight", system-ui, sans-serif; letter-spacing: -.04em; color: #111; margin: auto 0; font-variant-numeric: tabular-nums; }
+.dv-sync { display: flex; align-items: center; gap: 2cqw; margin-top: auto; }
+.dv-sync .dv-code { font: 700 3cqw/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .18em; background: color-mix(in oklab, var(--c), #fff 82%); color: color-mix(in oklab, var(--c), #000 25%); padding: 1.6cqw 2cqw; border-radius: 1cqw; }
+.dv-sync .dv-play { width: 5.4cqw; height: 5.4cqw; border-radius: 50%; background: var(--c); display: grid; place-items: center; color: #fff; }
+.dv-sync .dv-play svg { width: 2.6cqw; height: 2.6cqw; fill: currentColor; stroke: none; }
+.dv-sync .dv-bar { flex: 1; height: .8cqw; border-radius: 1cqw; background: rgba(11, 11, 15, .08); position: relative; overflow: hidden; }
+.dv-sync .dv-bar::after { content: ""; position: absolute; inset: 0; width: 42%; background: var(--c); border-radius: inherit; animation: dv-seek 6s ease-in-out infinite alternate; }
+@keyframes dv-seek { to { width: 68%; } }
+.dv-desk-app { position: absolute; left: 50%; top: 52%; translate: -50% -50%; width: 16cqw; height: 16cqw; border-radius: 4cqw; color: #fff; display: grid; place-items: center;
+  background: linear-gradient(150deg, var(--c, #8E8E93), color-mix(in oklab, var(--c, #8E8E93), #000 24%)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 2cqw 4cqw rgba(11, 11, 15, .2); }
+.dv-desk-app svg { width: 8.5cqw; height: 8.5cqw; }
+.dv-desk-hint { position: absolute; left: 0; right: 0; top: 72%; text-align: center; font: 500 2cqw/1.3 -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif; color: #555; }
+.dv-mac-dock { position: absolute; z-index: 3; left: 50%; bottom: 1.4cqw; translate: -50% 0; display: flex; gap: 1.2cqw; padding: 1cqw 1.4cqw; border-radius: 2.2cqw; background: rgba(255, 255, 255, .55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: 0 0 0 1px rgba(255, 255, 255, .5); }
+.dv-mac-dock .dv-dk { width: 4.6cqw; height: 4.6cqw; border-radius: 1.2cqw; }
+.dv-mac-dock .dv-dk svg { width: 2.6cqw; height: 2.6cqw; }
+.dv-mac-dock .dv-dk.is-hot { outline: .5cqw solid var(--dv-accent); outline-offset: .3cqw; }
+
+/* ---------- preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .dv-float, .dv-glow, .dv-wall, .dv-sync .dv-bar::after { animation: none; }
+  .dv-phone, .dv-mac { animation: none; opacity: 1; translate: 0 0; transform: none; }
+  .dv-icon { animation: none; opacity: 1; scale: 1; }
+}
+
+/* ---------- real screens ----------
+   A recording or a store screenshot, played inside the device itself. The drawn
+   chrome underneath (status bar, menu bar, dock) steps aside so the captured UI
+   brings its own. */
+.dv-media { position: absolute; inset: 0; z-index: 4; opacity: 0; pointer-events: none; background: #0b0b0f;
+  transition: opacity .5s var(--dv-ease), transform .55s var(--dv-pop); transform: scale(1.015); }
+.dv-media.is-on { opacity: 1; transform: scale(1); }
+.dv-media-el { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
+.dv-media-el.is-contain { object-fit: contain; object-position: 50% 50%; }
+.dv-ph-screen:has(.dv-ph-media.is-on) .dv-ph-status { opacity: 0; transition: opacity .3s var(--dv-ease); }
+.dv-mac-screen:has(.dv-mac-media.is-on) .dv-menubar,
+.dv-mac-screen:has(.dv-mac-media.is-on) .dv-mac-dock { opacity: 0; transition: opacity .3s var(--dv-ease); }
+
+/* real app icons on the home screen, the dock and the detail card */
+.dv-sq.is-img, .dv-dk.is-img, .dv-d-ic.is-img { background: #fff; overflow: hidden; }
+.dv-sq.is-img img, .dv-dk.is-img img, .dv-d-ic.is-img img { width: 100%; height: 100%; object-fit: cover; display: block; }

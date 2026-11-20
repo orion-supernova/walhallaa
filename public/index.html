@@ -4,93 +4,154 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Murat Can Koç — iOS &amp; macOS Developer</title>
-<meta name="description" content="Murat Can Koç designs, builds and ships apps on his own — Swift and SwiftUI for iPhone and Mac, Flutter when a project has to land on Android and the web too.">
+<title>Murat Can Koç | iOS &amp; macOS Developer</title>
+<meta name="description" content="Murat Can Koç designs, builds and ships apps on his own. Swift and SwiftUI for iPhone and Mac, Flutter or React Native when a project also has to run on Android and the web.">
 <link rel="canonical" href="https://walhallaa.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Murat Can Koç — iOS &amp; macOS Developer">
+<meta property="og:title" content="Murat Can Koç | iOS &amp; macOS Developer">
 <meta property="og:description" content="iPhone, Mac and Android apps, built end to end. Swift and SwiftUI first, Flutter where it earns its place.">
 <meta property="og:url" content="https://walhallaa.com/">
-<meta name="theme-color" content="#F6F6F4">
+<meta name="theme-color" content="#F05138">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:opsz,wght@6..72,400..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/devices.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#work">Skip to the apps</a>
 
-<main class="shell" id="top">
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top">Murat Can Koç</a>
+    <span class="bar-role">iOS &amp; macOS developer</span>
+    <nav class="bar-nav" aria-label="Sections"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-ink btn-sm" href="mailto:info@walhallaa.com">Email</a>
+  </div>
+</header>
 
-  <!-- who, in four lines -->
-  <header class="intro">
-    <div class="intro-bar">
-      <p class="who"><a class="brand" href="./">Murat Can Koç</a><span class="role">iOS &amp; macOS developer<span class="role-where">, Istanbul</span></span></p>
-      <nav class="intro-nav" aria-label="Site">
-        <a class="nav-link" id="aboutLink" href="#about">About</a>
-        <a class="btn btn-ink btn-sm" href="mailto:info@walhallaa.com">Email</a>
-      </nav>
-    </div>
-    <h1>Apps for iPhone, Mac and Android, built end to end.</h1>
-    <p class="lede">Designed, written, shipped and maintained by one person. Pick an app to look inside.</p>
-  </header>
-
-  <!-- every app, on one screen -->
-  <section class="shelf" id="work" aria-label="Apps">
-    <div class="filters" id="filters" role="group" aria-label="Show apps for"></div>
-    <ul class="grid" id="grid"></ul>
-    <noscript><p class="lede">The app list needs JavaScript. Everything is also on the <a href="https://apps.apple.com/developer/murat-can-koc/id1546710591">App Store developer page</a> and on <a href="https://github.com/orion-supernova">GitHub</a>.</p></noscript>
-  </section>
-
-  <!-- the open app: a pane beside the shelf on wide screens, a sheet over it on narrow ones -->
-  <div class="scrim" id="scrim" aria-hidden="true"></div>
-  <section class="stage" id="stage" aria-labelledby="dName">
-    <div class="stage-top" id="stageTop">
-      <span class="grabber" aria-hidden="true"></span>
-      <div class="stage-bar">
-        <span class="count" id="count" aria-live="polite"></span>
-        <button class="rbtn" id="prev" type="button" aria-label="Previous app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5L8 12l6.5 6.5"/></svg></button>
-        <button class="rbtn" id="next" type="button" aria-label="Next app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5L16 12l-6.5 6.5"/></svg></button>
-        <button class="rbtn rbtn-close" id="close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero on-orange" id="top" data-tilt-zone data-magnet-zone>
+    <div class="light" aria-hidden="true"></div>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <div class="hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow ld" style="--l:.05s">Murat Can Koç · Swift, SwiftUI, UIKit, Objective-C · Flutter</p>
+        <h1 class="poster">
+          <span class="line" style="--i:0"><span>Apps for iPhone,</span></span>
+          <span class="line" style="--i:1"><span>Mac and Android,</span></span>
+          <span class="line line-white" style="--i:2"><span>built end to end.</span></span>
+        </h1>
+        <p class="lede ld" style="--l:.5s">I design, build, ship and maintain them on my own. Swift and SwiftUI come first, with Flutter or React Native when an app has to run everywhere.</p>
+        <div class="cta-row ld" style="--l:.62s">
+          <a class="btn btn-ink" href="mailto:info@walhallaa.com" data-magnetic><span class="btn-t"><span>Email me</span><span>Email me</span></span></a>
+          <a class="btn btn-line" href="#work"><span class="btn-t"><span>See the work</span><span>See the work</span></span><i class="btn-arrow">↓</i></a>
+        </div>
+        <a class="stamp ld" style="--l:.8s" href="#work" aria-label="See the work">
+          <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="stampPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text><textPath href="#stampPath">Swift · SwiftUI · Flutter · iPhone · Mac · </textPath></text></svg>
+          <span class="stamp-core" aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="hero-devices" data-parallax="-0.08">
+        <div id="heroDevices"></div>
       </div>
     </div>
-    <div class="stage-body" id="stageBody"></div>
+    <dl class="meta">
+      <div class="meta-item reveal" style="--d:0ms"><dt>Platforms</dt><dd>iOS · macOS · Android · Web</dd></div>
+      <div class="meta-item reveal" style="--d:80ms"><dt>Stack</dt><dd>Swift · SwiftUI · UIKit · Objective-C · Flutter</dd></div>
+      <div class="meta-item reveal" style="--d:160ms"><dt>Shipped</dt><dd>10 on the App Store · 10+ open source</dd></div>
+    </dl>
   </section>
 
-  <!-- about -->
-  <section class="about" id="about" aria-labelledby="aboutTitle">
+  <!-- ============ WORK ============ -->
+  <section class="work" id="work">
+    <header class="sec-head reveal">
+      <p class="eyebrow" id="workCount">Sixteen projects · strongest first</p>
+      <h2>The work</h2>
+      <p class="hint">Every app is on this shelf. Pick one to open it.</p>
+    </header>
+    <div class="work-grid">
+      <div class="shelf">
+        <div class="filters" id="filters" role="group" aria-label="Show apps for"></div>
+        <ul class="grid" id="grid"></ul>
+        <noscript><p>The app list needs JavaScript. Everything is also on the <a href="https://apps.apple.com/developer/murat-can-koc/id1546710591">App Store developer page</a> and on <a href="https://github.com/orion-supernova">GitHub</a>.</p></noscript>
+      </div>
+      <!-- the open app: a pane beside the shelf on wide screens, a sheet over the page on narrow ones -->
+      <div class="scrim" id="scrim" aria-hidden="true"></div>
+      <section class="stage" id="stage" aria-labelledby="dName">
+        <div class="stage-top" id="stageTop">
+          <span class="grabber" aria-hidden="true"></span>
+          <div class="stage-bar">
+            <span class="count" id="count" aria-live="polite"></span>
+            <button class="rbtn" id="prev" type="button" aria-label="Previous app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5L8 12l6.5 6.5"/></svg></button>
+            <button class="rbtn" id="next" type="button" aria-label="Next app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5L16 12l-6.5 6.5"/></svg></button>
+            <button class="rbtn rbtn-close" id="close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+          </div>
+        </div>
+        <div class="stage-body" id="stageBody"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about on-peach" id="about">
+    <div class="light light-warm" aria-hidden="true"></div>
     <div class="about-in">
-      <h2 id="aboutTitle">One developer, the whole app.</h2>
-      <p class="statement">A clipboard manager, a catalogue of what a phone knows about itself, a watch-party tool for the Mac, a real-time party game, a speed reader. Designed, written, submitted and maintained by me.</p>
-      <p class="body">Swift and SwiftUI are where I'm quickest, and where most of this lives. When a project has to land on iOS, Android and the browser at the same time, I reach for Flutter instead — the party game and the reader are both Dart. What keeps my attention lately: real-time sync that survives a bad connection, keeping data on the device, and interfaces that don't shout.</p>
-      <dl class="specs">
+      <div class="about-copy reveal">
+        <p class="eyebrow">About</p>
+        <h2>One developer, the whole app.</h2>
+        <p class="statement">I'm Murat, an iOS and macOS developer who likes to own the whole product. I take an idea from a rough sketch to a polished release, and I stay with it long after launch day.</p>
+        <p class="body">Ten of my apps are live on the App Store and more than ten of my projects are open source, from a clipboard manager for the Mac to a real-time party game that runs on iPhone, Android and the web. Swift and SwiftUI are my home ground, and I reach for Flutter or React Native when an app has to be everywhere at once. The things I care about most are sync that survives a bad connection, data that stays on your device, and interfaces that feel calm and fast.</p>
+      </div>
+      <dl class="specs reveal" data-stagger aria-label="Specifications">
         <div class="spec"><dt>Platforms</dt><dd>iOS, macOS, Android, Web</dd></div>
         <div class="spec"><dt>Primary</dt><dd>Swift, SwiftUI, UIKit, Objective-C</dd></div>
-        <div class="spec"><dt>Cross-platform</dt><dd>Flutter, Dart</dd></div>
-        <div class="spec"><dt>Backends</dt><dd>Convex, Firebase, Node</dd></div>
+        <div class="spec"><dt>Cross-platform</dt><dd>Flutter &amp; Dart, React Native, Rust &amp; Rust-UI</dd></div>
+        <div class="spec"><dt>Backends</dt><dd>Convex, Supabase, Firebase, PocketBase, Vapor (Swift)</dd></div>
         <div class="spec"><dt>Patterns</dt><dd>TCA, MVVM, Clean Architecture</dd></div>
-        <div class="spec"><dt>Open source</dt><dd>Clipboard Mahmut, WatchSync, Specdeck, Ka-Chaow, Elixir and more — 10+ public repositories</dd></div>
-        <div class="spec"><dt>Currently</dt><dd><a href="https://www.swirlyourwines.com" target="_blank" rel="noopener">Swirl AB</a>, Stockholm — wine recommendations built from your own palate</dd></div>
-        <div class="spec"><dt>Based in</dt><dd>Istanbul</dd></div>
-        <div class="spec spec-contact"><dt>Contact</dt><dd><a href="mailto:info@walhallaa.com">info@walhallaa.com</a></dd></div>
+        <div class="spec"><dt>Currently</dt><dd><a href="https://www.swirlyourwines.com" target="_blank" rel="noopener">Swirl AB</a><span class="dim">, Stockholm</span></dd></div>
       </dl>
     </div>
   </section>
 
-  <!-- contact -->
-  <footer class="links" id="contact">
-    <div class="mail">
-      <a class="mail-a" href="mailto:info@walhallaa.com">info@walhallaa.com</a>
-      <button class="copy" id="copyEmail" type="button"><span class="t1">Copy</span><span class="t2">Copied</span></button>
+  <!-- ============ CONTACT ============ -->
+  <section class="contact on-orange" id="contact" data-magnet-zone>
+    <div class="light" aria-hidden="true"></div>
+    <div class="contact-in">
+      <div class="contact-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk.</h2>
+        <p class="lede">Have a question about one of these apps, or about how something was built? Send me an email.</p>
+      </div>
+      <div class="email-row reveal">
+        <a class="email" href="mailto:info@walhallaa.com"><span class="email-t">info@walhallaa.com</span></a>
+        <button class="btn btn-ink copy" id="copyEmail" type="button" data-magnetic aria-label="Copy email address">
+          <span class="copy-t"><span class="t1">Copy address</span><span class="t2">Copied ✓</span></span>
+        </button>
+      </div>
+      <div class="keys reveal" data-stagger id="keys"></div>
+      <p class="status reveal"><i class="dot"></i>Currently at <b>Swirl</b>, building wine recommendations based on your own palate. <a href="https://www.swirlyourwines.com" target="_blank" rel="noopener">swirlyourwines.com&nbsp;↗</a></p>
+      <a class="stamp stamp-sm" href="#top" aria-label="Back to top">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="stampPath2" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text><textPath href="#stampPath2">Let's talk · info@walhallaa.com · </textPath></text></svg>
+        <span class="stamp-core" aria-hidden="true">↑</span>
+      </a>
     </div>
-    <ul class="elsewhere" id="elsewhere"></ul>
-    <p class="fine">© 2026 A.M.M.C.K. Productions</p>
-  </footer>
+  </section>
 </main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span>© 2026 A.M.M.C.K. Productions</span>
+    <a class="foot-mid" href="https://walhallaa.com" target="_blank" rel="noopener">walhallaa.com</a>
+    <a class="top" href="#top">Back to top <span>↑</span></a>
+  </div>
+</footer>
 
 <script src="assets/motion.js"></script>
 <script src="assets/apps.js"></script>
+<script src="assets/devices.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
