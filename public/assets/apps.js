@@ -1,7 +1,10 @@
 /* apps.js — the canonical portfolio data.
    Order is deliberate: strongest work first, the way pinned repositories are ordered.
    Facts only — names, platforms, stacks, links and media all verified against the
-   App Store listing or the project's own repository. */
+   App Store listing or the project's own repository.
+   screen.w / screen.h are the media's pixel size, so the device frame can take its shape
+   before the file has loaded. screen.frame: false shows the image on its own, for artwork
+   that already pictures a device. */
 (function () {
   'use strict';
   const svg = (inner) => `<svg viewBox="0 0 24 24" aria-hidden="true">${inner}</svg>`;
@@ -17,10 +20,10 @@
       platforms: ['ios', 'android'], device: 'phone', cat: 'Food & Drink',
       hue: '#9B2242', status: 'now', statusLabel: 'Current work',
       note: 'My current company — Swirl AB, Stockholm.',
-      stack: ['iOS', 'Android'],
+      stack: [],
       desc: 'Scan a label and get a match score built from your own taste profile instead of strangers’ stars. The database is assembled from winemakers’ technical sheets, and your ratings stay private, so nothing you log turns into somebody else’s average.',
       icon: M + 'swirl-icon.png',
-      screen: { type: 'image', src: M + 'swirl-screen.jpg' },
+      screen: { type: 'image', src: M + 'swirl-screen.jpg', w: 240, h: 520 },
       links: [
         K('store', 'App Store', 'https://apps.apple.com/app/id6670340798'),
         K('web', 'swirlyourwines.com', 'https://www.swirlyourwines.com'),
@@ -35,7 +38,7 @@
       stack: ['Swift', 'SwiftUI', 'TCA'],
       desc: 'Text, code, links, colours, images and files, all one shortcut away. It recognises fifteen programming languages, OCRs screenshots on device so you can search inside them, and masks cards, IBANs and API keys before forgetting them on a timer. History never leaves the Mac.',
       icon: M + 'mahmut-icon.png',
-      screen: { type: 'video', src: M + 'mahmut-screen.mp4', poster: M + 'mahmut-poster.jpg', fit: 'contain' },
+      screen: { type: 'image', src: M + 'mahmut-screen.jpg', w: 820, h: 513, frame: false },
       links: [
         K('store', 'Mac App Store', 'https://apps.apple.com/app/id6446905294'),
         K('source', 'Source', 'https://github.com/orion-supernova/clipboardManager'),
@@ -51,7 +54,7 @@
       stack: ['Swift', 'SwiftUI', 'Node'],
       desc: 'A catalogue of the seventy identifiers an iPhone can be asked for, sorted by what asking costs: free, permission-gated, entitlement-gated, or sealed off by Apple years ago. Sensitive values arrive redacted at the real length and grouping, so you can see how much is being withheld before you reveal it.',
       icon: null,
-      screen: { type: 'video', src: M + 'specdeck-screen.mp4', poster: M + 'specdeck-poster.jpg' },
+      screen: { type: 'video', src: M + 'specdeck-screen.mp4', w: 360, h: 784, poster: M + 'specdeck-poster.jpg' },
       links: [
         K('web', 'Device report', 'https://specdeck.walhallaa.com'),
         K('source', 'Source', 'https://github.com/orion-supernova/specdeck'),
@@ -66,7 +69,7 @@
       stack: ['Swift', 'SwiftUI', 'Convex'],
       desc: 'Screen sharing a film re-encodes 4K down to a smear and puts one laptop’s fan in charge. This does the opposite: everyone plays their own copy at full quality and only the controls are mirrored, over a six-character code with no account. It reads what macOS is already playing, so a browser tab, a local file and Spotify all behave the same.',
       icon: M + 'watchsync-icon.png',
-      screen: { type: 'video', src: M + 'watchsync-screen.mp4', poster: M + 'watchsync-poster.jpg' },
+      screen: { type: 'video', src: M + 'watchsync-screen.mp4', w: 540, h: 338, poster: M + 'watchsync-poster.jpg' },
       links: [
         K('web', 'walhallaa.com/watchsync', 'watchsync'),
         K('download', 'Download for macOS', 'https://github.com/orion-supernova/WatchSync/releases/latest'),
@@ -82,7 +85,7 @@
       stack: ['Flutter', 'Dart', 'Convex'],
       desc: 'A party game of bluffing and deduction for three to twelve people already sitting next to each other. Everyone sees the same secret location except one. The round clock lives on the server, so locking your phone or walking out of Wi-Fi range doesn’t break anyone else’s timer — and the app never votes for you or announces a winner.',
       icon: M + 'whereami-icon.png',
-      screen: { type: 'video', src: M + 'whereami-screen.mp4', poster: M + 'whereami-poster.jpg' },
+      screen: { type: 'video', src: M + 'whereami-screen.mp4', w: 440, h: 958, poster: M + 'whereami-poster.jpg' },
       links: [
         K('store', 'App Store', 'https://apps.apple.com/app/id6764593980'),
         K('play', 'Play in browser', 'https://whereami.walhallaa.com'),
@@ -132,7 +135,7 @@
       stack: ['Swift', 'SwiftUI', 'SwiftData'],
       desc: 'A medication and water tracker where the streak is arithmetic rather than a badge: three days puts every point on a 1.1× multiplier, a month doubles it, and one missed day sends you back to the bottom of the ladder. Eight theme realms rewrite the ranks, symbols and notification copy; the widget ships in nine layouts. Nothing leaves the device.',
       icon: M + 'elixir-icon.png',
-      screen: { type: 'video', src: M + 'elixir-screen.mp4', poster: M + 'elixir-poster.jpg' },
+      screen: { type: 'video', src: M + 'elixir-screen.mp4', w: 340, h: 740, poster: M + 'elixir-poster.jpg' },
       links: [
         K('source', 'Source', 'https://github.com/orion-supernova/ElixirDemo'),
       ],
@@ -146,7 +149,7 @@
       stack: ['Flutter', 'Dart'],
       desc: 'A speed reader that plays a book back one word at a time, each word placed so its pivot letter lands exactly where the last one did — your eye stops travelling and the words come to it. The pace is not a metronome: long words, proper nouns and full stops each bend their own dwell time, and the weights are tunable mid-chapter.',
       icon: M + 'kachaow-icon.png',
-      screen: { type: 'video', src: M + 'kachaow-screen.mp4', poster: M + 'kachaow-poster.jpg' },
+      screen: { type: 'video', src: M + 'kachaow-screen.mp4', w: 420, h: 914, poster: M + 'kachaow-poster.jpg' },
       links: [
         K('source', 'Source', 'https://github.com/orion-supernova/kachaow-reader'),
       ],
@@ -160,7 +163,7 @@
       stack: ['Swift', 'SwiftUI'],
       desc: 'Turns any photo into a desktop clock and countdown timer, cycling through your own pictures while it runs. Built for the hours you spend studying, cooking or training with the Mac in the corner of your eye.',
       icon: M + 'pictureclock-icon.png',
-      screen: { type: 'image', src: M + 'pictureclock-screen.jpg' },
+      screen: { type: 'image', src: M + 'pictureclock-screen.jpg', w: 820, h: 513 },
       links: [
         K('store', 'Mac App Store', 'https://apps.apple.com/app/id6502960875'),
         K('privacy', 'Privacy & Terms', 'pictureclock-privacy-terms.html'),
@@ -175,7 +178,7 @@
       stack: ['Swift', 'SwiftUI'],
       desc: 'Search by genre, author or whatever BookTok is arguing about this week, then talk it over with an AI librarian that recommends, compares and digs out the books nobody shelved properly.',
       icon: M + 'bookverse-icon.png',
-      screen: { type: 'image', src: M + 'bookverse-screen.jpg' },
+      screen: { type: 'image', src: M + 'bookverse-screen.jpg', w: 240, h: 520 },
       links: [
         K('store', 'App Store', 'https://apps.apple.com/app/id6737695919'),
         K('privacy', 'Privacy & Terms', 'bookverse-privacy-terms.html'),
@@ -190,7 +193,7 @@
       stack: ['Swift', 'SwiftUI'],
       desc: 'Build a stellar empire a tap at a time, and keep building it while the app is closed. The genre usually means flashing numbers and a headache; this one keeps the interface dark, quiet and readable.',
       icon: M + 'idleuniverse-icon.png',
-      screen: { type: 'image', src: M + 'idleuniverse-screen.jpg' },
+      screen: { type: 'image', src: M + 'idleuniverse-screen.jpg', w: 292, h: 520 },
       links: [
         K('store', 'App Store', 'https://apps.apple.com/app/id6584529153'),
         K('privacy', 'Privacy & Terms', 'cosmic-clicker-privacy-terms.html'),
@@ -222,7 +225,7 @@
       stack: ['Swift', 'UIKit', 'Firebase'],
       desc: 'A chat app built on room codes instead of your address book, with no read receipts, no last-seen, and an anonymous mode if you didn’t feel like picking a name. Retired, and folded back into MonkeyHub.',
       icon: M + 'monkeychat-icon.png',
-      screen: { type: 'image', src: M + 'monkeychat-screen.jpg' },
+      screen: { type: 'image', src: M + 'monkeychat-screen.jpg', w: 292, h: 520 },
       links: [
         K('source', 'Source', 'https://github.com/orion-supernova/MonkeyChatUIKit'),
         K('privacy', 'Privacy & Terms', 'monkeychat-privacy-terms.html'),
@@ -238,7 +241,7 @@
       stack: ['Swift', 'SwiftUI'],
       desc: 'Hello, World in a lot of languages and a lot of colours, and one joke hiding underneath it that nobody finds on the first run.',
       icon: M + 'justhelloworld-icon.png',
-      screen: { type: 'image', src: M + 'justhelloworld-screen.jpg' },
+      screen: { type: 'image', src: M + 'justhelloworld-screen.jpg', w: 292, h: 520 },
       links: [
         K('store', 'App Store', 'https://apps.apple.com/app/id1609130485'),
         K('source', 'Source', 'https://github.com/orion-supernova/JustHelloWorld'),
@@ -254,7 +257,7 @@
       stack: ['Swift', 'SwiftUI'],
       desc: 'The game at its simplest form, and the first thing I ever put in front of App Review — written to learn SwiftUI and shipped because the only way to learn the submission process is to survive it.',
       icon: M + 'tictactoe-icon.png',
-      screen: { type: 'image', src: M + 'tictactoe-screen.jpg' },
+      screen: { type: 'image', src: M + 'tictactoe-screen.jpg', w: 292, h: 520 },
       links: [
         K('store', 'App Store', 'https://apps.apple.com/app/id1568955510'),
         K('source', 'Source', 'https://github.com/orion-supernova/Tic-Tac-Toe'),
